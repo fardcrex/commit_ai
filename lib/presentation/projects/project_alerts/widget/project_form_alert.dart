@@ -34,7 +34,9 @@ class _ProjectFormAlertState extends State<ProjectFormAlert> {
   final descriptionController = TextEditingController();
 
   bool get isFormValid =>
-      nameController.text.isNotEmpty && descriptionController.text.isNotEmpty;
+      (nameController.text.isNotEmpty &&
+          descriptionController.text.isNotEmpty) ||
+      !widget.hasContent;
 
   @override
   void initState() {

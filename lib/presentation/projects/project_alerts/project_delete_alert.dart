@@ -36,8 +36,7 @@ class ProjectDeleteAlert extends StatelessWidget {
           mainButtonLabel: 'Eliminar',
           formTitle: 'Eliminar Proyecto',
           formDescription: 'Formulario de configuración de proyecto',
-          initialDescription: project.description,
-          initialName: project.name,
+          hasContent: false,
           onSendData: (_, __) {
             context
                 .read<ProjectAlertBloc>()
