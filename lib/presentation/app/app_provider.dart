@@ -1,5 +1,6 @@
 import 'package:commit_ai/core/injection/envs/repositories_injection.dart';
 import 'package:commit_ai/feature/projects/application/create_project_use_case.dart';
+import 'package:commit_ai/feature/projects/application/delete_project_use_case.dart';
 import 'package:commit_ai/feature/projects/application/edit_project_use_case.dart';
 import 'package:commit_ai/feature/projects/application/get_projects_use_case.dart';
 import 'package:commit_ai/presentation/app/app.dart';
@@ -40,6 +41,9 @@ class _AppProviderState extends State<AppProvider> {
       RepositoryProvider<EditProjectUseCase>(
         create: (context) => EditProjectUseCase(
             projectRepository, widget.repositoriesInjection.respondGetDateTime),
+      ),
+      RepositoryProvider<DeleteProjectUseCase>(
+        create: (context) => DeleteProjectUseCase(projectRepository),
       ),
     ]);
     super.initState();

@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:commit_ai/feature/projects/domain/project_entity_dto.dart';
 import 'package:commit_ai/presentation/projects/project_alerts/project_create_alert.dart';
+import 'package:commit_ai/presentation/projects/project_alerts/project_delete_alert.dart';
 import 'package:commit_ai/presentation/projects/project_alerts/project_edit_alert.dart';
 import 'package:commit_ai/presentation/projects/projects_list/project_model.dart';
 import 'package:commit_ai/presentation/projects/projects_list/widget/project_card.dart';
@@ -58,7 +59,9 @@ class ProjectsDataView extends StatelessWidget {
                       onTappedEdit: () {
                         ProjectEditAlert.show(context, projects[index]);
                       },
-                      onTappedDelete: () {},
+                      onTappedDelete: () {
+                        ProjectDeleteAlert.show(context, projects[index]);
+                      },
                       onTapped: () =>
                           context.go('/project/${projects[index].id}'),
                     );

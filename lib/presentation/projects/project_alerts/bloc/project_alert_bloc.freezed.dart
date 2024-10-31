@@ -20,18 +20,21 @@ mixin _$ProjectAlertEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String name, String description) createProject,
     required TResult Function(ProjectEntityDto project) updateProject,
+    required TResult Function(ProjectEntityDto project) deleteProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name, String description)? createProject,
     TResult? Function(ProjectEntityDto project)? updateProject,
+    TResult? Function(ProjectEntityDto project)? deleteProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name, String description)? createProject,
     TResult Function(ProjectEntityDto project)? updateProject,
+    TResult Function(ProjectEntityDto project)? deleteProject,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$ProjectAlertEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_CreateProject value) createProject,
     required TResult Function(_UpdateProject value) updateProject,
+    required TResult Function(_DeleteProject value) deleteProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CreateProject value)? createProject,
     TResult? Function(_UpdateProject value)? updateProject,
+    TResult? Function(_DeleteProject value)? deleteProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CreateProject value)? createProject,
     TResult Function(_UpdateProject value)? updateProject,
+    TResult Function(_DeleteProject value)? deleteProject,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,6 +162,7 @@ class _$CreateProjectImpl implements _CreateProject {
   TResult when<TResult extends Object?>({
     required TResult Function(String name, String description) createProject,
     required TResult Function(ProjectEntityDto project) updateProject,
+    required TResult Function(ProjectEntityDto project) deleteProject,
   }) {
     return createProject(name, description);
   }
@@ -165,6 +172,7 @@ class _$CreateProjectImpl implements _CreateProject {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name, String description)? createProject,
     TResult? Function(ProjectEntityDto project)? updateProject,
+    TResult? Function(ProjectEntityDto project)? deleteProject,
   }) {
     return createProject?.call(name, description);
   }
@@ -174,6 +182,7 @@ class _$CreateProjectImpl implements _CreateProject {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name, String description)? createProject,
     TResult Function(ProjectEntityDto project)? updateProject,
+    TResult Function(ProjectEntityDto project)? deleteProject,
     required TResult orElse(),
   }) {
     if (createProject != null) {
@@ -187,6 +196,7 @@ class _$CreateProjectImpl implements _CreateProject {
   TResult map<TResult extends Object?>({
     required TResult Function(_CreateProject value) createProject,
     required TResult Function(_UpdateProject value) updateProject,
+    required TResult Function(_DeleteProject value) deleteProject,
   }) {
     return createProject(this);
   }
@@ -196,6 +206,7 @@ class _$CreateProjectImpl implements _CreateProject {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CreateProject value)? createProject,
     TResult? Function(_UpdateProject value)? updateProject,
+    TResult? Function(_DeleteProject value)? deleteProject,
   }) {
     return createProject?.call(this);
   }
@@ -205,6 +216,7 @@ class _$CreateProjectImpl implements _CreateProject {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CreateProject value)? createProject,
     TResult Function(_UpdateProject value)? updateProject,
+    TResult Function(_DeleteProject value)? deleteProject,
     required TResult orElse(),
   }) {
     if (createProject != null) {
@@ -236,6 +248,8 @@ abstract class _$$UpdateProjectImplCopyWith<$Res> {
       __$$UpdateProjectImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ProjectEntityDto project});
+
+  $ProjectEntityDtoCopyWith<$Res> get project;
 }
 
 /// @nodoc
@@ -251,14 +265,24 @@ class __$$UpdateProjectImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? project = freezed,
+    Object? project = null,
   }) {
     return _then(_$UpdateProjectImpl(
-      project: freezed == project
+      project: null == project
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
               as ProjectEntityDto,
     ));
+  }
+
+  /// Create a copy of ProjectAlertEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ProjectEntityDtoCopyWith<$Res> get project {
+    return $ProjectEntityDtoCopyWith<$Res>(_value.project, (value) {
+      return _then(_value.copyWith(project: value));
+    });
   }
 }
 
@@ -280,12 +304,11 @@ class _$UpdateProjectImpl implements _UpdateProject {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateProjectImpl &&
-            const DeepCollectionEquality().equals(other.project, project));
+            (identical(other.project, project) || other.project == project));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(project));
+  int get hashCode => Object.hash(runtimeType, project);
 
   /// Create a copy of ProjectAlertEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -300,6 +323,7 @@ class _$UpdateProjectImpl implements _UpdateProject {
   TResult when<TResult extends Object?>({
     required TResult Function(String name, String description) createProject,
     required TResult Function(ProjectEntityDto project) updateProject,
+    required TResult Function(ProjectEntityDto project) deleteProject,
   }) {
     return updateProject(project);
   }
@@ -309,6 +333,7 @@ class _$UpdateProjectImpl implements _UpdateProject {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name, String description)? createProject,
     TResult? Function(ProjectEntityDto project)? updateProject,
+    TResult? Function(ProjectEntityDto project)? deleteProject,
   }) {
     return updateProject?.call(project);
   }
@@ -318,6 +343,7 @@ class _$UpdateProjectImpl implements _UpdateProject {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name, String description)? createProject,
     TResult Function(ProjectEntityDto project)? updateProject,
+    TResult Function(ProjectEntityDto project)? deleteProject,
     required TResult orElse(),
   }) {
     if (updateProject != null) {
@@ -331,6 +357,7 @@ class _$UpdateProjectImpl implements _UpdateProject {
   TResult map<TResult extends Object?>({
     required TResult Function(_CreateProject value) createProject,
     required TResult Function(_UpdateProject value) updateProject,
+    required TResult Function(_DeleteProject value) deleteProject,
   }) {
     return updateProject(this);
   }
@@ -340,6 +367,7 @@ class _$UpdateProjectImpl implements _UpdateProject {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CreateProject value)? createProject,
     TResult? Function(_UpdateProject value)? updateProject,
+    TResult? Function(_DeleteProject value)? deleteProject,
   }) {
     return updateProject?.call(this);
   }
@@ -349,6 +377,7 @@ class _$UpdateProjectImpl implements _UpdateProject {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CreateProject value)? createProject,
     TResult Function(_UpdateProject value)? updateProject,
+    TResult Function(_DeleteProject value)? deleteProject,
     required TResult orElse(),
   }) {
     if (updateProject != null) {
@@ -368,6 +397,165 @@ abstract class _UpdateProject implements ProjectAlertEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateProjectImplCopyWith<_$UpdateProjectImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteProjectImplCopyWith<$Res> {
+  factory _$$DeleteProjectImplCopyWith(
+          _$DeleteProjectImpl value, $Res Function(_$DeleteProjectImpl) then) =
+      __$$DeleteProjectImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ProjectEntityDto project});
+
+  $ProjectEntityDtoCopyWith<$Res> get project;
+}
+
+/// @nodoc
+class __$$DeleteProjectImplCopyWithImpl<$Res>
+    extends _$ProjectAlertEventCopyWithImpl<$Res, _$DeleteProjectImpl>
+    implements _$$DeleteProjectImplCopyWith<$Res> {
+  __$$DeleteProjectImplCopyWithImpl(
+      _$DeleteProjectImpl _value, $Res Function(_$DeleteProjectImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProjectAlertEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? project = null,
+  }) {
+    return _then(_$DeleteProjectImpl(
+      project: null == project
+          ? _value.project
+          : project // ignore: cast_nullable_to_non_nullable
+              as ProjectEntityDto,
+    ));
+  }
+
+  /// Create a copy of ProjectAlertEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ProjectEntityDtoCopyWith<$Res> get project {
+    return $ProjectEntityDtoCopyWith<$Res>(_value.project, (value) {
+      return _then(_value.copyWith(project: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$DeleteProjectImpl implements _DeleteProject {
+  const _$DeleteProjectImpl({required this.project});
+
+  @override
+  final ProjectEntityDto project;
+
+  @override
+  String toString() {
+    return 'ProjectAlertEvent.deleteProject(project: $project)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteProjectImpl &&
+            (identical(other.project, project) || other.project == project));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, project);
+
+  /// Create a copy of ProjectAlertEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteProjectImplCopyWith<_$DeleteProjectImpl> get copyWith =>
+      __$$DeleteProjectImplCopyWithImpl<_$DeleteProjectImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name, String description) createProject,
+    required TResult Function(ProjectEntityDto project) updateProject,
+    required TResult Function(ProjectEntityDto project) deleteProject,
+  }) {
+    return deleteProject(project);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name, String description)? createProject,
+    TResult? Function(ProjectEntityDto project)? updateProject,
+    TResult? Function(ProjectEntityDto project)? deleteProject,
+  }) {
+    return deleteProject?.call(project);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name, String description)? createProject,
+    TResult Function(ProjectEntityDto project)? updateProject,
+    TResult Function(ProjectEntityDto project)? deleteProject,
+    required TResult orElse(),
+  }) {
+    if (deleteProject != null) {
+      return deleteProject(project);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CreateProject value) createProject,
+    required TResult Function(_UpdateProject value) updateProject,
+    required TResult Function(_DeleteProject value) deleteProject,
+  }) {
+    return deleteProject(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CreateProject value)? createProject,
+    TResult? Function(_UpdateProject value)? updateProject,
+    TResult? Function(_DeleteProject value)? deleteProject,
+  }) {
+    return deleteProject?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreateProject value)? createProject,
+    TResult Function(_UpdateProject value)? updateProject,
+    TResult Function(_DeleteProject value)? deleteProject,
+    required TResult orElse(),
+  }) {
+    if (deleteProject != null) {
+      return deleteProject(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteProject implements ProjectAlertEvent {
+  const factory _DeleteProject({required final ProjectEntityDto project}) =
+      _$DeleteProjectImpl;
+
+  ProjectEntityDto get project;
+
+  /// Create a copy of ProjectAlertEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteProjectImplCopyWith<_$DeleteProjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

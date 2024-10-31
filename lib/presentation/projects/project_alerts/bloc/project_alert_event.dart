@@ -10,4 +10,8 @@ class ProjectAlertEvent with _$ProjectAlertEvent {
   const factory ProjectAlertEvent.updateProject({
     required ProjectEntityDto project,
   }) = _UpdateProject;
+
+  const factory ProjectAlertEvent.deleteProject({
+    required ProjectEntityDto project,
+  }) = _DeleteProject;
 }

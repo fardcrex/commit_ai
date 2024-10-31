@@ -11,12 +11,18 @@ class ProjectFormAlert extends StatefulWidget {
 
   final String formDescription;
 
+  final String mainButtonLabel;
+
+  final bool hasContent;
+
   const ProjectFormAlert(
       {required this.onSendData,
       required this.formTitle,
       required this.formDescription,
+      required this.mainButtonLabel,
       this.initialName,
       this.initialDescription,
+      this.hasContent = true,
       super.key});
 
   @override
@@ -49,19 +55,23 @@ class _ProjectFormAlertState extends State<ProjectFormAlert> {
     return AlertDialog(
       scrollable: true,
       title: Text(widget.formTitle),
-      content: Column(
-        children: [
-          Text(widget.formDescription),
-          TextField(
-            controller: nameController,
-            decoration: const InputDecoration(labelText: 'Nombre'),
-          ),
-          TextField(
-            controller: descriptionController,
-            decoration: const InputDecoration(labelText: 'Descripción'),
-          ),
-        ],
-      ),
+      content: widget.hasContent
+          ? Column(
+              children: [
+                Text(widget.formDescription),
+                TextField(
+                  controller: nameController,
+                  onChanged: (_) => setState(() {}),
+                  decoration: const InputDecoration(labelText: 'Nombre'),
+                ),
+                TextField(
+                  controller: descriptionController,
+                  onChanged: (_) => setState(() {}),
+                  decoration: const InputDecoration(labelText: 'Descripción'),
+                ),
+              ],
+            )
+          : null,
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
@@ -72,7 +82,7 @@ class _ProjectFormAlertState extends State<ProjectFormAlert> {
               ? () => widget.onSendData(
                   nameController.text, descriptionController.text)
               : null,
-          child: const Text('Crear'),
+          child: Text(widget.mainButtonLabel),
         ),
       ],
     );

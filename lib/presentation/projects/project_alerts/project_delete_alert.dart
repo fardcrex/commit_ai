@@ -7,7 +7,7 @@ import 'package:commit_ai/presentation/projects/project_alerts/widget/project_fo
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProjectEditAlert extends StatelessWidget {
+class ProjectDeleteAlert extends StatelessWidget {
   static void show(BuildContext context, ProjectEntityDto project) {
     showDialog<void>(
       context: context,
@@ -18,7 +18,7 @@ class ProjectEditAlert extends StatelessWidget {
             context.read<EditProjectUseCase>(),
             context.read<DeleteProjectUseCase>(),
           ),
-          child: ProjectEditAlert(project: project),
+          child: ProjectDeleteAlert(project: project),
         );
       },
     );
@@ -26,17 +26,18 @@ class ProjectEditAlert extends StatelessWidget {
 
   final ProjectEntityDto project;
 
-  const ProjectEditAlert({required this.project, super.key});
+  const ProjectDeleteAlert({required this.project, super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProjectAlertBloc, ProjectAlertState>(
       builder: (context, state) {
         return ProjectFormAlert(
-          mainButtonLabel: 'Editar',
-          formTitle: 'Editar Proyecto',
+          mainButtonLabel: 'Eliminar',
+          formTitle: 'Eliminar Proyecto',
           formDescription: 'Formulario de configuración de proyecto',
-          hasContent: false,
+          initialDescription: project.description,
+          initialName: project.name,
           onSendData: (_, __) {
             context
                 .read<ProjectAlertBloc>()

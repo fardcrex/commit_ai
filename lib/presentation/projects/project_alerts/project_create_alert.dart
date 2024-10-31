@@ -1,4 +1,5 @@
 import 'package:commit_ai/feature/projects/application/create_project_use_case.dart';
+import 'package:commit_ai/feature/projects/application/delete_project_use_case.dart';
 import 'package:commit_ai/feature/projects/application/edit_project_use_case.dart';
 import 'package:commit_ai/presentation/projects/project_alerts/bloc/project_alert_bloc.dart';
 import 'package:commit_ai/presentation/projects/project_alerts/widget/project_form_alert.dart';
@@ -14,6 +15,7 @@ class ProjectCreateAlert extends StatelessWidget {
           create: (context) => ProjectAlertBloc(
             context.read<CreateProjectUseCase>(),
             context.read<EditProjectUseCase>(),
+            context.read<DeleteProjectUseCase>(),
           ),
           child: const ProjectCreateAlert(),
         );
@@ -28,6 +30,7 @@ class ProjectCreateAlert extends StatelessWidget {
     return BlocBuilder<ProjectAlertBloc, ProjectAlertState>(
       builder: (context, state) {
         return ProjectFormAlert(
+          mainButtonLabel: 'Crear',
           formTitle: 'Crear Proyecto',
           formDescription: 'Formulario de creación de proyecto',
           onSendData: (name, description) {
