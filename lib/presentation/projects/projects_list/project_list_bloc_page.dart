@@ -16,7 +16,8 @@ class ProjectListPage extends StatelessWidget {
           final Loaded loaded when loaded.projects.isEmpty =>
             const EmptyProjectsDataView(),
           final Loaded loaded => ProjectsDataView(projects: loaded.projects),
-          Failure(:final failure) => Center(child: Text(failure.message)),
+          ProjectsListError(:final failure) =>
+            Center(child: Text(failure.message)),
         };
       },
     );

@@ -175,21 +175,21 @@ mixin _$ProjectsListState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(ProjectFailure failure) failure,
+    required TResult Function(ProjectFailure failure) error,
     required TResult Function(List<ProjectEntityDto> projects) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(ProjectFailure failure)? failure,
+    TResult? Function(ProjectFailure failure)? error,
     TResult? Function(List<ProjectEntityDto> projects)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(ProjectFailure failure)? failure,
+    TResult Function(ProjectFailure failure)? error,
     TResult Function(List<ProjectEntityDto> projects)? loaded,
     required TResult orElse(),
   }) =>
@@ -197,21 +197,21 @@ mixin _$ProjectsListState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Failure value) failure,
+    required TResult Function(ProjectsListError value) error,
     required TResult Function(Loaded value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Failure value)? failure,
+    TResult? Function(ProjectsListError value)? error,
     TResult? Function(Loaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Failure value)? failure,
+    TResult Function(ProjectsListError value)? error,
     TResult Function(Loaded value)? loaded,
     required TResult orElse(),
   }) =>
@@ -281,7 +281,7 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(ProjectFailure failure) failure,
+    required TResult Function(ProjectFailure failure) error,
     required TResult Function(List<ProjectEntityDto> projects) loaded,
   }) {
     return initial();
@@ -291,7 +291,7 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(ProjectFailure failure)? failure,
+    TResult? Function(ProjectFailure failure)? error,
     TResult? Function(List<ProjectEntityDto> projects)? loaded,
   }) {
     return initial?.call();
@@ -301,7 +301,7 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(ProjectFailure failure)? failure,
+    TResult Function(ProjectFailure failure)? error,
     TResult Function(List<ProjectEntityDto> projects)? loaded,
     required TResult orElse(),
   }) {
@@ -315,7 +315,7 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Failure value) failure,
+    required TResult Function(ProjectsListError value) error,
     required TResult Function(Loaded value) loaded,
   }) {
     return initial(this);
@@ -325,7 +325,7 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Failure value)? failure,
+    TResult? Function(ProjectsListError value)? error,
     TResult? Function(Loaded value)? loaded,
   }) {
     return initial?.call(this);
@@ -335,7 +335,7 @@ class _$InitialImpl implements Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Failure value)? failure,
+    TResult Function(ProjectsListError value)? error,
     TResult Function(Loaded value)? loaded,
     required TResult orElse(),
   }) {
@@ -351,20 +351,20 @@ abstract class Initial implements ProjectsListState {
 }
 
 /// @nodoc
-abstract class _$$FailureImplCopyWith<$Res> {
-  factory _$$FailureImplCopyWith(
-          _$FailureImpl value, $Res Function(_$FailureImpl) then) =
-      __$$FailureImplCopyWithImpl<$Res>;
+abstract class _$$ProjectsListErrorImplCopyWith<$Res> {
+  factory _$$ProjectsListErrorImplCopyWith(_$ProjectsListErrorImpl value,
+          $Res Function(_$ProjectsListErrorImpl) then) =
+      __$$ProjectsListErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ProjectFailure failure});
 }
 
 /// @nodoc
-class __$$FailureImplCopyWithImpl<$Res>
-    extends _$ProjectsListStateCopyWithImpl<$Res, _$FailureImpl>
-    implements _$$FailureImplCopyWith<$Res> {
-  __$$FailureImplCopyWithImpl(
-      _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
+class __$$ProjectsListErrorImplCopyWithImpl<$Res>
+    extends _$ProjectsListStateCopyWithImpl<$Res, _$ProjectsListErrorImpl>
+    implements _$$ProjectsListErrorImplCopyWith<$Res> {
+  __$$ProjectsListErrorImplCopyWithImpl(_$ProjectsListErrorImpl _value,
+      $Res Function(_$ProjectsListErrorImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ProjectsListState
@@ -374,7 +374,7 @@ class __$$FailureImplCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$FailureImpl(
+    return _then(_$ProjectsListErrorImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -385,22 +385,22 @@ class __$$FailureImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FailureImpl implements Failure {
-  const _$FailureImpl(this.failure);
+class _$ProjectsListErrorImpl implements ProjectsListError {
+  const _$ProjectsListErrorImpl(this.failure);
 
   @override
   final ProjectFailure failure;
 
   @override
   String toString() {
-    return 'ProjectsListState.failure(failure: $failure)';
+    return 'ProjectsListState.error(failure: $failure)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FailureImpl &&
+            other is _$ProjectsListErrorImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -412,39 +412,40 @@ class _$FailureImpl implements Failure {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
-      __$$FailureImplCopyWithImpl<_$FailureImpl>(this, _$identity);
+  _$$ProjectsListErrorImplCopyWith<_$ProjectsListErrorImpl> get copyWith =>
+      __$$ProjectsListErrorImplCopyWithImpl<_$ProjectsListErrorImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(ProjectFailure failure) failure,
+    required TResult Function(ProjectFailure failure) error,
     required TResult Function(List<ProjectEntityDto> projects) loaded,
   }) {
-    return failure(this.failure);
+    return error(failure);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(ProjectFailure failure)? failure,
+    TResult? Function(ProjectFailure failure)? error,
     TResult? Function(List<ProjectEntityDto> projects)? loaded,
   }) {
-    return failure?.call(this.failure);
+    return error?.call(failure);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(ProjectFailure failure)? failure,
+    TResult Function(ProjectFailure failure)? error,
     TResult Function(List<ProjectEntityDto> projects)? loaded,
     required TResult orElse(),
   }) {
-    if (failure != null) {
-      return failure(this.failure);
+    if (error != null) {
+      return error(failure);
     }
     return orElse();
   }
@@ -453,46 +454,47 @@ class _$FailureImpl implements Failure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Failure value) failure,
+    required TResult Function(ProjectsListError value) error,
     required TResult Function(Loaded value) loaded,
   }) {
-    return failure(this);
+    return error(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Failure value)? failure,
+    TResult? Function(ProjectsListError value)? error,
     TResult? Function(Loaded value)? loaded,
   }) {
-    return failure?.call(this);
+    return error?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Failure value)? failure,
+    TResult Function(ProjectsListError value)? error,
     TResult Function(Loaded value)? loaded,
     required TResult orElse(),
   }) {
-    if (failure != null) {
-      return failure(this);
+    if (error != null) {
+      return error(this);
     }
     return orElse();
   }
 }
 
-abstract class Failure implements ProjectsListState {
-  const factory Failure(final ProjectFailure failure) = _$FailureImpl;
+abstract class ProjectsListError implements ProjectsListState {
+  const factory ProjectsListError(final ProjectFailure failure) =
+      _$ProjectsListErrorImpl;
 
   ProjectFailure get failure;
 
   /// Create a copy of ProjectsListState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
+  _$$ProjectsListErrorImplCopyWith<_$ProjectsListErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -572,7 +574,7 @@ class _$LoadedImpl implements Loaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(ProjectFailure failure) failure,
+    required TResult Function(ProjectFailure failure) error,
     required TResult Function(List<ProjectEntityDto> projects) loaded,
   }) {
     return loaded(projects);
@@ -582,7 +584,7 @@ class _$LoadedImpl implements Loaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(ProjectFailure failure)? failure,
+    TResult? Function(ProjectFailure failure)? error,
     TResult? Function(List<ProjectEntityDto> projects)? loaded,
   }) {
     return loaded?.call(projects);
@@ -592,7 +594,7 @@ class _$LoadedImpl implements Loaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(ProjectFailure failure)? failure,
+    TResult Function(ProjectFailure failure)? error,
     TResult Function(List<ProjectEntityDto> projects)? loaded,
     required TResult orElse(),
   }) {
@@ -606,7 +608,7 @@ class _$LoadedImpl implements Loaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Failure value) failure,
+    required TResult Function(ProjectsListError value) error,
     required TResult Function(Loaded value) loaded,
   }) {
     return loaded(this);
@@ -616,7 +618,7 @@ class _$LoadedImpl implements Loaded {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Failure value)? failure,
+    TResult? Function(ProjectsListError value)? error,
     TResult? Function(Loaded value)? loaded,
   }) {
     return loaded?.call(this);
@@ -626,7 +628,7 @@ class _$LoadedImpl implements Loaded {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Failure value)? failure,
+    TResult Function(ProjectsListError value)? error,
     TResult Function(Loaded value)? loaded,
     required TResult orElse(),
   }) {

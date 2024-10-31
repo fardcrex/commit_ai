@@ -1,33 +1,30 @@
-class ProjectDetailPageModel {
-  final String title;
-  final String description;
-
-  ProjectDetailPageModel({
-    required this.title,
-    required this.description,
-  });
-}
+import 'package:commit_ai/feature/commit_generator/domain/message_commit_entity_dto.dart';
 
 class MessageCommitModel {
   final String title;
-  final String description;
+  final String body;
   final String footer;
   final String tag;
+  final String timeDescription;
 
   MessageCommitModel({
     required this.title,
-    required this.description,
+    required this.body,
     required this.tag,
+    required this.timeDescription,
     required this.footer,
   });
 }
 
-final mockList = List.generate(
-  10,
-  (index) => MessageCommitModel(
-    title: 'Commit $index',
-    description: 'Description of commit $index' * 4,
-    tag: 'Tag $index',
-    footer: 'Footer of commit $index',
-  ),
-);
+extension MessageCommitEntityDtoX on MessageCommitEntityDto {
+  MessageCommitModel toModel() {
+    final scopeText = scope.isEmpty ? '' : '($scope)';
+    return MessageCommitModel(
+      title: description,
+      body: body,
+      tag: '$type $scopeText',
+      timeDescription: DateTime.fromMillisecondsSinceEpoch(created).toString(),
+      footer: footer,
+    );
+  }
+}

@@ -1,7 +1,12 @@
 import 'package:commit_ai/core/injection/envs/repositories_injection.dart';
+import 'package:commit_ai/feature/commit_generator/application/delete_message_commit_use_case.dart';
+import 'package:commit_ai/feature/commit_generator/application/generate_message_commit_use_case.dart';
+import 'package:commit_ai/feature/commit_generator/application/get_history_commit_use_case.dart';
+import 'package:commit_ai/feature/commit_generator/application/save_message_commit_use_case.dart';
 import 'package:commit_ai/feature/projects/application/create_project_use_case.dart';
 import 'package:commit_ai/feature/projects/application/delete_project_use_case.dart';
 import 'package:commit_ai/feature/projects/application/edit_project_use_case.dart';
+import 'package:commit_ai/feature/projects/application/get_project_detail_use_case.dart';
 import 'package:commit_ai/feature/projects/application/get_projects_use_case.dart';
 import 'package:commit_ai/presentation/app/app.dart';
 import 'package:commit_ai/presentation/projects/projects_list/bloc/projects_list_bloc.dart';
@@ -31,6 +36,8 @@ class _AppProviderState extends State<AppProvider> {
   @override
   void initState() {
     final projectRepository = widget.repositoriesInjection.projectRepository;
+    final messageCommitRepository =
+        widget.repositoriesInjection.messageCommitRepository;
     _repositoryProviders.addAll([
       RepositoryProvider<CreateProjectUseCase>(
         create: (context) => CreateProjectUseCase(projectRepository),
@@ -44,6 +51,24 @@ class _AppProviderState extends State<AppProvider> {
       ),
       RepositoryProvider<DeleteProjectUseCase>(
         create: (context) => DeleteProjectUseCase(projectRepository),
+      ),
+      RepositoryProvider<GetProjectDetailtUseCase>(
+        create: (context) => GetProjectDetailtUseCase(projectRepository),
+      ),
+      RepositoryProvider<GetHistoryCommitUseCase>(
+        create: (context) => GetHistoryCommitUseCase(messageCommitRepository),
+      ),
+      RepositoryProvider<SaveMessageCommitUseCase>(
+        create: (context) => SaveMessageCommitUseCase(messageCommitRepository,
+            widget.repositoriesInjection.respondGetDateTime),
+      ),
+      RepositoryProvider<DeleteMessageCommitUseCase>(
+        create: (context) =>
+            DeleteMessageCommitUseCase(messageCommitRepository),
+      ),
+      RepositoryProvider<GenerateMessageCommitUseCase>(
+        create: (context) => GenerateMessageCommitUseCase(
+            widget.repositoriesInjection.generateMessageCommitRepository),
       ),
     ]);
     super.initState();

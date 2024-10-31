@@ -1,8 +1,6 @@
-import 'package:commit_ai/feature/projects/application/create_project_use_case.dart';
-import 'package:commit_ai/feature/projects/application/delete_project_use_case.dart';
-import 'package:commit_ai/feature/projects/application/edit_project_use_case.dart';
 import 'package:commit_ai/feature/projects/domain/project_entity_dto.dart';
 import 'package:commit_ai/presentation/projects/project_alerts/bloc/project_alert_bloc.dart';
+import 'package:commit_ai/presentation/projects/project_alerts/project_provider_alert.dart';
 import 'package:commit_ai/presentation/projects/project_alerts/widget/project_form_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,14 +10,8 @@ class ProjectDeleteAlert extends StatelessWidget {
     showDialog<void>(
       context: context,
       builder: (context) {
-        return BlocProvider(
-          create: (context) => ProjectAlertBloc(
-            context.read<CreateProjectUseCase>(),
-            context.read<EditProjectUseCase>(),
-            context.read<DeleteProjectUseCase>(),
-          ),
-          child: ProjectDeleteAlert(project: project),
-        );
+        return ProjectProviderAlert(
+            child: ProjectDeleteAlert(project: project));
       },
     );
   }

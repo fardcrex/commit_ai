@@ -68,6 +68,8 @@ class _ProjectFormAlertState extends State<ProjectFormAlert> {
                 ),
                 TextField(
                   controller: descriptionController,
+                  minLines: 2,
+                  maxLines: 4,
                   onChanged: (_) => setState(() {}),
                   decoration: const InputDecoration(labelText: 'Descripción'),
                 ),

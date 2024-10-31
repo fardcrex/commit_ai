@@ -5,7 +5,7 @@ class GetProjectstUseCase {
 
   GetProjectstUseCase(this._projectRepository);
 
-  RespondGetProjects execute(int limit) {
+  ResponseGetProjects execute(int limit) {
     return _projectRepository.getProjects(limit);
   }
 }

@@ -49,7 +49,7 @@ final GoRouter router = GoRouter(
           pageBuilder: (context, state) {
             final projectId = state.pathParameters['id']!;
             return fadeRoute(
-              child: ProjectDetailBlocPage(projectId: projectId),
+              child: ProjectDetailProviderPage(projectId: projectId),
               state: state,
             );
           },

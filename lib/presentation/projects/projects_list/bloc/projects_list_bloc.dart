@@ -27,7 +27,7 @@ class ProjectsListBloc extends Bloc<ProjectsListEvent, ProjectsListState> {
     await emit.forEach(
       _getProjectstUseCase.execute(_limit),
       onData: (data) {
-        return data.fold(ProjectsListState.failure, ProjectsListState.loaded);
+        return data.fold(ProjectsListState.error, ProjectsListState.loaded);
       },
     );
   }

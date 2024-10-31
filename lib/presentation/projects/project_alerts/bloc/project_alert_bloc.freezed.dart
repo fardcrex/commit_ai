@@ -564,32 +564,50 @@ mixin _$ProjectAlertState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function() success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message)? error,
+    TResult? Function()? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function()? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormError value) error,
+    required TResult Function(FormSuccess value) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(FormInitial value)? initial,
+    TResult? Function(FormLoading value)? loading,
+    TResult? Function(FormError value)? error,
+    TResult? Function(FormSuccess value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormError value)? error,
+    TResult Function(FormSuccess value)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -617,18 +635,18 @@ class _$ProjectAlertStateCopyWithImpl<$Res, $Val extends ProjectAlertState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$FormInitialImplCopyWith<$Res> {
+  factory _$$FormInitialImplCopyWith(
+          _$FormInitialImpl value, $Res Function(_$FormInitialImpl) then) =
+      __$$FormInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ProjectAlertStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$FormInitialImplCopyWithImpl<$Res>
+    extends _$ProjectAlertStateCopyWithImpl<$Res, _$FormInitialImpl>
+    implements _$$FormInitialImplCopyWith<$Res> {
+  __$$FormInitialImplCopyWithImpl(
+      _$FormInitialImpl _value, $Res Function(_$FormInitialImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ProjectAlertState
@@ -637,8 +655,8 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+class _$FormInitialImpl implements FormInitial {
+  const _$FormInitialImpl();
 
   @override
   String toString() {
@@ -648,7 +666,7 @@ class _$InitialImpl implements _Initial {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$FormInitialImpl);
   }
 
   @override
@@ -658,6 +676,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function() success,
   }) {
     return initial();
   }
@@ -666,6 +687,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message)? error,
+    TResult? Function()? success,
   }) {
     return initial?.call();
   }
@@ -674,6 +698,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function()? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -685,7 +712,10 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormError value) error,
+    required TResult Function(FormSuccess value) success,
   }) {
     return initial(this);
   }
@@ -693,7 +723,10 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(FormInitial value)? initial,
+    TResult? Function(FormLoading value)? loading,
+    TResult? Function(FormError value)? error,
+    TResult? Function(FormSuccess value)? success,
   }) {
     return initial?.call(this);
   }
@@ -701,7 +734,10 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormError value)? error,
+    TResult Function(FormSuccess value)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -711,6 +747,392 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements ProjectAlertState {
-  const factory _Initial() = _$InitialImpl;
+abstract class FormInitial implements ProjectAlertState {
+  const factory FormInitial() = _$FormInitialImpl;
+}
+
+/// @nodoc
+abstract class _$$FormLoadingImplCopyWith<$Res> {
+  factory _$$FormLoadingImplCopyWith(
+          _$FormLoadingImpl value, $Res Function(_$FormLoadingImpl) then) =
+      __$$FormLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FormLoadingImplCopyWithImpl<$Res>
+    extends _$ProjectAlertStateCopyWithImpl<$Res, _$FormLoadingImpl>
+    implements _$$FormLoadingImplCopyWith<$Res> {
+  __$$FormLoadingImplCopyWithImpl(
+      _$FormLoadingImpl _value, $Res Function(_$FormLoadingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProjectAlertState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$FormLoadingImpl implements FormLoading {
+  const _$FormLoadingImpl();
+
+  @override
+  String toString() {
+    return 'ProjectAlertState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FormLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function() success,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message)? error,
+    TResult? Function()? success,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function()? success,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormError value) error,
+    required TResult Function(FormSuccess value) success,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FormInitial value)? initial,
+    TResult? Function(FormLoading value)? loading,
+    TResult? Function(FormError value)? error,
+    TResult? Function(FormSuccess value)? success,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormError value)? error,
+    TResult Function(FormSuccess value)? success,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FormLoading implements ProjectAlertState {
+  const factory FormLoading() = _$FormLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$FormErrorImplCopyWith<$Res> {
+  factory _$$FormErrorImplCopyWith(
+          _$FormErrorImpl value, $Res Function(_$FormErrorImpl) then) =
+      __$$FormErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$FormErrorImplCopyWithImpl<$Res>
+    extends _$ProjectAlertStateCopyWithImpl<$Res, _$FormErrorImpl>
+    implements _$$FormErrorImplCopyWith<$Res> {
+  __$$FormErrorImplCopyWithImpl(
+      _$FormErrorImpl _value, $Res Function(_$FormErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProjectAlertState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$FormErrorImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FormErrorImpl implements FormError {
+  const _$FormErrorImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ProjectAlertState.error(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FormErrorImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of ProjectAlertState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FormErrorImplCopyWith<_$FormErrorImpl> get copyWith =>
+      __$$FormErrorImplCopyWithImpl<_$FormErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function() success,
+  }) {
+    return error(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message)? error,
+    TResult? Function()? success,
+  }) {
+    return error?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function()? success,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormError value) error,
+    required TResult Function(FormSuccess value) success,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FormInitial value)? initial,
+    TResult? Function(FormLoading value)? loading,
+    TResult? Function(FormError value)? error,
+    TResult? Function(FormSuccess value)? success,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormError value)? error,
+    TResult Function(FormSuccess value)? success,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FormError implements ProjectAlertState {
+  const factory FormError(final String message) = _$FormErrorImpl;
+
+  String get message;
+
+  /// Create a copy of ProjectAlertState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FormErrorImplCopyWith<_$FormErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FormSuccessImplCopyWith<$Res> {
+  factory _$$FormSuccessImplCopyWith(
+          _$FormSuccessImpl value, $Res Function(_$FormSuccessImpl) then) =
+      __$$FormSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$FormSuccessImplCopyWithImpl<$Res>
+    extends _$ProjectAlertStateCopyWithImpl<$Res, _$FormSuccessImpl>
+    implements _$$FormSuccessImplCopyWith<$Res> {
+  __$$FormSuccessImplCopyWithImpl(
+      _$FormSuccessImpl _value, $Res Function(_$FormSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProjectAlertState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$FormSuccessImpl implements FormSuccess {
+  const _$FormSuccessImpl();
+
+  @override
+  String toString() {
+    return 'ProjectAlertState.success()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FormSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) error,
+    required TResult Function() success,
+  }) {
+    return success();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message)? error,
+    TResult? Function()? success,
+  }) {
+    return success?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? error,
+    TResult Function()? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormError value) error,
+    required TResult Function(FormSuccess value) success,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FormInitial value)? initial,
+    TResult? Function(FormLoading value)? loading,
+    TResult? Function(FormError value)? error,
+    TResult? Function(FormSuccess value)? success,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormError value)? error,
+    TResult Function(FormSuccess value)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FormSuccess implements ProjectAlertState {
+  const factory FormSuccess() = _$FormSuccessImpl;
 }

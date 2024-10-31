@@ -28,7 +28,7 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
   }
 
   String get rawMessage =>
-      'git commit -m "${widget.message.tag}: ${widget.message.title}" -m "${widget.message.description}"';
+      'git commit -m "${widget.message.tag}: ${widget.message.title}" -m "${widget.message.body} \n ${widget.message.footer}"';
 
   Future<void> copyRawMessage() async {
     await Clipboard.setData(ClipboardData(text: rawMessage));
@@ -39,8 +39,9 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
         ClipboardData(text: '${widget.message.tag}: ${widget.message.title}'));
   }
 
-  Future<void> copyBody() async {
-    await Clipboard.setData(ClipboardData(text: widget.message.description));
+  Future<void> copyBodyAndFooter() async {
+    await Clipboard.setData(ClipboardData(
+        text: '${widget.message.body}\n${widget.message.footer}'));
   }
 
   @override
@@ -56,7 +57,7 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(24), // p-6
+        padding: const EdgeInsets.all(16), // p-6
         child: isRawMode
             ? Container(
                 decoration: BoxDecoration(
@@ -67,33 +68,18 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SelectableText(
-                      rawMessage,
-                      style: const TextStyle(
-                        color: Color(0xFF4ADE80), // text-green-400
-                        fontFamily: 'monospace',
-                        fontSize: 14,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        TextButton.icon(
-                          onPressed: copyRawMessage,
-                          icon: const Icon(
-                            Icons.copy,
-                            size: 16,
-                            color: Color(0xFF4ADE80),
-                          ),
-                          label: const Text(
-                            'Copy Raw',
-                            style: TextStyle(
-                              color: Color(0xFF4ADE80),
+                        Flexible(
+                          child: SelectableText(
+                            rawMessage,
+                            style: const TextStyle(
+                              color: Color(0xFF4ADE80), // text-green-400
+                              fontFamily: 'monospace',
+                              fontSize: 14,
                             ),
-                          ),
-                          style: TextButton.styleFrom(
-                            foregroundColor: const Color(0xFF4ADE80),
                           ),
                         ),
                         IconButtonWithTooltip(
@@ -104,6 +90,27 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
                           hoverColor: const Color(0xFF4ADE80).withOpacity(0.2),
                         ),
                       ],
+                    ),
+                    const SizedBox(height: 32),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton.icon(
+                        onPressed: copyRawMessage,
+                        icon: const Icon(
+                          Icons.copy,
+                          size: 16,
+                          color: Color(0xFF4ADE80),
+                        ),
+                        label: const Text(
+                          'Copy Raw',
+                          style: TextStyle(
+                            color: Color(0xFF4ADE80),
+                          ),
+                        ),
+                        style: TextButton.styleFrom(
+                          foregroundColor: const Color(0xFF4ADE80),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -153,7 +160,15 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    widget.message.description,
+                    widget.message.body,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: primaryColor.withOpacity(0.7),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    widget.message.footer,
                     style: TextStyle(
                       fontSize: 14,
                       color: primaryColor.withOpacity(0.7),
@@ -163,6 +178,14 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      Text(
+                        widget.message.timeDescription,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: primaryColor.withOpacity(0.5),
+                        ),
+                      ),
+                      const Spacer(),
                       IconButtonWithTooltip(
                         icon: Icons.copy_outlined,
                         onPressed: copySummary,
@@ -172,9 +195,9 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
                       const SizedBox(width: 8),
                       IconButtonWithTooltip(
                         icon: Icons.copy_outlined,
-                        onPressed: copyBody,
+                        onPressed: copyBodyAndFooter,
                         color: primaryColor,
-                        tooltip: 'Copiar cuerpo',
+                        tooltip: 'Copiar cuerpo y pie',
                       ),
                       const SizedBox(width: 8),
                       IconButtonWithTooltip(

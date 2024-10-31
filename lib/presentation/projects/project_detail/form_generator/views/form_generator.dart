@@ -1,7 +1,18 @@
+import 'package:commit_ai/feature/commit_generator/domain/form_generator_commit.dart';
+import 'package:commit_ai/presentation/projects/project_detail/form_generator/bloc/form_message_commit_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FormGenerator extends StatefulWidget {
-  const FormGenerator({super.key});
+  final String projectDescription;
+
+  final void Function(String) onDescriptionChanged;
+
+  const FormGenerator({
+    required this.projectDescription,
+    required this.onDescriptionChanged,
+    super.key,
+  });
 
   @override
   State<FormGenerator> createState() => _FormGeneratorState();
@@ -9,9 +20,14 @@ class FormGenerator extends StatefulWidget {
 
 class _FormGeneratorState extends State<FormGenerator> {
   bool isEditingDescription = false;
-  String projectDescription =
-      'La aplicación trata de generar mensajes de commits utilizando inteligencia artificial, siguiendo un formato estándar de la industria. Permite crear y gestionar proyectos, ingresar el contexto y git diff, y elegir el tipo de commit, con opciones para personalizar cuerpo y footer del mensaje.';
+
   String commitType = 'Let AI decide';
+  final TextEditingController changeDescriptionController =
+      TextEditingController();
+
+  final TextEditingController gitDiffController = TextEditingController();
+
+  String projectDescription = '';
   bool includeBody = false;
   bool includeFooter = false;
 
@@ -67,11 +83,9 @@ class _FormGeneratorState extends State<FormGenerator> {
                 const SizedBox(height: 8),
                 if (isEditingDescription)
                   TextFormField(
-                    initialValue: projectDescription,
+                    initialValue: widget.projectDescription,
                     onChanged: (value) {
-                      setState(() {
-                        projectDescription = value;
-                      });
+                      projectDescription = value;
                     },
                     maxLines: 4,
                     decoration: InputDecoration(
@@ -86,7 +100,7 @@ class _FormGeneratorState extends State<FormGenerator> {
                   )
                 else
                   Text(
-                    projectDescription,
+                    widget.projectDescription,
                     style: TextStyle(color: Colors.grey[600]),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -96,6 +110,10 @@ class _FormGeneratorState extends State<FormGenerator> {
                     setState(() {
                       isEditingDescription = !isEditingDescription;
                     });
+
+                    if (!isEditingDescription) {
+                      widget.onDescriptionChanged(projectDescription);
+                    }
                   },
                   icon: Icon(
                     isEditingDescription ? Icons.save : Icons.edit,
@@ -149,13 +167,15 @@ class _FormGeneratorState extends State<FormGenerator> {
                         ),
                       ),
                       SizedBox(
-                        height: 100,
+                        height: 200,
                         child: TabBarView(
                           children: [
                             Padding(
                               padding: const EdgeInsets.all(8),
                               child: TextFormField(
-                                maxLines: 3,
+                                minLines: 5,
+                                controller: changeDescriptionController,
+                                maxLines: 12,
                                 decoration: InputDecoration(
                                   hintText:
                                       'Describe los cambios que has realizado...',
@@ -170,7 +190,9 @@ class _FormGeneratorState extends State<FormGenerator> {
                             Padding(
                               padding: const EdgeInsets.all(8),
                               child: TextFormField(
-                                maxLines: 3,
+                                controller: gitDiffController,
+                                minLines: 6,
+                                maxLines: 12,
                                 decoration: InputDecoration(
                                   hintText: 'Pega tu git diff aquí...',
                                   border: const OutlineInputBorder(),
@@ -252,7 +274,19 @@ class _FormGeneratorState extends State<FormGenerator> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      // Acción para generar el mensaje de commit
+                      context.read<FormMessageCommitBloc>().add(
+                            GenerateMessageCommit(
+                              FormGeneratorCommit(
+                                projectDescription: widget.projectDescription,
+                                changeDescription:
+                                    changeDescriptionController.text,
+                                type: commitType,
+                                includeBody: includeBody,
+                                includeFooter: includeFooter,
+                                gitDiff: gitDiffController.text,
+                              ),
+                            ),
+                          );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.indigo[600],

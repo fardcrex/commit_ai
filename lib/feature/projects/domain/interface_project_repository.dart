@@ -5,7 +5,9 @@ import 'package:fpdart/fpdart.dart';
 abstract interface class IProjectRepository {
   Stream<Either<ProjectFailure, List<ProjectEntityDto>>> getProjects(int limit);
 
-  Future<Either<ProjectFailure, Unit>> createProject({
+  Stream<Either<ProjectFailure, ProjectEntityDto>> getProject(String id);
+
+  Future<Either<ProjectFailure, String>> createProject({
     required String title,
     required String description,
   });
@@ -14,5 +16,7 @@ abstract interface class IProjectRepository {
   Future<Either<ProjectFailure, Unit>> deleteProject(String id);
 }
 
-typedef RespondGetProjects
+typedef ResponseGetProjects
     = Stream<Either<ProjectFailure, List<ProjectEntityDto>>>;
+
+typedef ResponseGetProject = Stream<Either<ProjectFailure, ProjectEntityDto>>;

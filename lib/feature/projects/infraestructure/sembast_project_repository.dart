@@ -9,10 +9,8 @@ class SembastProjectRepository implements IProjectRepository {
 
   SembastProjectRepository(this._instance);
 
-  static const ID_PROJECT_KEY = 'id_project';
-
   @override
-  Future<Either<ProjectFailure, Unit>> createProject({
+  Future<Either<ProjectFailure, String>> createProject({
     required String title,
     required String description,
   }) async {
@@ -27,11 +25,11 @@ class SembastProjectRepository implements IProjectRepository {
       lastModified: created,
     );
 
-    await _instance.projectStore.add(
+    final result = await _instance.projectStore.add(
       _instance.db,
       project.toJson(),
     );
-    return right(unit);
+    return right(result);
   }
 
   @override
@@ -68,5 +66,17 @@ class SembastProjectRepository implements IProjectRepository {
         );
 
     return right(unit);
+  }
+
+  @override
+  Stream<Either<ProjectFailure, ProjectEntityDto>> getProject(String id) {
+    return _instance.projectStore
+        .record(id)
+        .onSnapshot(_instance.db)
+        .map((record) {
+      if (record == null) return left(ProjectFailure.notFound());
+
+      return right(ProjectEntityDto.fromJson(record.value).copyWith(id: id));
+    });
   }
 }

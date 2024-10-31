@@ -30,6 +30,7 @@ class ProjectCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Icon(Icons.web, size: 24, color: Color(0xFF4F46E5)),
                   const SizedBox(width: 8),
@@ -46,6 +47,8 @@ class ProjectCard extends StatelessWidget {
                         ),
                         Text(
                           project.decription,
+                          maxLines: 6,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             color: Colors.grey[600],
                             fontSize: 12,
