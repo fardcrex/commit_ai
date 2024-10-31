@@ -36,7 +36,7 @@ class ProjectsDataView extends StatelessWidget {
                     icon: const Icon(Icons.add),
                     label: const Text('Crear Proyecto'),
                     style: TextButton.styleFrom(
-                      foregroundColor: Colors.blue,
+                      foregroundColor: const Color(0xFF4F46E5),
                     ),
                   ),
                   const SizedBox(width: 16),

@@ -1,6 +1,6 @@
 import 'package:commit_ai/l10n/l10n.dart';
 import 'package:commit_ai/presentation/panel/panel_page.dart';
-import 'package:commit_ai/presentation/projects/project_detail/project_detail_page_bloc.dart';
+import 'package:commit_ai/presentation/projects/project_detail/project_detail_bloc_page.dart';
 import 'package:commit_ai/presentation/projects/projects_list/project_list_bloc_page.dart';
 import 'package:commit_ai/presentation/settings_page/settings_page.dart';
 import 'package:flutter/material.dart';
@@ -34,20 +34,41 @@ final GoRouter router = GoRouter(
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) => const ProjectListPage(),
+          pageBuilder: (context, state) =>
+              fadeRoute(child: const ProjectListPage(), state: state),
         ),
         GoRoute(
           path: '/settings',
-          builder: (context, state) => const SettingsPage(),
+          pageBuilder: (context, state) => fadeRoute(
+            child: const SettingsPage(),
+            state: state,
+          ),
         ),
         GoRoute(
           path: '/project/:id',
-          builder: (context, state) {
+          pageBuilder: (context, state) {
             final projectId = state.pathParameters['id']!;
-            return ProjectDetailPage(projectId: projectId);
+            return fadeRoute(
+              child: ProjectDetailBlocPage(projectId: projectId),
+              state: state,
+            );
           },
         ),
       ],
     ),
   ],
 );
+
+CustomTransitionPage<void> fadeRoute(
+    {required GoRouterState state, required Widget child}) {
+  return CustomTransitionPage<void>(
+    key: state.pageKey,
+    transitionDuration: Duration.zero,
+    reverseTransitionDuration: Duration.zero,
+    child: child,
+    transitionsBuilder: (_, animation, __, child) => FadeTransition(
+      opacity: animation,
+      child: child,
+    ),
+  );
+}

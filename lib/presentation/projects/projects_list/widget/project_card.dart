@@ -31,7 +31,7 @@ class ProjectCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.web, size: 24, color: Colors.blue),
+                  const Icon(Icons.web, size: 24, color: Color(0xFF4F46E5)),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Column(

@@ -1,5 +1,5 @@
 import 'package:commit_ai/presentation/projects/projects_list/bloc/projects_list_bloc.dart';
-import 'package:commit_ai/presentation/projects/projects_list/project_list_page.dart';
+import 'package:commit_ai/presentation/projects/projects_list/views/project_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

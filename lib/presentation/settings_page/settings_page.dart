@@ -24,8 +24,7 @@ Future<String> ejecutarGitDiff2(String ruta) async {
   try {
     if (await GitDir.isGitDir(ruta)) {
       final gitDir = await GitDir.fromExisting(ruta);
-      final commitCount = await gitDir.commitCount();
-      print('Git commit count: $commitCount');
+
       final diff = await gitDir.runCommand(['diff']);
       if (diff.exitCode == 0) {
         return diff.stdout.toString();
@@ -58,8 +57,6 @@ class _SettingsPageState extends State<SettingsPage> {
             onPressed: () async {
               code = await ejecutarGitDiff(
                   '/Users/jairconislla/Documents/utp/commit_ai');
-
-              print(code);
 
               setState(() {});
             },
