@@ -1,9 +1,5 @@
+import 'package:commit_ai/core/sum.dart';
 import 'package:test/test.dart';
-
-// Función simple para sumar dos números
-int sum(int a, int b) {
-  return a + b;
-}
 
 void main() {
   group('Pruebas de la función sum', () {
