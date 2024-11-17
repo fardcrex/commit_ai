@@ -27,9 +27,15 @@ class _FormGeneratorState extends State<FormGenerator> {
 
   final TextEditingController gitDiffController = TextEditingController();
 
-  String projectDescription = '';
+  late String projectDescription;
   bool includeBody = false;
   bool includeFooter = false;
+
+  @override
+  void initState() {
+    projectDescription = widget.projectDescription;
+    super.initState();
+  }
 
   final List<String> commitTypes = [
     'Let AI decide',
@@ -54,40 +60,225 @@ class _FormGeneratorState extends State<FormGenerator> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: Container(
-        color: const Color(0xFFDDE9FF),
-        padding: const EdgeInsets.all(32),
-        child: Card(
-          color: Colors.white,
-          elevation: 2,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-            side: BorderSide(color: Colors.indigo[200]!),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Project Description Section
-                Text(
-                  'Descripción del Proyecto',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.indigo[900],
+    return BlocListener<FormMessageCommitBloc, FormMessageCommitState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          successSave: () {
+            commitType = commitTypes.first;
+            changeDescriptionController.clear();
+            gitDiffController.clear();
+            isEditingDescription = false;
+            setState(() {});
+          },
+        );
+      },
+      child: Expanded(
+        flex: 2,
+        child: Container(
+          color: const Color(0xFFDDE9FF),
+          padding: const EdgeInsets.all(32),
+          child: Card(
+            color: Colors.white,
+            elevation: 2,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: BorderSide(color: Colors.indigo[200]!),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Project Description Section
+                  Text(
+                    'Descripción del Proyecto',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo[900],
+                    ),
                   ),
-                ),
-                const SizedBox(height: 8),
-                if (isEditingDescription)
-                  TextFormField(
-                    initialValue: widget.projectDescription,
+                  const SizedBox(height: 8),
+                  if (isEditingDescription)
+                    TextFormField(
+                      initialValue: widget.projectDescription,
+                      onChanged: (value) {
+                        projectDescription = value;
+                        setState(() {});
+                      },
+                      minLines: 2,
+                      maxLines: 4,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(color: Colors.indigo[300]!),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.indigo[500]!),
+                        ),
+                      ),
+                    )
+                  else
+                    Text(
+                      widget.projectDescription,
+                      style: TextStyle(color: Colors.grey[600]),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+
+                  const SizedBox(height: 8),
+                  if (isEditingDescription)
+                    Row(
+                      children: [
+                        TextButton.icon(
+                          onPressed: () {
+                            setState(() => isEditingDescription = false);
+                          },
+                          icon: Icon(Icons.cancel_outlined,
+                              color: Colors.red[600]),
+                          label: Text(
+                            'Cancelar',
+                            style: TextStyle(color: Colors.red[600]),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        TextButton.icon(
+                          style: TextButton.styleFrom(
+                            //  iconColor: Colors.indigo[600],
+                            textStyle: TextStyle(color: Colors.indigo[600]),
+                          ),
+                          onPressed: projectDescription ==
+                                  widget.projectDescription
+                              ? null
+                              : () {
+                                  setState(() => isEditingDescription = false);
+
+                                  widget
+                                      .onDescriptionChanged(projectDescription);
+                                },
+                          icon: const Icon(Icons.save),
+                          label: const Text('Guardar'),
+                        )
+                      ],
+                    )
+                  else
+                    TextButton.icon(
+                      onPressed: () {
+                        setState(() => isEditingDescription = true);
+                      },
+                      icon: Icon(Icons.edit, color: Colors.indigo[600]),
+                      label: Text(
+                        'Editar',
+                        style: TextStyle(color: Colors.indigo[600]),
+                      ),
+                    ),
+                  const SizedBox(height: 16),
+
+                  // Tabs Section
+                  DefaultTabController(
+                    length: 2,
+                    child: Column(
+                      children: [
+                        Container(
+                          // width: 300,
+                          decoration: BoxDecoration(
+                            color: Colors.indigo[50],
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          child: TabBar(
+                            splashBorderRadius: BorderRadius.circular(80),
+                            indicator: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80),
+                              color: Colors.indigo[600],
+                            ),
+                            unselectedLabelColor: Colors.indigo[600],
+                            labelColor: Colors.white,
+                            tabs: [
+                              Tab(
+                                  child: Container(
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(80),
+                                ),
+                                child: const Text('Descripción'),
+                              )),
+                              Tab(
+                                  child: Container(
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(80),
+                                ),
+                                child: const Text('Git Diff'),
+                              )),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 250,
+                          child: TabBarView(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8),
+                                child: TextFormField(
+                                  minLines: 5,
+                                  controller: changeDescriptionController,
+                                  maxLines: 12,
+                                  decoration: InputDecoration(
+                                    hintText:
+                                        'Describe los cambios que has realizado...',
+                                    border: const OutlineInputBorder(),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.indigo[500]!),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8),
+                                child: TextFormField(
+                                  controller: gitDiffController,
+                                  minLines: 6,
+                                  maxLines: 30,
+                                  decoration: InputDecoration(
+                                    hintText: 'Pega tu git diff aquí...',
+                                    border: const OutlineInputBorder(),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Colors.indigo[500]!),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // Commit Type Section
+                  Text(
+                    'Tipo de Commit',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo[900],
+                    ),
+                  ),
+                  DropdownButtonFormField<String>(
+                    value: commitType,
                     onChanged: (value) {
-                      projectDescription = value;
+                      setState(() => commitType = value!);
                     },
-                    maxLines: 4,
+                    items: commitTypes.map((String type) {
+                      return DropdownMenuItem<String>(
+                        value: type,
+                        child: Text(type),
+                      );
+                    }).toList(),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -97,218 +288,74 @@ class _FormGeneratorState extends State<FormGenerator> {
                         borderSide: BorderSide(color: Colors.indigo[500]!),
                       ),
                     ),
-                  )
-                else
-                  Text(
-                    widget.projectDescription,
-                    style: TextStyle(color: Colors.grey[600]),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
                   ),
-                TextButton.icon(
-                  onPressed: () {
-                    setState(() {
-                      isEditingDescription = !isEditingDescription;
-                    });
+                  const SizedBox(height: 16),
 
-                    if (!isEditingDescription) {
-                      widget.onDescriptionChanged(projectDescription);
-                    }
-                  },
-                  icon: Icon(
-                    isEditingDescription ? Icons.save : Icons.edit,
-                    color: Colors.indigo[600],
-                  ),
-                  label: Text(
-                    isEditingDescription ? 'Guardar' : 'Editar',
-                    style: TextStyle(color: Colors.indigo[600]),
-                  ),
-                ),
-                const SizedBox(height: 16),
-
-                // Tabs Section
-                DefaultTabController(
-                  length: 2,
-                  child: Column(
-                    children: [
-                      Container(
-                        // width: 300,
-                        decoration: BoxDecoration(
-                          color: Colors.indigo[50],
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: TabBar(
-                          splashBorderRadius: BorderRadius.circular(80),
-                          indicator: BoxDecoration(
-                            borderRadius: BorderRadius.circular(80),
-                            color: Colors.indigo[600],
-                          ),
-                          unselectedLabelColor: Colors.indigo[600],
-                          labelColor: Colors.white,
-                          tabs: [
-                            Tab(
-                                child: Container(
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(80),
-                              ),
-                              child: const Text('Descripción'),
-                            )),
-                            Tab(
-                                child: Container(
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(80),
-                              ),
-                              child: const Text('Git Diff'),
-                            )),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 200,
-                        child: TabBarView(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: TextFormField(
-                                minLines: 5,
-                                controller: changeDescriptionController,
-                                maxLines: 12,
-                                decoration: InputDecoration(
-                                  hintText:
-                                      'Describe los cambios que has realizado...',
-                                  border: const OutlineInputBorder(),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Colors.indigo[500]!),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: TextFormField(
-                                controller: gitDiffController,
-                                minLines: 6,
-                                maxLines: 30,
-                                decoration: InputDecoration(
-                                  hintText: 'Pega tu git diff aquí...',
-                                  border: const OutlineInputBorder(),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Colors.indigo[500]!),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 16),
-
-                // Commit Type Section
-                Text(
-                  'Tipo de Commit',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.indigo[900],
-                  ),
-                ),
-                DropdownButtonFormField<String>(
-                  value: commitType,
-                  onChanged: (value) {
-                    setState(() {
-                      commitType = value!;
-                    });
-                  },
-                  items: commitTypes.map((String type) {
-                    return DropdownMenuItem<String>(
-                      value: type,
-                      child: Text(type),
-                    );
-                  }).toList(),
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: Colors.indigo[300]!),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.indigo[500]!),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-
-                // Include Body and Footer Switches
-                SwitchListTile(
-                  title: const Text('Incluir Cuerpo'),
-                  value: includeBody,
-                  activeColor: Colors.indigo[600],
-                  onChanged: (bool value) {
-                    setState(() {
-                      includeBody = value;
-                    });
-                  },
-                ),
-                SwitchListTile(
-                  title: const Text('Incluir Pie'),
-                  value: includeFooter,
-                  activeColor: Colors.indigo[600],
-                  onChanged: (bool value) {
-                    setState(() {
-                      includeFooter = value;
-                    });
-                  },
-                ),
-
-                const Spacer(),
-
-                // Generate Button
-                SizedBox(
-                  width: double.infinity,
-                  child: BlocSelector<FormMessageCommitBloc,
-                      FormMessageCommitState, bool>(
-                    selector: (state) {
-                      return state.isLoading;
+                  // Include Body and Footer Switches
+                  SwitchListTile(
+                    title: const Text('Incluir Cuerpo'),
+                    value: includeBody,
+                    activeColor: Colors.indigo[600],
+                    onChanged: (bool value) {
+                      setState(() {
+                        includeBody = value;
+                      });
                     },
-                    builder: (context, isLoading) {
-                      return isLoading
-                          ? const Center(child: CircularProgressIndicator())
-                          : ElevatedButton(
-                              onPressed: () {
-                                context.read<FormMessageCommitBloc>().add(
-                                      GenerateMessageCommit(
-                                        FormGeneratorCommit(
-                                          projectDescription:
-                                              widget.projectDescription,
-                                          changeDescription:
-                                              changeDescriptionController.text,
-                                          type: commitType,
-                                          includeBody: includeBody,
-                                          includeFooter: includeFooter,
-                                          gitDiff: gitDiffController.text,
+                  ),
+                  SwitchListTile(
+                    title: const Text('Incluir Pie'),
+                    value: includeFooter,
+                    activeColor: Colors.indigo[600],
+                    onChanged: (bool value) {
+                      setState(() => includeFooter = value);
+                    },
+                  ),
+
+                  const Spacer(),
+
+                  // Generate Button
+                  SizedBox(
+                    width: double.infinity,
+                    child: BlocSelector<FormMessageCommitBloc,
+                        FormMessageCommitState, bool>(
+                      selector: (state) {
+                        return state.isLoading;
+                      },
+                      builder: (context, isLoading) {
+                        return isLoading
+                            ? const Center(child: CircularProgressIndicator())
+                            : ElevatedButton(
+                                onPressed: () {
+                                  context.read<FormMessageCommitBloc>().add(
+                                        GenerateMessageCommit(
+                                          FormGeneratorCommit(
+                                            projectDescription:
+                                                widget.projectDescription,
+                                            changeDescription:
+                                                changeDescriptionController
+                                                    .text,
+                                            type: commitType,
+                                            includeBody: includeBody,
+                                            includeFooter: includeFooter,
+                                            gitDiff: gitDiffController.text,
+                                          ),
                                         ),
-                                      ),
-                                    );
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.indigo[600],
-                                foregroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
+                                      );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.indigo[600],
+                                  foregroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
                                 ),
-                              ),
-                              child: const Text('Generar Mensaje de Commit'),
-                            );
-                    },
+                                child: const Text('Generar Mensaje de Commit'),
+                              );
+                      },
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
