@@ -72,9 +72,6 @@ class _$ProjectDetailEventCopyWithImpl<$Res, $Val extends ProjectDetailEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of ProjectDetailEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -91,9 +88,6 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of ProjectDetailEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -199,8 +193,6 @@ class __$$DeleteMessageImplCopyWithImpl<$Res>
       _$DeleteMessageImpl _value, $Res Function(_$DeleteMessageImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProjectDetailEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -239,9 +231,7 @@ class _$DeleteMessageImpl implements _DeleteMessage {
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  /// Create a copy of ProjectDetailEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteMessageImplCopyWith<_$DeleteMessageImpl> get copyWith =>
@@ -314,10 +304,7 @@ abstract class _DeleteMessage implements ProjectDetailEvent {
   const factory _DeleteMessage(final String id) = _$DeleteMessageImpl;
 
   String get id;
-
-  /// Create a copy of ProjectDetailEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$DeleteMessageImplCopyWith<_$DeleteMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -398,9 +385,6 @@ class _$ProjectDetailStateCopyWithImpl<$Res, $Val extends ProjectDetailState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -417,9 +401,6 @@ class __$$ProjectDetailInitialImplCopyWithImpl<$Res>
   __$$ProjectDetailInitialImplCopyWithImpl(_$ProjectDetailInitialImpl _value,
       $Res Function(_$ProjectDetailInitialImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -547,8 +528,6 @@ class __$$ProjectDetailLoadedImplCopyWithImpl<$Res>
       $Res Function(_$ProjectDetailLoadedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -567,8 +546,6 @@ class __$$ProjectDetailLoadedImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ProjectEntityDtoCopyWith<$Res> get project {
@@ -614,9 +591,7 @@ class _$ProjectDetailLoadedImpl implements ProjectDetailLoaded {
   int get hashCode => Object.hash(runtimeType, project,
       const DeepCollectionEquality().hash(_historyCommit));
 
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ProjectDetailLoadedImplCopyWith<_$ProjectDetailLoadedImpl> get copyWith =>
@@ -711,10 +686,7 @@ abstract class ProjectDetailLoaded implements ProjectDetailState {
 
   ProjectEntityDto get project;
   List<MessageCommitEntityDto> get historyCommit;
-
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ProjectDetailLoadedImplCopyWith<_$ProjectDetailLoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -736,8 +708,6 @@ class __$$ProjectDetailErrorImplCopyWithImpl<$Res>
       $Res Function(_$ProjectDetailErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -776,9 +746,7 @@ class _$ProjectDetailErrorImpl implements ProjectDetailError {
   @override
   int get hashCode => Object.hash(runtimeType, failure);
 
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ProjectDetailErrorImplCopyWith<_$ProjectDetailErrorImpl> get copyWith =>
@@ -871,10 +839,7 @@ abstract class ProjectDetailError implements ProjectDetailState {
       _$ProjectDetailErrorImpl;
 
   ProjectFailure get failure;
-
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ProjectDetailErrorImplCopyWith<_$ProjectDetailErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -899,8 +864,6 @@ class __$$ProjectDetailHistoryErrorImplCopyWithImpl<$Res>
       $Res Function(_$ProjectDetailHistoryErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -939,9 +902,7 @@ class _$ProjectDetailHistoryErrorImpl implements ProjectDetailHistoryError {
   @override
   int get hashCode => Object.hash(runtimeType, failure);
 
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ProjectDetailHistoryErrorImplCopyWith<_$ProjectDetailHistoryErrorImpl>
@@ -1034,10 +995,7 @@ abstract class ProjectDetailHistoryError implements ProjectDetailState {
       final CommitGeneratorFailure failure) = _$ProjectDetailHistoryErrorImpl;
 
   CommitGeneratorFailure get failure;
-
-  /// Create a copy of ProjectDetailState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ProjectDetailHistoryErrorImplCopyWith<_$ProjectDetailHistoryErrorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

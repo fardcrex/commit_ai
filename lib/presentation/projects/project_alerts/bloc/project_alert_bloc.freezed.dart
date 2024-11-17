@@ -78,9 +78,6 @@ class _$ProjectAlertEventCopyWithImpl<$Res, $Val extends ProjectAlertEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,8 +97,6 @@ class __$$CreateProjectImplCopyWithImpl<$Res>
       _$CreateProjectImpl _value, $Res Function(_$CreateProjectImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -149,9 +144,7 @@ class _$CreateProjectImpl implements _CreateProject {
   @override
   int get hashCode => Object.hash(runtimeType, name, description);
 
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateProjectImplCopyWith<_$CreateProjectImpl> get copyWith =>
@@ -233,10 +226,7 @@ abstract class _CreateProject implements ProjectAlertEvent {
 
   String get name;
   String get description;
-
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$CreateProjectImplCopyWith<_$CreateProjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -260,8 +250,6 @@ class __$$UpdateProjectImplCopyWithImpl<$Res>
       _$UpdateProjectImpl _value, $Res Function(_$UpdateProjectImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -275,8 +263,6 @@ class __$$UpdateProjectImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ProjectEntityDtoCopyWith<$Res> get project {
@@ -310,9 +296,7 @@ class _$UpdateProjectImpl implements _UpdateProject {
   @override
   int get hashCode => Object.hash(runtimeType, project);
 
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$UpdateProjectImplCopyWith<_$UpdateProjectImpl> get copyWith =>
@@ -392,10 +376,7 @@ abstract class _UpdateProject implements ProjectAlertEvent {
       _$UpdateProjectImpl;
 
   ProjectEntityDto get project;
-
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$UpdateProjectImplCopyWith<_$UpdateProjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -419,8 +400,6 @@ class __$$DeleteProjectImplCopyWithImpl<$Res>
       _$DeleteProjectImpl _value, $Res Function(_$DeleteProjectImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -434,8 +413,6 @@ class __$$DeleteProjectImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ProjectEntityDtoCopyWith<$Res> get project {
@@ -469,9 +446,7 @@ class _$DeleteProjectImpl implements _DeleteProject {
   @override
   int get hashCode => Object.hash(runtimeType, project);
 
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$DeleteProjectImplCopyWith<_$DeleteProjectImpl> get copyWith =>
@@ -551,10 +526,7 @@ abstract class _DeleteProject implements ProjectAlertEvent {
       _$DeleteProjectImpl;
 
   ProjectEntityDto get project;
-
-  /// Create a copy of ProjectAlertEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$DeleteProjectImplCopyWith<_$DeleteProjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -629,9 +601,6 @@ class _$ProjectAlertStateCopyWithImpl<$Res, $Val extends ProjectAlertState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of ProjectAlertState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -648,9 +617,6 @@ class __$$FormInitialImplCopyWithImpl<$Res>
   __$$FormInitialImplCopyWithImpl(
       _$FormInitialImpl _value, $Res Function(_$FormInitialImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of ProjectAlertState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -765,9 +731,6 @@ class __$$FormLoadingImplCopyWithImpl<$Res>
   __$$FormLoadingImplCopyWithImpl(
       _$FormLoadingImpl _value, $Res Function(_$FormLoadingImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of ProjectAlertState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -885,8 +848,6 @@ class __$$FormErrorImplCopyWithImpl<$Res>
       _$FormErrorImpl _value, $Res Function(_$FormErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProjectAlertState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -925,9 +886,7 @@ class _$FormErrorImpl implements FormError {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of ProjectAlertState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$FormErrorImplCopyWith<_$FormErrorImpl> get copyWith =>
@@ -1012,10 +971,7 @@ abstract class FormError implements ProjectAlertState {
   const factory FormError(final String message) = _$FormErrorImpl;
 
   String get message;
-
-  /// Create a copy of ProjectAlertState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$FormErrorImplCopyWith<_$FormErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1034,9 +990,6 @@ class __$$FormSuccessImplCopyWithImpl<$Res>
   __$$FormSuccessImplCopyWithImpl(
       _$FormSuccessImpl _value, $Res Function(_$FormSuccessImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of ProjectAlertState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

@@ -191,7 +191,7 @@ class _FormGeneratorState extends State<FormGenerator> {
                               child: TextFormField(
                                 controller: gitDiffController,
                                 minLines: 6,
-                                maxLines: 12,
+                                maxLines: 30,
                                 decoration: InputDecoration(
                                   hintText: 'Pega tu git diff aquí...',
                                   border: const OutlineInputBorder(),
@@ -271,30 +271,41 @@ class _FormGeneratorState extends State<FormGenerator> {
                 // Generate Button
                 SizedBox(
                   width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      context.read<FormMessageCommitBloc>().add(
-                            GenerateMessageCommit(
-                              FormGeneratorCommit(
-                                projectDescription: widget.projectDescription,
-                                changeDescription:
-                                    changeDescriptionController.text,
-                                type: commitType,
-                                includeBody: includeBody,
-                                includeFooter: includeFooter,
-                                gitDiff: gitDiffController.text,
-                              ),
-                            ),
-                          );
+                  child: BlocSelector<FormMessageCommitBloc,
+                      FormMessageCommitState, bool>(
+                    selector: (state) {
+                      return state.isLoading;
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.indigo[600],
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: const Text('Generar Mensaje de Commit'),
+                    builder: (context, isLoading) {
+                      return isLoading
+                          ? const Center(child: CircularProgressIndicator())
+                          : ElevatedButton(
+                              onPressed: () {
+                                context.read<FormMessageCommitBloc>().add(
+                                      GenerateMessageCommit(
+                                        FormGeneratorCommit(
+                                          projectDescription:
+                                              widget.projectDescription,
+                                          changeDescription:
+                                              changeDescriptionController.text,
+                                          type: commitType,
+                                          includeBody: includeBody,
+                                          includeFooter: includeFooter,
+                                          gitDiff: gitDiffController.text,
+                                        ),
+                                      ),
+                                    );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.indigo[600],
+                                foregroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              child: const Text('Generar Mensaje de Commit'),
+                            );
+                    },
                   ),
                 ),
               ],

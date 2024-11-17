@@ -27,12 +27,8 @@ mixin _$FormGeneratorCommit {
   bool get includeBody => throw _privateConstructorUsedError;
   bool get includeFooter => throw _privateConstructorUsedError;
 
-  /// Serializes this FormGeneratorCommit to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of FormGeneratorCommit
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $FormGeneratorCommitCopyWith<FormGeneratorCommit> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -62,8 +58,6 @@ class _$FormGeneratorCommitCopyWithImpl<$Res, $Val extends FormGeneratorCommit>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of FormGeneratorCommit
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -128,8 +122,6 @@ class __$$FormGeneratorCommitImplCopyWithImpl<$Res>
       $Res Function(_$FormGeneratorCommitImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FormGeneratorCommit
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -218,14 +210,12 @@ class _$FormGeneratorCommitImpl implements _FormGeneratorCommit {
                 other.includeFooter == includeFooter));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, projectDescription,
       changeDescription, gitDiff, type, includeBody, includeFooter);
 
-  /// Create a copy of FormGeneratorCommit
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$FormGeneratorCommitImplCopyWith<_$FormGeneratorCommitImpl> get copyWith =>
@@ -264,11 +254,8 @@ abstract class _FormGeneratorCommit implements FormGeneratorCommit {
   bool get includeBody;
   @override
   bool get includeFooter;
-
-  /// Create a copy of FormGeneratorCommit
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$FormGeneratorCommitImplCopyWith<_$FormGeneratorCommitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -286,12 +273,8 @@ mixin _$ResultIaMessageCommit {
   String get body => throw _privateConstructorUsedError;
   String get footer => throw _privateConstructorUsedError;
 
-  /// Serializes this ResultIaMessageCommit to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ResultIaMessageCommit
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ResultIaMessageCommitCopyWith<ResultIaMessageCommit> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -321,8 +304,6 @@ class _$ResultIaMessageCommitCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ResultIaMessageCommit
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -383,8 +364,6 @@ class __$$ResultIaMessageCommitImplCopyWithImpl<$Res>
       $Res Function(_$ResultIaMessageCommitImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ResultIaMessageCommit
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -464,14 +443,12 @@ class _$ResultIaMessageCommitImpl implements _ResultIaMessageCommit {
             (identical(other.footer, footer) || other.footer == footer));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, description, type, scope, body, footer);
 
-  /// Create a copy of ResultIaMessageCommit
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ResultIaMessageCommitImplCopyWith<_$ResultIaMessageCommitImpl>
@@ -507,11 +484,8 @@ abstract class _ResultIaMessageCommit implements ResultIaMessageCommit {
   String get body;
   @override
   String get footer;
-
-  /// Create a copy of ResultIaMessageCommit
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ResultIaMessageCommitImplCopyWith<_$ResultIaMessageCommitImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -27,12 +27,8 @@ mixin _$ProjectEntityDto {
   int get lastModified => throw _privateConstructorUsedError;
   int get created => throw _privateConstructorUsedError;
 
-  /// Serializes this ProjectEntityDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ProjectEntityDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ProjectEntityDtoCopyWith<ProjectEntityDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -62,8 +58,6 @@ class _$ProjectEntityDtoCopyWithImpl<$Res, $Val extends ProjectEntityDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ProjectEntityDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -128,8 +122,6 @@ class __$$ProjectEntityDtoImplCopyWithImpl<$Res>
       $Res Function(_$ProjectEntityDtoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProjectEntityDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -217,14 +209,12 @@ class _$ProjectEntityDtoImpl extends _ProjectEntityDto {
             (identical(other.created, created) || other.created == created));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, id, name, description, commits, lastModified, created);
 
-  /// Create a copy of ProjectEntityDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ProjectEntityDtoImplCopyWith<_$ProjectEntityDtoImpl> get copyWith =>
@@ -264,11 +254,8 @@ abstract class _ProjectEntityDto extends ProjectEntityDto {
   int get lastModified;
   @override
   int get created;
-
-  /// Create a copy of ProjectEntityDto
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ProjectEntityDtoImplCopyWith<_$ProjectEntityDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

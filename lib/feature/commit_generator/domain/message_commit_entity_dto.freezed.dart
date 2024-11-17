@@ -30,12 +30,8 @@ mixin _$MessageCommitEntityDto {
   String get footer => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
 
-  /// Serializes this MessageCommitEntityDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of MessageCommitEntityDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $MessageCommitEntityDtoCopyWith<MessageCommitEntityDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -68,8 +64,6 @@ class _$MessageCommitEntityDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of MessageCommitEntityDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -149,8 +143,6 @@ class __$$MessageCommitEntityDtoImplCopyWithImpl<$Res>
       $Res Function(_$MessageCommitEntityDtoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MessageCommitEntityDto
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -256,14 +248,12 @@ class _$MessageCommitEntityDtoImpl implements _MessageCommitEntityDto {
             (identical(other.id, id) || other.id == id));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, idProject, type, description,
       created, scope, body, footer, id);
 
-  /// Create a copy of MessageCommitEntityDto
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$MessageCommitEntityDtoImplCopyWith<_$MessageCommitEntityDtoImpl>
@@ -308,11 +298,8 @@ abstract class _MessageCommitEntityDto implements MessageCommitEntityDto {
   String get footer;
   @override
   String get id;
-
-  /// Create a copy of MessageCommitEntityDto
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$MessageCommitEntityDtoImplCopyWith<_$MessageCommitEntityDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

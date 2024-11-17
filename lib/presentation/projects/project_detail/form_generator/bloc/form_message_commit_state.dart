@@ -12,4 +12,9 @@ sealed class FormMessageCommitState with _$FormMessageCommitState {
   const factory FormMessageCommitState.successSave() = FormSuccessSave;
   const factory FormMessageCommitState.error(CommitGeneratorFailure failure) =
       FormError;
+
+  const FormMessageCommitState._();
+
+  bool get isInitial => this is FormInitial;
+  bool get isLoading => this is FormLoading;
 }

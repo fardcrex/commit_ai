@@ -89,9 +89,6 @@ class _$FormMessageCommitEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -115,8 +112,6 @@ class __$$GenerateMessageCommitImplCopyWithImpl<$Res>
       $Res Function(_$GenerateMessageCommitImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,8 +125,6 @@ class __$$GenerateMessageCommitImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FormGeneratorCommitCopyWith<$Res> get formGeneratorCommit {
@@ -167,9 +160,7 @@ class _$GenerateMessageCommitImpl implements GenerateMessageCommit {
   @override
   int get hashCode => Object.hash(runtimeType, formGeneratorCommit);
 
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$GenerateMessageCommitImplCopyWith<_$GenerateMessageCommitImpl>
@@ -261,10 +252,7 @@ abstract class GenerateMessageCommit implements FormMessageCommitEvent {
       _$GenerateMessageCommitImpl;
 
   FormGeneratorCommit get formGeneratorCommit;
-
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$GenerateMessageCommitImplCopyWith<_$GenerateMessageCommitImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -288,8 +276,6 @@ class __$$EditProjectImplCopyWithImpl<$Res>
       _$EditProjectImpl _value, $Res Function(_$EditProjectImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -303,8 +289,6 @@ class __$$EditProjectImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ProjectEntityDtoCopyWith<$Res> get projectEntityDto {
@@ -339,9 +323,7 @@ class _$EditProjectImpl implements EditProject {
   @override
   int get hashCode => Object.hash(runtimeType, projectEntityDto);
 
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$EditProjectImplCopyWith<_$EditProjectImpl> get copyWith =>
@@ -431,10 +413,7 @@ abstract class EditProject implements FormMessageCommitEvent {
       _$EditProjectImpl;
 
   ProjectEntityDto get projectEntityDto;
-
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$EditProjectImplCopyWith<_$EditProjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -458,8 +437,6 @@ class __$$SaveMessageCommitImplCopyWithImpl<$Res>
       $Res Function(_$SaveMessageCommitImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -478,8 +455,6 @@ class __$$SaveMessageCommitImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ResultIaMessageCommitCopyWith<$Res> get resultIaMessageCommit {
@@ -520,9 +495,7 @@ class _$SaveMessageCommitImpl implements SaveMessageCommit {
   int get hashCode =>
       Object.hash(runtimeType, resultIaMessageCommit, projectId);
 
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SaveMessageCommitImplCopyWith<_$SaveMessageCommitImpl> get copyWith =>
@@ -615,10 +588,7 @@ abstract class SaveMessageCommit implements FormMessageCommitEvent {
 
   ResultIaMessageCommit get resultIaMessageCommit;
   String get projectId;
-
-  /// Create a copy of FormMessageCommitEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SaveMessageCommitImplCopyWith<_$SaveMessageCommitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -706,9 +676,6 @@ class _$FormMessageCommitStateCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -725,15 +692,12 @@ class __$$FormInitialImplCopyWithImpl<$Res>
   __$$FormInitialImplCopyWithImpl(
       _$FormInitialImpl _value, $Res Function(_$FormInitialImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$FormInitialImpl implements FormInitial {
-  const _$FormInitialImpl();
+class _$FormInitialImpl extends FormInitial {
+  const _$FormInitialImpl() : super._();
 
   @override
   String toString() {
@@ -836,8 +800,9 @@ class _$FormInitialImpl implements FormInitial {
   }
 }
 
-abstract class FormInitial implements FormMessageCommitState {
+abstract class FormInitial extends FormMessageCommitState {
   const factory FormInitial() = _$FormInitialImpl;
+  const FormInitial._() : super._();
 }
 
 /// @nodoc
@@ -854,15 +819,12 @@ class __$$FormLoadingImplCopyWithImpl<$Res>
   __$$FormLoadingImplCopyWithImpl(
       _$FormLoadingImpl _value, $Res Function(_$FormLoadingImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$FormLoadingImpl implements FormLoading {
-  const _$FormLoadingImpl();
+class _$FormLoadingImpl extends FormLoading {
+  const _$FormLoadingImpl() : super._();
 
   @override
   String toString() {
@@ -965,8 +927,9 @@ class _$FormLoadingImpl implements FormLoading {
   }
 }
 
-abstract class FormLoading implements FormMessageCommitState {
+abstract class FormLoading extends FormMessageCommitState {
   const factory FormLoading() = _$FormLoadingImpl;
+  const FormLoading._() : super._();
 }
 
 /// @nodoc
@@ -989,8 +952,6 @@ class __$$FormSuccessGenerateImplCopyWithImpl<$Res>
       $Res Function(_$FormSuccessGenerateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1004,8 +965,6 @@ class __$$FormSuccessGenerateImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $ResultIaMessageCommitCopyWith<$Res> get result {
@@ -1017,8 +976,8 @@ class __$$FormSuccessGenerateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FormSuccessGenerateImpl implements FormSuccessGenerate {
-  const _$FormSuccessGenerateImpl(this.result);
+class _$FormSuccessGenerateImpl extends FormSuccessGenerate {
+  const _$FormSuccessGenerateImpl(this.result) : super._();
 
   @override
   final ResultIaMessageCommit result;
@@ -1039,9 +998,7 @@ class _$FormSuccessGenerateImpl implements FormSuccessGenerate {
   @override
   int get hashCode => Object.hash(runtimeType, result);
 
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$FormSuccessGenerateImplCopyWith<_$FormSuccessGenerateImpl> get copyWith =>
@@ -1135,15 +1092,13 @@ class _$FormSuccessGenerateImpl implements FormSuccessGenerate {
   }
 }
 
-abstract class FormSuccessGenerate implements FormMessageCommitState {
+abstract class FormSuccessGenerate extends FormMessageCommitState {
   const factory FormSuccessGenerate(final ResultIaMessageCommit result) =
       _$FormSuccessGenerateImpl;
+  const FormSuccessGenerate._() : super._();
 
   ResultIaMessageCommit get result;
-
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$FormSuccessGenerateImplCopyWith<_$FormSuccessGenerateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1162,15 +1117,12 @@ class __$$FormSuccessEditImplCopyWithImpl<$Res>
   __$$FormSuccessEditImplCopyWithImpl(
       _$FormSuccessEditImpl _value, $Res Function(_$FormSuccessEditImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$FormSuccessEditImpl implements FormSuccessEdit {
-  const _$FormSuccessEditImpl();
+class _$FormSuccessEditImpl extends FormSuccessEdit {
+  const _$FormSuccessEditImpl() : super._();
 
   @override
   String toString() {
@@ -1273,8 +1225,9 @@ class _$FormSuccessEditImpl implements FormSuccessEdit {
   }
 }
 
-abstract class FormSuccessEdit implements FormMessageCommitState {
+abstract class FormSuccessEdit extends FormMessageCommitState {
   const factory FormSuccessEdit() = _$FormSuccessEditImpl;
+  const FormSuccessEdit._() : super._();
 }
 
 /// @nodoc
@@ -1291,15 +1244,12 @@ class __$$FormSuccessSaveImplCopyWithImpl<$Res>
   __$$FormSuccessSaveImplCopyWithImpl(
       _$FormSuccessSaveImpl _value, $Res Function(_$FormSuccessSaveImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$FormSuccessSaveImpl implements FormSuccessSave {
-  const _$FormSuccessSaveImpl();
+class _$FormSuccessSaveImpl extends FormSuccessSave {
+  const _$FormSuccessSaveImpl() : super._();
 
   @override
   String toString() {
@@ -1402,8 +1352,9 @@ class _$FormSuccessSaveImpl implements FormSuccessSave {
   }
 }
 
-abstract class FormSuccessSave implements FormMessageCommitState {
+abstract class FormSuccessSave extends FormMessageCommitState {
   const factory FormSuccessSave() = _$FormSuccessSaveImpl;
+  const FormSuccessSave._() : super._();
 }
 
 /// @nodoc
@@ -1423,8 +1374,6 @@ class __$$FormErrorImplCopyWithImpl<$Res>
       _$FormErrorImpl _value, $Res Function(_$FormErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1441,8 +1390,8 @@ class __$$FormErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FormErrorImpl implements FormError {
-  const _$FormErrorImpl(this.failure);
+class _$FormErrorImpl extends FormError {
+  const _$FormErrorImpl(this.failure) : super._();
 
   @override
   final CommitGeneratorFailure failure;
@@ -1463,9 +1412,7 @@ class _$FormErrorImpl implements FormError {
   @override
   int get hashCode => Object.hash(runtimeType, failure);
 
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$FormErrorImplCopyWith<_$FormErrorImpl> get copyWith =>
@@ -1558,15 +1505,13 @@ class _$FormErrorImpl implements FormError {
   }
 }
 
-abstract class FormError implements FormMessageCommitState {
+abstract class FormError extends FormMessageCommitState {
   const factory FormError(final CommitGeneratorFailure failure) =
       _$FormErrorImpl;
+  const FormError._() : super._();
 
   CommitGeneratorFailure get failure;
-
-  /// Create a copy of FormMessageCommitState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$FormErrorImplCopyWith<_$FormErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
