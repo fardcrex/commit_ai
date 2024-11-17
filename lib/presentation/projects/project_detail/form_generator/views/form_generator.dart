@@ -1,5 +1,6 @@
 import 'package:commit_ai/feature/commit_generator/domain/form_generator_commit.dart';
 import 'package:commit_ai/presentation/projects/project_detail/form_generator/bloc/form_message_commit_bloc.dart';
+import 'package:commit_ai/presentation/projects/project_detail/form_generator/widget/edit_form.dart';
 import 'package:commit_ai/presentation/projects/project_detail/form_generator/widget/tab_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,24 +21,15 @@ class FormGenerator extends StatefulWidget {
 }
 
 class _FormGeneratorState extends State<FormGenerator> {
-  bool isEditingDescription = false;
-
   String commitType = 'Let AI decide';
   final TextEditingController changeDescriptionController =
       TextEditingController();
 
   final TextEditingController gitDiffController = TextEditingController();
 
-  late String projectDescription;
   bool includeBody = false;
   ModeTab modeTab = ModeTab.description;
   bool includeFooter = false;
-
-  @override
-  void initState() {
-    projectDescription = widget.projectDescription;
-    super.initState();
-  }
 
   final List<String> commitTypes = [
     'Let AI decide',
@@ -69,7 +61,7 @@ class _FormGeneratorState extends State<FormGenerator> {
             commitType = commitTypes.first;
             changeDescriptionController.clear();
             gitDiffController.clear();
-            isEditingDescription = false;
+
             setState(() {});
           },
         );
@@ -92,90 +84,12 @@ class _FormGeneratorState extends State<FormGenerator> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Project Description Section
-                  Text(
-                    'Descripción del Proyecto',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.indigo[900],
-                    ),
+                  EditForm(
+                    projectDescription: widget.projectDescription,
+                    onDescriptionChanged: widget.onDescriptionChanged,
                   ),
-                  const SizedBox(height: 8),
-                  if (isEditingDescription)
-                    TextFormField(
-                      initialValue: widget.projectDescription,
-                      onChanged: (value) {
-                        projectDescription = value;
-                        setState(() {});
-                      },
-                      minLines: 2,
-                      maxLines: 4,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(color: Colors.indigo[300]!),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.indigo[500]!),
-                        ),
-                      ),
-                    )
-                  else
-                    Text(
-                      widget.projectDescription,
-                      style: TextStyle(color: Colors.grey[600]),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-
-                  const SizedBox(height: 8),
-                  if (isEditingDescription)
-                    Row(
-                      children: [
-                        TextButton.icon(
-                          onPressed: () {
-                            setState(() => isEditingDescription = false);
-                          },
-                          icon: Icon(Icons.cancel_outlined,
-                              color: Colors.red[600]),
-                          label: Text(
-                            'Cancelar',
-                            style: TextStyle(color: Colors.red[600]),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        TextButton.icon(
-                          style: TextButton.styleFrom(
-                            //  iconColor: Colors.indigo[600],
-                            textStyle: TextStyle(color: Colors.indigo[600]),
-                          ),
-                          onPressed: projectDescription ==
-                                  widget.projectDescription
-                              ? null
-                              : () {
-                                  setState(() => isEditingDescription = false);
-
-                                  widget
-                                      .onDescriptionChanged(projectDescription);
-                                },
-                          icon: const Icon(Icons.save),
-                          label: const Text('Guardar'),
-                        )
-                      ],
-                    )
-                  else
-                    TextButton.icon(
-                      onPressed: () {
-                        setState(() => isEditingDescription = true);
-                      },
-                      icon: Icon(Icons.edit, color: Colors.indigo[600]),
-                      label: Text(
-                        'Editar',
-                        style: TextStyle(color: Colors.indigo[600]),
-                      ),
-                    ),
-
                   const SizedBox(height: 16),
+                  // Tabs Section   const SizedBox(height: 16),
                   TabForms(
                       modeTab: modeTab,
                       changeDescriptionController: changeDescriptionController,
@@ -183,8 +97,6 @@ class _FormGeneratorState extends State<FormGenerator> {
                       onTapTab: (tab) {
                         setState(() => modeTab = tab);
                       }),
-
-                  // Tabs Section
 
                   const SizedBox(height: 16),
 
