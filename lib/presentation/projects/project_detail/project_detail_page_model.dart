@@ -1,4 +1,5 @@
 import 'package:commit_ai/feature/commit_generator/domain/message_commit_entity_dto.dart';
+import 'package:intl/intl.dart';
 
 class MessageCommitModel {
   final String title;
@@ -19,11 +20,13 @@ class MessageCommitModel {
 extension MessageCommitEntityDtoX on MessageCommitEntityDto {
   MessageCommitModel toModel() {
     final scopeText = scope.isEmpty ? '' : '($scope)';
+    final dateTime = DateTime.fromMillisecondsSinceEpoch(created);
+
     return MessageCommitModel(
       title: description,
       body: body,
       tag: '$type $scopeText',
-      timeDescription: DateTime.fromMillisecondsSinceEpoch(created).toString(),
+      timeDescription: DateFormat('dd/MM/yyyy HH:mm').format(dateTime),
       footer: footer,
     );
   }

@@ -132,14 +132,15 @@ class _FormGeneratorState extends State<FormGenerator> {
                   child: Column(
                     children: [
                       Container(
-                        width: 300,
+                        // width: 300,
                         decoration: BoxDecoration(
                           color: Colors.indigo[50],
-                          borderRadius: BorderRadius.circular(50),
+                          borderRadius: BorderRadius.circular(100),
                         ),
                         child: TabBar(
+                          splashBorderRadius: BorderRadius.circular(80),
                           indicator: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(80),
                             color: Colors.indigo[600],
                           ),
                           unselectedLabelColor: Colors.indigo[600],
@@ -151,7 +152,6 @@ class _FormGeneratorState extends State<FormGenerator> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(80),
                               ),
-                              width: 150,
                               child: const Text('Descripción'),
                             )),
                             Tab(
@@ -160,7 +160,6 @@ class _FormGeneratorState extends State<FormGenerator> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(80),
                               ),
-                              width: 150,
                               child: const Text('Git Diff'),
                             )),
                           ],

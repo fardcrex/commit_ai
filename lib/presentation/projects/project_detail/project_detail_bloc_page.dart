@@ -77,8 +77,3 @@ class ProjectDetailBlocPage extends StatelessWidget {
     );
   }
 }
-
-  /*      detailPageModel: ProjectDetailPageModel(
-                      description: 'Descripción del proyecto',
-                      title: 'Código de cambios',
-                    ),   */

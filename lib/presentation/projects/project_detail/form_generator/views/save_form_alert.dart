@@ -12,6 +12,7 @@ class SaveFormAlert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      scrollable: true,
       title: const Text('Mensaje generado'),
       content: Container(
         margin: const EdgeInsets.symmetric(horizontal: 6), // mb-4

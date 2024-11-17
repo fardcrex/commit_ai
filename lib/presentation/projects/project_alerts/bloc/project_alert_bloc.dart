@@ -39,15 +39,17 @@ class ProjectAlertBloc extends Bloc<ProjectAlertEvent, ProjectAlertState> {
       description: event.description,
     );
 
-    result.fold(
-      (failure) => emit(ProjectAlertState.error(failure.toString())),
-      (projectId) async {
-        await _saveMessageCommitUseCase.execute(
-            ResultIaMessageCommit.example(), projectId);
-
-        emit(const ProjectAlertState.success());
-      },
+    final (state, projectId) = result.fold(
+      (failure) => (ProjectAlertState.error(failure.toString()), null),
+      (projectId) => (const ProjectAlertState.success(), projectId),
     );
+
+    if (projectId != null) {
+      await _saveMessageCommitUseCase.execute(
+          ResultIaMessageCommit.example(), projectId);
+    }
+
+    emit(state);
   }
 
   Future<void> _onEditProject(

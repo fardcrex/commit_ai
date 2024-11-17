@@ -109,3 +109,7 @@ app.*.map.json
 !.idea/codeStyles/
 !.idea/dictionaries/
 !.idea/runConfigurations/
+
+android/app/google-services.json
+
+ios/Runner/GoogleService-Info.plist
