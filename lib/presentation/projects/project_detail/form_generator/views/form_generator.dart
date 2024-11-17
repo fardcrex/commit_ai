@@ -1,5 +1,6 @@
 import 'package:commit_ai/feature/commit_generator/domain/form_generator_commit.dart';
 import 'package:commit_ai/presentation/projects/project_detail/form_generator/bloc/form_message_commit_bloc.dart';
+import 'package:commit_ai/presentation/projects/project_detail/form_generator/widget/tab_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,6 +30,7 @@ class _FormGeneratorState extends State<FormGenerator> {
 
   late String projectDescription;
   bool includeBody = false;
+  ModeTab modeTab = ModeTab.description;
   bool includeFooter = false;
 
   @override
@@ -172,90 +174,17 @@ class _FormGeneratorState extends State<FormGenerator> {
                         style: TextStyle(color: Colors.indigo[600]),
                       ),
                     ),
+
                   const SizedBox(height: 16),
+                  TabForms(
+                      modeTab: modeTab,
+                      changeDescriptionController: changeDescriptionController,
+                      gitDiffController: gitDiffController,
+                      onTapTab: (tab) {
+                        setState(() => modeTab = tab);
+                      }),
 
                   // Tabs Section
-                  DefaultTabController(
-                    length: 2,
-                    child: Column(
-                      children: [
-                        Container(
-                          // width: 300,
-                          decoration: BoxDecoration(
-                            color: Colors.indigo[50],
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                          child: TabBar(
-                            splashBorderRadius: BorderRadius.circular(80),
-                            indicator: BoxDecoration(
-                              borderRadius: BorderRadius.circular(80),
-                              color: Colors.indigo[600],
-                            ),
-                            unselectedLabelColor: Colors.indigo[600],
-                            labelColor: Colors.white,
-                            tabs: [
-                              Tab(
-                                  child: Container(
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(80),
-                                ),
-                                child: const Text('Descripción'),
-                              )),
-                              Tab(
-                                  child: Container(
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(80),
-                                ),
-                                child: const Text('Git Diff'),
-                              )),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 250,
-                          child: TabBarView(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: TextFormField(
-                                  minLines: 5,
-                                  controller: changeDescriptionController,
-                                  maxLines: 12,
-                                  decoration: InputDecoration(
-                                    hintText:
-                                        'Describe los cambios que has realizado...',
-                                    border: const OutlineInputBorder(),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Colors.indigo[500]!),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: TextFormField(
-                                  controller: gitDiffController,
-                                  minLines: 6,
-                                  maxLines: 30,
-                                  decoration: InputDecoration(
-                                    hintText: 'Pega tu git diff aquí...',
-                                    border: const OutlineInputBorder(),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Colors.indigo[500]!),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
 
                   const SizedBox(height: 16),
 
@@ -268,6 +197,7 @@ class _FormGeneratorState extends State<FormGenerator> {
                       color: Colors.indigo[900],
                     ),
                   ),
+                  const SizedBox(height: 8),
                   DropdownButtonFormField<String>(
                     value: commitType,
                     onChanged: (value) {
