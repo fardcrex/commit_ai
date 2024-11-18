@@ -15,41 +15,38 @@ class HistoryCommitSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mainColor = Theme.of(context).primaryColor;
-    return Expanded(
-      flex: 2,
-      child: Column(
-        children: [
-          if (showTitle)
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                'Historial de Commits',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: mainColor,
-                  fontWeight: FontWeight.w600,
-                ),
+    return Column(
+      children: [
+        if (showTitle)
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text(
+              'Historial de Commits',
+              style: TextStyle(
+                fontSize: 18,
+                color: mainColor,
+                fontWeight: FontWeight.w600,
               ),
             ),
-          Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              itemCount: commits.length,
-              itemBuilder: (context, index) {
-                return MessageCommitCard(
-                    message: commits[index].toModel(),
-                    onDelete: () {
-                      context.read<ProjectDetailBloc>().add(
-                            ProjectDetailEvent.deleteMessage(
-                              commits[index].id,
-                            ),
-                          );
-                    });
-              },
-            ),
           ),
-        ],
-      ),
+        Expanded(
+          child: ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            itemCount: commits.length,
+            itemBuilder: (context, index) {
+              return MessageCommitCard(
+                  message: commits[index].toModel(),
+                  onDelete: () {
+                    context.read<ProjectDetailBloc>().add(
+                          ProjectDetailEvent.deleteMessage(
+                            commits[index].id,
+                          ),
+                        );
+                  });
+            },
+          ),
+        ),
+      ],
     );
   }
 }

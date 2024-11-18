@@ -100,7 +100,10 @@ class _LandScapeQueryState extends State<_LandScapeQuery> {
 
     final children = widget.buildChildren(isLandScape);
     return isLandScape
-        ? Row(children: children)
+        ? Row(children: [
+            Expanded(flex: 2, child: children.first),
+            Expanded(flex: 3, child: children.last),
+          ])
         : Column(children: [
             Center(
               child: Container(
@@ -116,26 +119,23 @@ class _LandScapeQueryState extends State<_LandScapeQuery> {
                     TabForm(
                       isActivated: _tabView == TabView.history,
                       text: 'Historial',
-                      onTap: () {
-                        setState(() {
-                          _tabView = TabView.history;
-                        });
-                      },
+                      onTap: () => setState(() => _tabView = TabView.history),
                     ),
                     TabForm(
                       isActivated: _tabView == TabView.generator,
                       text: 'Generador',
-                      onTap: () {
-                        setState(() {
-                          _tabView = TabView.generator;
-                        });
-                      },
+                      onTap: () => setState(() => _tabView = TabView.generator),
                     ),
                   ],
                 ),
               ),
             ),
-            children[_tabView.index],
+            Expanded(
+              child: IndexedStack(
+                index: _tabView.index,
+                children: children,
+              ),
+            )
           ]);
   }
 }

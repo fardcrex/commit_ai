@@ -107,6 +107,7 @@ class CustomForm extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: TextFormField(
+        onTapOutside: (event) => FocusScope.of(context).unfocus(),
         controller: controller,
         minLines: minLines,
         maxLines: maxLines,
