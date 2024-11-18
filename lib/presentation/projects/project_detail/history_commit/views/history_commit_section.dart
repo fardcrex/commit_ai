@@ -7,25 +7,30 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HistoryCommitSection extends StatelessWidget {
   final List<MessageCommitEntityDto> commits;
-  const HistoryCommitSection({required this.commits, super.key});
+  final bool showTitle;
+
+  const HistoryCommitSection(
+      {required this.commits, required this.showTitle, super.key});
 
   @override
   Widget build(BuildContext context) {
     final mainColor = Theme.of(context).primaryColor;
     return Expanded(
+      flex: 2,
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Text(
-              'Historial de Commits',
-              style: TextStyle(
-                fontSize: 18,
-                color: mainColor,
-                fontWeight: FontWeight.w600,
+          if (showTitle)
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(
+                'Historial de Commits',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: mainColor,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-          ),
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 16),

@@ -4,6 +4,7 @@ import 'package:commit_ai/feature/commit_generator/application/get_history_commi
 import 'package:commit_ai/feature/projects/application/get_project_detail_use_case.dart';
 import 'package:commit_ai/presentation/projects/project_detail/bloc/project_detail_bloc_bloc.dart';
 import 'package:commit_ai/presentation/projects/project_detail/form_generator/form_generator_bloc_section.dart';
+import 'package:commit_ai/presentation/projects/project_detail/form_generator/widget/tab_form.dart';
 import 'package:commit_ai/presentation/projects/project_detail/history_commit/views/history_commit_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,9 +61,10 @@ class ProjectDetailBlocPage extends StatelessWidget {
                             fontWeight: FontWeight.bold)),
                   ),
                   Expanded(
-                    child: Row(
-                      children: [
+                    child: _LandScapeQuery(
+                      buildChildren: (isLandScape) => [
                         HistoryCommitSection(
+                            showTitle: isLandScape,
                             commits: projectDetail.historyCommit),
                         FormGeneratorProvidersSection(
                             project: projectDetail.project),
@@ -76,4 +78,69 @@ class ProjectDetailBlocPage extends StatelessWidget {
       },
     );
   }
+}
+
+class _LandScapeQuery extends StatefulWidget {
+  // ignore: avoid_positional_boolean_parameters
+  final List<Widget> Function(bool isLandScape) buildChildren;
+
+  const _LandScapeQuery({required this.buildChildren});
+
+  @override
+  State<_LandScapeQuery> createState() => _LandScapeQueryState();
+}
+
+class _LandScapeQueryState extends State<_LandScapeQuery> {
+  TabView _tabView = TabView.history;
+
+  @override
+  Widget build(BuildContext context) {
+    final isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
+    final children = widget.buildChildren(isLandScape);
+    return isLandScape
+        ? Row(children: children)
+        : Column(children: [
+            Center(
+              child: Container(
+                padding: const EdgeInsets.all(4),
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.indigo[50],
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TabForm(
+                      isActivated: _tabView == TabView.history,
+                      text: 'Historial',
+                      onTap: () {
+                        setState(() {
+                          _tabView = TabView.history;
+                        });
+                      },
+                    ),
+                    TabForm(
+                      isActivated: _tabView == TabView.generator,
+                      text: 'Generador',
+                      onTap: () {
+                        setState(() {
+                          _tabView = TabView.generator;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            children[_tabView.index],
+          ]);
+  }
+}
+
+enum TabView {
+  history,
+  generator,
 }

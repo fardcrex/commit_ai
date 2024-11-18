@@ -47,7 +47,7 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8), // mb-4
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8), // mb-4
       constraints: const BoxConstraints(maxWidth: 448), // max-w-md
       padding: const EdgeInsets.all(16), // p-6
       decoration: BoxDecoration(

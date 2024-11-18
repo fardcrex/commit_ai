@@ -27,8 +27,8 @@ dependencies:
   rxdart: ^0.28.0
   fpdart: ^1.1.1
   git: ^2.3.0
-  firebase_core: ^3.6.0
-  firebase_vertexai: ^0.2.3+4
+  firebase_core: ^3.5.0
+  firebase_vertexai: ^1.0.3
 
   sembast: ^3.7.3
   sembast_web: ^2.4.0+2

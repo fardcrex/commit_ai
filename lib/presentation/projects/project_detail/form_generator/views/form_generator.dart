@@ -67,7 +67,7 @@ class _FormGeneratorState extends State<FormGenerator> {
         );
       },
       child: Expanded(
-        flex: 2,
+        flex: 3,
         child: Container(
           color: const Color(0xFFDDE9FF),
           padding: const EdgeInsets.all(32),
@@ -80,8 +80,8 @@ class _FormGeneratorState extends State<FormGenerator> {
             ),
             child: Padding(
               padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: ListView(
+                //  crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Project Description Section
                   EditForm(
