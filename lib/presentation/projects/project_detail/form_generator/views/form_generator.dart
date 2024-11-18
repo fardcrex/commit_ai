@@ -78,80 +78,85 @@ class _FormGeneratorState extends State<FormGenerator> {
           ),
           child: Padding(
             padding: const EdgeInsets.all(20),
-            child: ListView(
-              //  crossAxisAlignment: CrossAxisAlignment.start,
+            child: Column(
               children: [
-                // Project Description Section
-                EditForm(
-                  projectDescription: widget.projectDescription,
-                  onDescriptionChanged: widget.onDescriptionChanged,
-                ),
-                const SizedBox(height: 16),
-                // Tabs Section   const SizedBox(height: 16),
-                TabForms(
-                    modeTab: modeTab,
-                    changeDescriptionController: changeDescriptionController,
-                    gitDiffController: gitDiffController,
-                    onTapTab: (tab) {
-                      setState(() => modeTab = tab);
-                    }),
+                Expanded(
+                  child: ListView(
+                    //  crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Project Description Section
+                      EditForm(
+                        projectDescription: widget.projectDescription,
+                        onDescriptionChanged: widget.onDescriptionChanged,
+                      ),
+                      const SizedBox(height: 16),
+                      // Tabs Section   const SizedBox(height: 16),
+                      TabForms(
+                          modeTab: modeTab,
+                          changeDescriptionController:
+                              changeDescriptionController,
+                          gitDiffController: gitDiffController,
+                          onTapTab: (tab) {
+                            setState(() => modeTab = tab);
+                          }),
 
-                const SizedBox(height: 16),
+                      const SizedBox(height: 16),
 
-                // Commit Type Section
-                Text(
-                  'Tipo de Commit',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.indigo[900],
+                      // Commit Type Section
+                      Text(
+                        'Tipo de Commit',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.indigo[900],
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      DropdownButtonFormField<String>(
+                        value: commitType,
+                        onChanged: (value) {
+                          setState(() => commitType = value!);
+                        },
+                        items: commitTypes.map((String type) {
+                          return DropdownMenuItem<String>(
+                            value: type,
+                            child: Text(type),
+                          );
+                        }).toList(),
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.indigo[300]!),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.indigo[500]!),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+
+                      // Include Body and Footer Switches
+                      SwitchListTile(
+                        title: const Text('Incluir Cuerpo'),
+                        value: includeBody,
+                        activeColor: Colors.indigo[600],
+                        onChanged: (bool value) {
+                          setState(() {
+                            includeBody = value;
+                          });
+                        },
+                      ),
+                      SwitchListTile(
+                        title: const Text('Incluir Pie'),
+                        value: includeFooter,
+                        activeColor: Colors.indigo[600],
+                        onChanged: (bool value) {
+                          setState(() => includeFooter = value);
+                        },
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 8),
-                DropdownButtonFormField<String>(
-                  value: commitType,
-                  onChanged: (value) {
-                    setState(() => commitType = value!);
-                  },
-                  items: commitTypes.map((String type) {
-                    return DropdownMenuItem<String>(
-                      value: type,
-                      child: Text(type),
-                    );
-                  }).toList(),
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: Colors.indigo[300]!),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.indigo[500]!),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-
-                // Include Body and Footer Switches
-                SwitchListTile(
-                  title: const Text('Incluir Cuerpo'),
-                  value: includeBody,
-                  activeColor: Colors.indigo[600],
-                  onChanged: (bool value) {
-                    setState(() {
-                      includeBody = value;
-                    });
-                  },
-                ),
-                SwitchListTile(
-                  title: const Text('Incluir Pie'),
-                  value: includeFooter,
-                  activeColor: Colors.indigo[600],
-                  onChanged: (bool value) {
-                    setState(() => includeFooter = value);
-                  },
-                ),
-
-                const Spacer(),
 
                 // Generate Button
                 SizedBox(
