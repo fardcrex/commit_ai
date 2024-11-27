@@ -705,10 +705,10 @@ packages:
     dependency: "direct main"
     description:
       name: sembast
-      sha256: dc42f8384edc2bc0c11c90856fa62630ad2a75d8a37c786e000517bd8298682d
+      sha256: b20afd98c44bfc272d57a82cb191fbb728875c95e06c973149666f27d81d6afd
       url: "https://pub.dev"
     source: hosted
-    version: "3.7.5"
+    version: "3.8.0"
   sembast_web:
     dependency: "direct main"
     description:
