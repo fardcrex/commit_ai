@@ -46,7 +46,10 @@ class TabForms extends StatelessWidget {
             ),
             if (loadGitDiff != null)
               OutlinedButton.icon(
-                onPressed: loadGitDiff,
+                onPressed: () {
+                  loadGitDiff!();
+                  onTapTab(ModeTab.gitDiff);
+                },
                 style: OutlinedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -65,15 +68,22 @@ class TabForms extends StatelessWidget {
           ModeTab.description => CustomForm(
               controller: changeDescriptionController,
               minLines: 5,
-              maxLines: 12,
+              maxLines: 8,
               hintText: 'Describe los cambios que has realizado...',
             ),
-          ModeTab.gitDiff => CustomForm(
-              controller: gitDiffController,
-              minLines: 5,
-              maxLines: 30,
-              hintText: 'Pega tu git diff aquí...',
-            ),
+          ModeTab.gitDiff => Builder(builder: (context) {
+              final windowHeight = MediaQuery.of(context).size.height;
+              final maxLines = (windowHeight / 60)
+                  .round()
+                  .clamp(10, double.infinity)
+                  .toInt();
+              return CustomForm(
+                controller: gitDiffController,
+                minLines: 5,
+                maxLines: maxLines,
+                hintText: 'Pega tu git diff aquí...',
+              );
+            }),
         }
       ],
     );

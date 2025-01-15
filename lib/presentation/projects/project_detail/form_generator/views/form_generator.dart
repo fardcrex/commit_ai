@@ -106,7 +106,9 @@ class _FormGeneratorState extends State<FormGenerator> {
                                 final gitDiff =
                                     await ejecutarGitDiff(widget.projectPath!);
 
-                                gitDiffController.text = gitDiff;
+                                setState(() {
+                                  gitDiffController.text = gitDiff;
+                                });
                               },
                         modeTab: modeTab,
                         changeDescriptionController:
@@ -187,22 +189,8 @@ class _FormGeneratorState extends State<FormGenerator> {
                     return isLoading
                         ? const Center(child: CircularProgressIndicator())
                         : ElevatedButton(
-                            onPressed: () {
-                              context.read<FormMessageCommitBloc>().add(
-                                    GenerateMessageCommit(
-                                      FormGeneratorCommit(
-                                        projectDescription:
-                                            widget.projectDescription,
-                                        changeDescription:
-                                            changeDescriptionController.text,
-                                        type: commitType,
-                                        includeBody: includeBody,
-                                        includeFooter: includeFooter,
-                                        gitDiff: gitDiffController.text,
-                                      ),
-                                    ),
-                                  );
-                            },
+                            onPressed:
+                                isFormValid ? onGenerateMessageCommit : null,
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.indigo[600],
                               foregroundColor: Colors.white,
@@ -220,5 +208,24 @@ class _FormGeneratorState extends State<FormGenerator> {
         ),
       ),
     );
+  }
+
+  bool get isFormValid =>
+      changeDescriptionController.text.isNotEmpty ||
+      gitDiffController.text.isNotEmpty;
+
+  void onGenerateMessageCommit() {
+    context.read<FormMessageCommitBloc>().add(
+          GenerateMessageCommit(
+            FormGeneratorCommit(
+              projectDescription: widget.projectDescription,
+              changeDescription: changeDescriptionController.text,
+              type: commitType,
+              includeBody: includeBody,
+              includeFooter: includeFooter,
+              gitDiff: gitDiffController.text,
+            ),
+          ),
+        );
   }
 }
