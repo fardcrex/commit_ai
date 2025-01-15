@@ -7,7 +7,7 @@ class EditProjectUseCase {
 
   final RespondGetDateTime _respondGetDateTime;
 
-  EditProjectUseCase(this._projectRepository, this._respondGetDateTime);
+  const EditProjectUseCase(this._projectRepository, this._respondGetDateTime);
 
   Future<void> execute(ProjectEntityDto project) async {
     final lastModified = _respondGetDateTime().millisecondsSinceEpoch;

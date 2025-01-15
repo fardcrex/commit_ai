@@ -4,7 +4,7 @@ import 'package:commit_ai/feature/commit_generator/domain/interface_generate_mes
 class GenerateMessageCommitUseCase {
   final IGenerateMessageCommitRepository _generateMessageCommitRepository;
 
-  GenerateMessageCommitUseCase(this._generateMessageCommitRepository);
+  const GenerateMessageCommitUseCase(this._generateMessageCommitRepository);
 
   Future<ResultGenerateMessageCommit> execute(
     FormGeneratorCommit formGeneratorCommit,

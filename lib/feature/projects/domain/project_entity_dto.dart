@@ -6,6 +6,7 @@ part 'project_entity_dto.g.dart';
 @freezed
 class ProjectEntityDto with _$ProjectEntityDto {
   static const lastModifiedKey = 'lastModified';
+  static const commitsKey = 'commits';
 
   factory ProjectEntityDto({
     required String id,

@@ -16,6 +16,7 @@ class FormMessageCommitBloc
   final GenerateMessageCommitUseCase _generateMessageCommitUseCase;
   final SaveMessageCommitUseCase _saveMessageCommitUseCase;
   final EditProjectUseCase _editProjectUseCase;
+
   FormMessageCommitBloc(
     this._generateMessageCommitUseCase,
     this._editProjectUseCase,
