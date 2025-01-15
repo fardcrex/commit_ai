@@ -38,14 +38,13 @@ class DevelopmentRepositoriesFactory implements RepositoriesFactory {
     final sembast = await SembastDB.getInstance();
     final projectRepository = SembastProjectRepository(sembast);
     final messageCommitRepository = SembastMessageCommitRepository(sembast);
-    final generateMessageCommitRepository =
-        GeminiGenerateMessageCommitRepository();
+    final generateCommitRepository = GeminiGenerateMessageCommitRepository();
 
     return RepositoriesInjection(
       projectRepository,
       DateTime.now,
       messageCommitRepository,
-      generateMessageCommitRepository,
+      generateCommitRepository,
     );
   }
 }
