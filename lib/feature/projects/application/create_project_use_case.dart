@@ -10,10 +10,12 @@ class CreateProjectUseCase {
   Future<Either<ProjectFailure, String>> execute({
     required String title,
     required String description,
+    required String? path,
   }) async {
     return _projectRepository.createProject(
       title: title,
       description: description,
+      path: path,
     );
   }
 }

@@ -26,11 +26,12 @@ class ProjectCreateAlert extends StatelessWidget {
           mainButtonLabel: 'Crear',
           formTitle: 'Crear Proyecto',
           formDescription: 'Formulario de creación de proyecto',
-          onSendData: (name, description) {
+          onSendData: (name, description, path) {
             context.read<ProjectAlertBloc>().add(
                   ProjectAlertEvent.createProject(
                     name: name,
                     description: description,
+                    path: path,
                   ),
                 );
             Navigator.of(context).pop();

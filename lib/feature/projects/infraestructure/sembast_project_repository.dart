@@ -13,6 +13,7 @@ class SembastProjectRepository implements IProjectRepository {
   Future<Either<ProjectFailure, String>> createProject({
     required String title,
     required String description,
+    required String? path,
   }) async {
     final created = DateTime.now().millisecondsSinceEpoch;
 
@@ -23,6 +24,7 @@ class SembastProjectRepository implements IProjectRepository {
       commits: 0,
       created: created,
       lastModified: created,
+      path: path,
     );
 
     final result = await _instance.projectStore.add(

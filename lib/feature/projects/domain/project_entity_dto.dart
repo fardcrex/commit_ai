@@ -11,6 +11,7 @@ class ProjectEntityDto with _$ProjectEntityDto {
     required String id,
     required String name,
     required String description,
+    required String? path,
     required int commits,
     required int lastModified,
     required int created,

@@ -56,7 +56,7 @@ class _SettingsPageState extends State<SettingsPage> {
         ElevatedButton(
             onPressed: () async {
               code = await ejecutarGitDiff(
-                  '/Users/jairconislla/Documents/utp/commit_ai');
+                  'C:/Users/Jacobo/Documents/utp/ia/commit_ai/');
 
               setState(() {});
             },

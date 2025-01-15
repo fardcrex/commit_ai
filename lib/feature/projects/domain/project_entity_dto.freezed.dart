@@ -23,6 +23,7 @@ mixin _$ProjectEntityDto {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  String? get path => throw _privateConstructorUsedError;
   int get commits => throw _privateConstructorUsedError;
   int get lastModified => throw _privateConstructorUsedError;
   int get created => throw _privateConstructorUsedError;
@@ -43,6 +44,7 @@ abstract class $ProjectEntityDtoCopyWith<$Res> {
       {String id,
       String name,
       String description,
+      String? path,
       int commits,
       int lastModified,
       int created});
@@ -64,6 +66,7 @@ class _$ProjectEntityDtoCopyWithImpl<$Res, $Val extends ProjectEntityDto>
     Object? id = null,
     Object? name = null,
     Object? description = null,
+    Object? path = freezed,
     Object? commits = null,
     Object? lastModified = null,
     Object? created = null,
@@ -81,6 +84,10 @@ class _$ProjectEntityDtoCopyWithImpl<$Res, $Val extends ProjectEntityDto>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      path: freezed == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String?,
       commits: null == commits
           ? _value.commits
           : commits // ignore: cast_nullable_to_non_nullable
@@ -109,6 +116,7 @@ abstract class _$$ProjectEntityDtoImplCopyWith<$Res>
       {String id,
       String name,
       String description,
+      String? path,
       int commits,
       int lastModified,
       int created});
@@ -128,6 +136,7 @@ class __$$ProjectEntityDtoImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? description = null,
+    Object? path = freezed,
     Object? commits = null,
     Object? lastModified = null,
     Object? created = null,
@@ -145,6 +154,10 @@ class __$$ProjectEntityDtoImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      path: freezed == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String?,
       commits: null == commits
           ? _value.commits
           : commits // ignore: cast_nullable_to_non_nullable
@@ -168,6 +181,7 @@ class _$ProjectEntityDtoImpl extends _ProjectEntityDto {
       {required this.id,
       required this.name,
       required this.description,
+      required this.path,
       required this.commits,
       required this.lastModified,
       required this.created})
@@ -183,6 +197,8 @@ class _$ProjectEntityDtoImpl extends _ProjectEntityDto {
   @override
   final String description;
   @override
+  final String? path;
+  @override
   final int commits;
   @override
   final int lastModified;
@@ -191,7 +207,7 @@ class _$ProjectEntityDtoImpl extends _ProjectEntityDto {
 
   @override
   String toString() {
-    return 'ProjectEntityDto(id: $id, name: $name, description: $description, commits: $commits, lastModified: $lastModified, created: $created)';
+    return 'ProjectEntityDto(id: $id, name: $name, description: $description, path: $path, commits: $commits, lastModified: $lastModified, created: $created)';
   }
 
   @override
@@ -203,6 +219,7 @@ class _$ProjectEntityDtoImpl extends _ProjectEntityDto {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.path, path) || other.path == path) &&
             (identical(other.commits, commits) || other.commits == commits) &&
             (identical(other.lastModified, lastModified) ||
                 other.lastModified == lastModified) &&
@@ -212,7 +229,7 @@ class _$ProjectEntityDtoImpl extends _ProjectEntityDto {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, name, description, commits, lastModified, created);
+      runtimeType, id, name, description, path, commits, lastModified, created);
 
   @JsonKey(ignore: true)
   @override
@@ -234,6 +251,7 @@ abstract class _ProjectEntityDto extends ProjectEntityDto {
       {required final String id,
       required final String name,
       required final String description,
+      required final String? path,
       required final int commits,
       required final int lastModified,
       required final int created}) = _$ProjectEntityDtoImpl;
@@ -248,6 +266,8 @@ abstract class _ProjectEntityDto extends ProjectEntityDto {
   String get name;
   @override
   String get description;
+  @override
+  String? get path;
   @override
   int get commits;
   @override

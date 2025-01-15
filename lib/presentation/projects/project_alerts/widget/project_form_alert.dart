@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ProjectFormAlert extends StatefulWidget {
-  final void Function(String name, String description) onSendData;
+  final void Function(String name, String description, String? path) onSendData;
 
   final String? initialName;
 
   final String? initialDescription;
+
+  final String? initialPathProject;
 
   final String formTitle;
 
@@ -20,6 +22,7 @@ class ProjectFormAlert extends StatefulWidget {
       required this.formTitle,
       required this.formDescription,
       required this.mainButtonLabel,
+      this.initialPathProject,
       this.initialName,
       this.initialDescription,
       this.hasContent = true,
@@ -32,6 +35,7 @@ class ProjectFormAlert extends StatefulWidget {
 class _ProjectFormAlertState extends State<ProjectFormAlert> {
   final nameController = TextEditingController();
   final descriptionController = TextEditingController();
+  final pathProjectController = TextEditingController();
 
   bool get isFormValid =>
       (nameController.text.isNotEmpty &&
@@ -42,6 +46,7 @@ class _ProjectFormAlertState extends State<ProjectFormAlert> {
   void initState() {
     nameController.text = widget.initialName ?? '';
     descriptionController.text = widget.initialDescription ?? '';
+    pathProjectController.text = widget.initialPathProject ?? '';
     super.initState();
   }
 
@@ -66,12 +71,22 @@ class _ProjectFormAlertState extends State<ProjectFormAlert> {
                   onChanged: (_) => setState(() {}),
                   decoration: const InputDecoration(labelText: 'Nombre'),
                 ),
+                const SizedBox(height: 20),
                 TextField(
                   controller: descriptionController,
                   minLines: 2,
                   maxLines: 4,
                   onChanged: (_) => setState(() {}),
                   decoration: const InputDecoration(labelText: 'Descripción'),
+                ),
+                const SizedBox(height: 20),
+                TextField(
+                  controller: pathProjectController,
+                  minLines: 1,
+                  maxLines: 2,
+                  onChanged: (_) => setState(() {}),
+                  decoration: const InputDecoration(
+                      labelText: 'Ruta del proyecto (opcional)'),
                 ),
               ],
             )
@@ -84,7 +99,12 @@ class _ProjectFormAlertState extends State<ProjectFormAlert> {
         TextButton(
           onPressed: isFormValid
               ? () => widget.onSendData(
-                  nameController.text, descriptionController.text)
+                    nameController.text,
+                    descriptionController.text,
+                    pathProjectController.text.isNotEmpty
+                        ? pathProjectController.text
+                        : null,
+                  )
               : null,
           child: Text(widget.mainButtonLabel),
         ),

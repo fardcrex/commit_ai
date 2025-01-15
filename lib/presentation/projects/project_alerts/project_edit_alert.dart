@@ -29,9 +29,10 @@ class ProjectEditAlert extends StatelessWidget {
           formDescription: 'Formulario de configuración de proyecto',
           initialDescription: project.description,
           initialName: project.name,
-          onSendData: (name, description) {
-            final projectUpdated =
-                project.copyWith(name: name, description: description);
+          initialPathProject: project.path,
+          onSendData: (name, description, path) {
+            final projectUpdated = project.copyWith(
+                name: name, description: description, path: path);
 
             context
                 .read<ProjectAlertBloc>()

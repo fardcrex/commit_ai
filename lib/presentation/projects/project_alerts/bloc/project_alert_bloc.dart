@@ -37,6 +37,7 @@ class ProjectAlertBloc extends Bloc<ProjectAlertEvent, ProjectAlertState> {
     final result = await _createProjectUseCase.execute(
       title: event.name,
       description: event.description,
+      path: event.path,
     );
 
     final (state, projectId) = result.fold(

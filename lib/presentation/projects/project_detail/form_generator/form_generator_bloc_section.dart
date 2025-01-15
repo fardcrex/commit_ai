@@ -73,6 +73,7 @@ class FormGeneratorBlocSection extends StatelessWidget {
       },
       child: FormGenerator(
         projectDescription: project.description,
+        projectPath: project.path,
         onDescriptionChanged: (newDescription) {
           context.read<FormMessageCommitBloc>().add(
                 EditProject(project.copyWith(description: newDescription)),

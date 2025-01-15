@@ -18,21 +18,24 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProjectAlertEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description) createProject,
+    required TResult Function(String name, String description, String? path)
+        createProject,
     required TResult Function(ProjectEntityDto project) updateProject,
     required TResult Function(ProjectEntityDto project) deleteProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description)? createProject,
+    TResult? Function(String name, String description, String? path)?
+        createProject,
     TResult? Function(ProjectEntityDto project)? updateProject,
     TResult? Function(ProjectEntityDto project)? deleteProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description)? createProject,
+    TResult Function(String name, String description, String? path)?
+        createProject,
     TResult Function(ProjectEntityDto project)? updateProject,
     TResult Function(ProjectEntityDto project)? deleteProject,
     required TResult orElse(),
@@ -86,7 +89,7 @@ abstract class _$$CreateProjectImplCopyWith<$Res> {
           _$CreateProjectImpl value, $Res Function(_$CreateProjectImpl) then) =
       __$$CreateProjectImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String name, String description});
+  $Res call({String name, String description, String? path});
 }
 
 /// @nodoc
@@ -102,6 +105,7 @@ class __$$CreateProjectImplCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? description = null,
+    Object? path = freezed,
   }) {
     return _then(_$CreateProjectImpl(
       name: null == name
@@ -112,6 +116,10 @@ class __$$CreateProjectImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      path: freezed == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -119,16 +127,19 @@ class __$$CreateProjectImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CreateProjectImpl implements _CreateProject {
-  const _$CreateProjectImpl({required this.name, required this.description});
+  const _$CreateProjectImpl(
+      {required this.name, required this.description, required this.path});
 
   @override
   final String name;
   @override
   final String description;
+  @override
+  final String? path;
 
   @override
   String toString() {
-    return 'ProjectAlertEvent.createProject(name: $name, description: $description)';
+    return 'ProjectAlertEvent.createProject(name: $name, description: $description, path: $path)';
   }
 
   @override
@@ -138,11 +149,12 @@ class _$CreateProjectImpl implements _CreateProject {
             other is _$CreateProjectImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.path, path) || other.path == path));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, description);
+  int get hashCode => Object.hash(runtimeType, name, description, path);
 
   @JsonKey(ignore: true)
   @override
@@ -153,33 +165,36 @@ class _$CreateProjectImpl implements _CreateProject {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description) createProject,
+    required TResult Function(String name, String description, String? path)
+        createProject,
     required TResult Function(ProjectEntityDto project) updateProject,
     required TResult Function(ProjectEntityDto project) deleteProject,
   }) {
-    return createProject(name, description);
+    return createProject(name, description, path);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description)? createProject,
+    TResult? Function(String name, String description, String? path)?
+        createProject,
     TResult? Function(ProjectEntityDto project)? updateProject,
     TResult? Function(ProjectEntityDto project)? deleteProject,
   }) {
-    return createProject?.call(name, description);
+    return createProject?.call(name, description, path);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description)? createProject,
+    TResult Function(String name, String description, String? path)?
+        createProject,
     TResult Function(ProjectEntityDto project)? updateProject,
     TResult Function(ProjectEntityDto project)? deleteProject,
     required TResult orElse(),
   }) {
     if (createProject != null) {
-      return createProject(name, description);
+      return createProject(name, description, path);
     }
     return orElse();
   }
@@ -222,10 +237,12 @@ class _$CreateProjectImpl implements _CreateProject {
 abstract class _CreateProject implements ProjectAlertEvent {
   const factory _CreateProject(
       {required final String name,
-      required final String description}) = _$CreateProjectImpl;
+      required final String description,
+      required final String? path}) = _$CreateProjectImpl;
 
   String get name;
   String get description;
+  String? get path;
   @JsonKey(ignore: true)
   _$$CreateProjectImplCopyWith<_$CreateProjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -305,7 +322,8 @@ class _$UpdateProjectImpl implements _UpdateProject {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description) createProject,
+    required TResult Function(String name, String description, String? path)
+        createProject,
     required TResult Function(ProjectEntityDto project) updateProject,
     required TResult Function(ProjectEntityDto project) deleteProject,
   }) {
@@ -315,7 +333,8 @@ class _$UpdateProjectImpl implements _UpdateProject {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description)? createProject,
+    TResult? Function(String name, String description, String? path)?
+        createProject,
     TResult? Function(ProjectEntityDto project)? updateProject,
     TResult? Function(ProjectEntityDto project)? deleteProject,
   }) {
@@ -325,7 +344,8 @@ class _$UpdateProjectImpl implements _UpdateProject {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description)? createProject,
+    TResult Function(String name, String description, String? path)?
+        createProject,
     TResult Function(ProjectEntityDto project)? updateProject,
     TResult Function(ProjectEntityDto project)? deleteProject,
     required TResult orElse(),
@@ -455,7 +475,8 @@ class _$DeleteProjectImpl implements _DeleteProject {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String name, String description) createProject,
+    required TResult Function(String name, String description, String? path)
+        createProject,
     required TResult Function(ProjectEntityDto project) updateProject,
     required TResult Function(ProjectEntityDto project) deleteProject,
   }) {
@@ -465,7 +486,8 @@ class _$DeleteProjectImpl implements _DeleteProject {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name, String description)? createProject,
+    TResult? Function(String name, String description, String? path)?
+        createProject,
     TResult? Function(ProjectEntityDto project)? updateProject,
     TResult? Function(ProjectEntityDto project)? deleteProject,
   }) {
@@ -475,7 +497,8 @@ class _$DeleteProjectImpl implements _DeleteProject {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name, String description)? createProject,
+    TResult Function(String name, String description, String? path)?
+        createProject,
     TResult Function(ProjectEntityDto project)? updateProject,
     TResult Function(ProjectEntityDto project)? deleteProject,
     required TResult orElse(),

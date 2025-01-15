@@ -62,7 +62,7 @@ class ProjectCard extends StatelessWidget {
                       PopupMenuItem(
                         value: 'settings',
                         onTap: onTappedEdit,
-                        child: const Text('Configuración del proyecto'),
+                        child: const Text('Editar del proyecto'),
                       ),
                       PopupMenuItem(
                         value: 'delete',

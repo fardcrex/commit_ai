@@ -10,6 +10,7 @@ abstract interface class IProjectRepository {
   Future<Either<ProjectFailure, String>> createProject({
     required String title,
     required String description,
+    required String? path,
   });
 
   Future<Either<ProjectFailure, Unit>> updateProject(ProjectEntityDto project);

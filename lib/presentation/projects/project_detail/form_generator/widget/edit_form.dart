@@ -27,13 +27,34 @@ class _EditFormState extends State<EditForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Descripción del Proyecto',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.indigo[900],
-          ),
+        Row(
+          children: [
+            Text(
+              'Descripción',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Colors.indigo[900],
+              ),
+            ),
+            const Spacer(),
+            if (!_isEditingDescription)
+              OutlinedButton.icon(
+                onPressed: () {
+                  setState(() => _isEditingDescription = true);
+                },
+                style: OutlinedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                icon: Icon(Icons.edit, color: Colors.indigo[600]),
+                label: Text(
+                  'Editar',
+                  style: TextStyle(color: Colors.indigo[600]),
+                ),
+              )
+          ],
         ),
         const SizedBox(height: 8),
         if (_isEditingDescription)
@@ -94,17 +115,6 @@ class _EditFormState extends State<EditForm> {
               )
             ],
           )
-        else
-          TextButton.icon(
-            onPressed: () {
-              setState(() => _isEditingDescription = true);
-            },
-            icon: Icon(Icons.edit, color: Colors.indigo[600]),
-            label: Text(
-              'Editar',
-              style: TextStyle(color: Colors.indigo[600]),
-            ),
-          ),
       ],
     );
   }
