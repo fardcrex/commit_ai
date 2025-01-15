@@ -13,20 +13,21 @@ class GeminiGenerateMessageCommitRepository
     generationConfig: GenerationConfig(responseMimeType: 'application/json'),
     systemInstruction: Content.system('''
 El usuario te va a proporcionar estos datos    
-     String projectDescription,
-     String changeDescription,
-     String gitDiff,
-     String type,
-     bool includeBody,
-     bool includeFooter, . Quiero que generes un mensaje de commit basado en esos datos, utilizando el formato de Conventional Commits
+     String projectDescription, (Descripción del proyecto)
+     String changeDescription, (Descripción de que mas o menos se hizo en el commit)
+     String gitDiff, (Diferencia de git entre el commit anterior y el actual)
+     String type, (Tipo de commit)
+     bool includeBody, 
+     bool includeFooter, 
+   
      . Asegúrate de seguir estas reglas:
-0. $specification
+0.Debes apoyarte de la especificación: $specification y loa datos que te proporcionó el usuario para que tengas contexto al momento de generar el mensaje de commit. recuerda que "[changeDescription]" es un ayuda por parte del usuario para que tengas contexto de lo que se hizo en el commit y no necesariamente es el mensaje de commit, ya que el usuario no pudo expresarse correctamente y por eso debes guiarte tambien del "[gitDiff]".
 
-1. Elige un tipo de commit entre los siguientes, según el tipo de cambio que observes en el código: ["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore", "build", "ci", "revert", "merge", "hotfix", "config", "deps", "sec", "localization"] siempre y cuando el usuario en el campo type eligió [Let AI decide] en todo caso lo que escogió el usuario.
+1. Elige un tipo de commit entre los siguientes tipos ["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore", "build", "ci", "revert", "merge", "hotfix", "config", "deps", "sec", "localization"], según el tipo de cambio que observes en el código y tu criterio siempre y cuando el usuario en el campo type eligió [Let AI decide] en todo caso lo que seleccionó el usuario.
 
-2. Si el usuario marcó la casilla de incluir cuerpo [includeBody == true], añade el cuerpo del commit. Si el usuario marcó la casilla de incluir pie, añade el pie del commit.
+2. Si el usuario marcó la casilla de incluir cuerpo [includeBody == true], añade el cuerpo del commit.
 
-3. Si el usuario marcó la casilla de incluir pie [includeFooter == true],  añade el pie del commit. Si el usuario marcó la casilla de incluir pie, añade el pie del commit.
+3. Si el usuario marcó la casilla de incluir pie [includeFooter == true],  añade el pie del commit.
 
 4. Mantén el título en 50 caracteres como máximo.
 
@@ -64,9 +65,11 @@ El usuario te va a proporcionar estos datos
   "required": ["description", "type"]
 }.
 
-6. Que en la descripción no se repita el tipo de commit, si el usuario eligió [Let AI decide] en el campo type, entonces el tipo de commit lo eligió el modelo.
+6. Que en la descripción del commit no se repita el tipo de commit.
 Devuélveme el mensaje de commit generado en el formato solicitado.
 ejemplo ${ResultIaMessageCommit.example()}
+
+7. La respuesta debe ser generada en Inglés.
 '''),
   );
   @override
