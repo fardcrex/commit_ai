@@ -72,12 +72,14 @@ ejemplo ${ResultIaMessageCommit.example()}
 7. La respuesta debe ser generada en Inglés.
 '''),
   );
+
   @override
   Future<ResultGenerateMessageCommit> generateMessageCommit(
       FormGeneratorCommit formGeneratorCommit) async {
     final response = await model.generateContent([
       Content.text(
-          '''Los datos para generar el mensaje de commit por parte del usuario son: ${formGeneratorCommit.toJson()}''')
+          '''Los datos para generar el mensaje de commit mediante ai por parte del usuario son:'''),
+      Content.text('''${formGeneratorCommit.toJson()}''')
     ]);
     if (response.text == null) {
       return Left(CommitGeneratorFailure('Error generating commit message'));

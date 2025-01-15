@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ProjectFormAlert extends StatefulWidget {
@@ -80,14 +81,16 @@ class _ProjectFormAlertState extends State<ProjectFormAlert> {
                   decoration: const InputDecoration(labelText: 'Descripción'),
                 ),
                 const SizedBox(height: 20),
-                TextField(
-                  controller: pathProjectController,
-                  minLines: 1,
-                  maxLines: 2,
-                  onChanged: (_) => setState(() {}),
-                  decoration: const InputDecoration(
-                      labelText: 'Ruta del proyecto (opcional)'),
-                ),
+                if (defaultTargetPlatform == TargetPlatform.windows ||
+                    defaultTargetPlatform == TargetPlatform.linux)
+                  TextField(
+                    controller: pathProjectController,
+                    minLines: 1,
+                    maxLines: 2,
+                    onChanged: (_) => setState(() {}),
+                    decoration: const InputDecoration(
+                        labelText: 'Ruta del proyecto (opcional)'),
+                  ),
               ],
             )
           : null,
