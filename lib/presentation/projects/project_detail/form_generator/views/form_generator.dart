@@ -36,6 +36,27 @@ class _FormGeneratorState extends State<FormGenerator> {
   ModeTab modeTab = ModeTab.description;
   bool includeFooter = false;
 
+  @override
+  void initState() {
+    super.initState();
+    changeDescriptionController.addListener(_onListenerValidateController);
+    gitDiffController.addListener(_onListenerValidateController);
+  }
+
+  @override
+  void dispose() {
+    changeDescriptionController.dispose();
+    gitDiffController.dispose();
+    changeDescriptionController.removeListener(_onListenerValidateController);
+    gitDiffController.removeListener(_onListenerValidateController);
+
+    super.dispose();
+  }
+
+  void _onListenerValidateController() {
+    setState(() {});
+  }
+
   final List<String> commitTypes = [
     'Let AI decide',
     'feat',
