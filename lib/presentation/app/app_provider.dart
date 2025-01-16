@@ -2,6 +2,7 @@ import 'package:commit_ai/core/injection/envs/repositories_injection.dart';
 import 'package:commit_ai/feature/commit_generator/application/delete_message_commit_use_case.dart';
 import 'package:commit_ai/feature/commit_generator/application/generate_message_commit_use_case.dart';
 import 'package:commit_ai/feature/commit_generator/application/get_history_commit_use_case.dart';
+import 'package:commit_ai/feature/commit_generator/application/load_git_diff_use_case.dart';
 import 'package:commit_ai/feature/commit_generator/application/save_message_commit_use_case.dart';
 import 'package:commit_ai/feature/projects/application/create_project_use_case.dart';
 import 'package:commit_ai/feature/projects/application/delete_project_use_case.dart';
@@ -69,6 +70,10 @@ class _AppProviderState extends State<AppProvider> {
       RepositoryProvider<GenerateMessageCommitUseCase>(
         create: (context) => GenerateMessageCommitUseCase(
             widget.repositoriesInjection.generateMessageCommitRepository),
+      ),
+      RepositoryProvider<LoadGitDiffUseCase>(
+        create: (context) =>
+            LoadGitDiffUseCase(widget.repositoriesInjection.gitDiffRepository),
       ),
     ]);
     super.initState();

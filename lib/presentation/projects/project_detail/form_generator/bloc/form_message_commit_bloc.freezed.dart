@@ -24,6 +24,7 @@ mixin _$FormMessageCommitEvent {
     required TResult Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)
         saveMessageCommit,
+    required TResult Function(String projectPath) loadGitDiff,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$FormMessageCommitEvent {
     TResult? Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)?
         saveMessageCommit,
+    TResult? Function(String projectPath)? loadGitDiff,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$FormMessageCommitEvent {
     TResult Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)?
         saveMessageCommit,
+    TResult Function(String projectPath)? loadGitDiff,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +56,7 @@ mixin _$FormMessageCommitEvent {
         generateMessageCommit,
     required TResult Function(EditProject value) editProject,
     required TResult Function(SaveMessageCommit value) saveMessageCommit,
+    required TResult Function(LoadGitDiff value) loadGitDiff,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$FormMessageCommitEvent {
     TResult? Function(GenerateMessageCommit value)? generateMessageCommit,
     TResult? Function(EditProject value)? editProject,
     TResult? Function(SaveMessageCommit value)? saveMessageCommit,
+    TResult? Function(LoadGitDiff value)? loadGitDiff,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,6 +72,7 @@ mixin _$FormMessageCommitEvent {
     TResult Function(GenerateMessageCommit value)? generateMessageCommit,
     TResult Function(EditProject value)? editProject,
     TResult Function(SaveMessageCommit value)? saveMessageCommit,
+    TResult Function(LoadGitDiff value)? loadGitDiff,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -176,6 +182,7 @@ class _$GenerateMessageCommitImpl implements GenerateMessageCommit {
     required TResult Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)
         saveMessageCommit,
+    required TResult Function(String projectPath) loadGitDiff,
   }) {
     return generateMessageCommit(formGeneratorCommit);
   }
@@ -189,6 +196,7 @@ class _$GenerateMessageCommitImpl implements GenerateMessageCommit {
     TResult? Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)?
         saveMessageCommit,
+    TResult? Function(String projectPath)? loadGitDiff,
   }) {
     return generateMessageCommit?.call(formGeneratorCommit);
   }
@@ -202,6 +210,7 @@ class _$GenerateMessageCommitImpl implements GenerateMessageCommit {
     TResult Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)?
         saveMessageCommit,
+    TResult Function(String projectPath)? loadGitDiff,
     required TResult orElse(),
   }) {
     if (generateMessageCommit != null) {
@@ -217,6 +226,7 @@ class _$GenerateMessageCommitImpl implements GenerateMessageCommit {
         generateMessageCommit,
     required TResult Function(EditProject value) editProject,
     required TResult Function(SaveMessageCommit value) saveMessageCommit,
+    required TResult Function(LoadGitDiff value) loadGitDiff,
   }) {
     return generateMessageCommit(this);
   }
@@ -227,6 +237,7 @@ class _$GenerateMessageCommitImpl implements GenerateMessageCommit {
     TResult? Function(GenerateMessageCommit value)? generateMessageCommit,
     TResult? Function(EditProject value)? editProject,
     TResult? Function(SaveMessageCommit value)? saveMessageCommit,
+    TResult? Function(LoadGitDiff value)? loadGitDiff,
   }) {
     return generateMessageCommit?.call(this);
   }
@@ -237,6 +248,7 @@ class _$GenerateMessageCommitImpl implements GenerateMessageCommit {
     TResult Function(GenerateMessageCommit value)? generateMessageCommit,
     TResult Function(EditProject value)? editProject,
     TResult Function(SaveMessageCommit value)? saveMessageCommit,
+    TResult Function(LoadGitDiff value)? loadGitDiff,
     required TResult orElse(),
   }) {
     if (generateMessageCommit != null) {
@@ -338,6 +350,7 @@ class _$EditProjectImpl implements EditProject {
     required TResult Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)
         saveMessageCommit,
+    required TResult Function(String projectPath) loadGitDiff,
   }) {
     return editProject(projectEntityDto);
   }
@@ -351,6 +364,7 @@ class _$EditProjectImpl implements EditProject {
     TResult? Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)?
         saveMessageCommit,
+    TResult? Function(String projectPath)? loadGitDiff,
   }) {
     return editProject?.call(projectEntityDto);
   }
@@ -364,6 +378,7 @@ class _$EditProjectImpl implements EditProject {
     TResult Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)?
         saveMessageCommit,
+    TResult Function(String projectPath)? loadGitDiff,
     required TResult orElse(),
   }) {
     if (editProject != null) {
@@ -379,6 +394,7 @@ class _$EditProjectImpl implements EditProject {
         generateMessageCommit,
     required TResult Function(EditProject value) editProject,
     required TResult Function(SaveMessageCommit value) saveMessageCommit,
+    required TResult Function(LoadGitDiff value) loadGitDiff,
   }) {
     return editProject(this);
   }
@@ -389,6 +405,7 @@ class _$EditProjectImpl implements EditProject {
     TResult? Function(GenerateMessageCommit value)? generateMessageCommit,
     TResult? Function(EditProject value)? editProject,
     TResult? Function(SaveMessageCommit value)? saveMessageCommit,
+    TResult? Function(LoadGitDiff value)? loadGitDiff,
   }) {
     return editProject?.call(this);
   }
@@ -399,6 +416,7 @@ class _$EditProjectImpl implements EditProject {
     TResult Function(GenerateMessageCommit value)? generateMessageCommit,
     TResult Function(EditProject value)? editProject,
     TResult Function(SaveMessageCommit value)? saveMessageCommit,
+    TResult Function(LoadGitDiff value)? loadGitDiff,
     required TResult orElse(),
   }) {
     if (editProject != null) {
@@ -511,6 +529,7 @@ class _$SaveMessageCommitImpl implements SaveMessageCommit {
     required TResult Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)
         saveMessageCommit,
+    required TResult Function(String projectPath) loadGitDiff,
   }) {
     return saveMessageCommit(resultIaMessageCommit, projectId);
   }
@@ -524,6 +543,7 @@ class _$SaveMessageCommitImpl implements SaveMessageCommit {
     TResult? Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)?
         saveMessageCommit,
+    TResult? Function(String projectPath)? loadGitDiff,
   }) {
     return saveMessageCommit?.call(resultIaMessageCommit, projectId);
   }
@@ -537,6 +557,7 @@ class _$SaveMessageCommitImpl implements SaveMessageCommit {
     TResult Function(
             ResultIaMessageCommit resultIaMessageCommit, String projectId)?
         saveMessageCommit,
+    TResult Function(String projectPath)? loadGitDiff,
     required TResult orElse(),
   }) {
     if (saveMessageCommit != null) {
@@ -552,6 +573,7 @@ class _$SaveMessageCommitImpl implements SaveMessageCommit {
         generateMessageCommit,
     required TResult Function(EditProject value) editProject,
     required TResult Function(SaveMessageCommit value) saveMessageCommit,
+    required TResult Function(LoadGitDiff value) loadGitDiff,
   }) {
     return saveMessageCommit(this);
   }
@@ -562,6 +584,7 @@ class _$SaveMessageCommitImpl implements SaveMessageCommit {
     TResult? Function(GenerateMessageCommit value)? generateMessageCommit,
     TResult? Function(EditProject value)? editProject,
     TResult? Function(SaveMessageCommit value)? saveMessageCommit,
+    TResult? Function(LoadGitDiff value)? loadGitDiff,
   }) {
     return saveMessageCommit?.call(this);
   }
@@ -572,6 +595,7 @@ class _$SaveMessageCommitImpl implements SaveMessageCommit {
     TResult Function(GenerateMessageCommit value)? generateMessageCommit,
     TResult Function(EditProject value)? editProject,
     TResult Function(SaveMessageCommit value)? saveMessageCommit,
+    TResult Function(LoadGitDiff value)? loadGitDiff,
     required TResult orElse(),
   }) {
     if (saveMessageCommit != null) {
@@ -594,6 +618,162 @@ abstract class SaveMessageCommit implements FormMessageCommitEvent {
 }
 
 /// @nodoc
+abstract class _$$LoadGitDiffImplCopyWith<$Res> {
+  factory _$$LoadGitDiffImplCopyWith(
+          _$LoadGitDiffImpl value, $Res Function(_$LoadGitDiffImpl) then) =
+      __$$LoadGitDiffImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String projectPath});
+}
+
+/// @nodoc
+class __$$LoadGitDiffImplCopyWithImpl<$Res>
+    extends _$FormMessageCommitEventCopyWithImpl<$Res, _$LoadGitDiffImpl>
+    implements _$$LoadGitDiffImplCopyWith<$Res> {
+  __$$LoadGitDiffImplCopyWithImpl(
+      _$LoadGitDiffImpl _value, $Res Function(_$LoadGitDiffImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? projectPath = null,
+  }) {
+    return _then(_$LoadGitDiffImpl(
+      null == projectPath
+          ? _value.projectPath
+          : projectPath // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadGitDiffImpl implements LoadGitDiff {
+  const _$LoadGitDiffImpl(this.projectPath);
+
+  @override
+  final String projectPath;
+
+  @override
+  String toString() {
+    return 'FormMessageCommitEvent.loadGitDiff(projectPath: $projectPath)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadGitDiffImpl &&
+            (identical(other.projectPath, projectPath) ||
+                other.projectPath == projectPath));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, projectPath);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadGitDiffImplCopyWith<_$LoadGitDiffImpl> get copyWith =>
+      __$$LoadGitDiffImplCopyWithImpl<_$LoadGitDiffImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(FormGeneratorCommit formGeneratorCommit)
+        generateMessageCommit,
+    required TResult Function(ProjectEntityDto projectEntityDto) editProject,
+    required TResult Function(
+            ResultIaMessageCommit resultIaMessageCommit, String projectId)
+        saveMessageCommit,
+    required TResult Function(String projectPath) loadGitDiff,
+  }) {
+    return loadGitDiff(projectPath);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(FormGeneratorCommit formGeneratorCommit)?
+        generateMessageCommit,
+    TResult? Function(ProjectEntityDto projectEntityDto)? editProject,
+    TResult? Function(
+            ResultIaMessageCommit resultIaMessageCommit, String projectId)?
+        saveMessageCommit,
+    TResult? Function(String projectPath)? loadGitDiff,
+  }) {
+    return loadGitDiff?.call(projectPath);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(FormGeneratorCommit formGeneratorCommit)?
+        generateMessageCommit,
+    TResult Function(ProjectEntityDto projectEntityDto)? editProject,
+    TResult Function(
+            ResultIaMessageCommit resultIaMessageCommit, String projectId)?
+        saveMessageCommit,
+    TResult Function(String projectPath)? loadGitDiff,
+    required TResult orElse(),
+  }) {
+    if (loadGitDiff != null) {
+      return loadGitDiff(projectPath);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GenerateMessageCommit value)
+        generateMessageCommit,
+    required TResult Function(EditProject value) editProject,
+    required TResult Function(SaveMessageCommit value) saveMessageCommit,
+    required TResult Function(LoadGitDiff value) loadGitDiff,
+  }) {
+    return loadGitDiff(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GenerateMessageCommit value)? generateMessageCommit,
+    TResult? Function(EditProject value)? editProject,
+    TResult? Function(SaveMessageCommit value)? saveMessageCommit,
+    TResult? Function(LoadGitDiff value)? loadGitDiff,
+  }) {
+    return loadGitDiff?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GenerateMessageCommit value)? generateMessageCommit,
+    TResult Function(EditProject value)? editProject,
+    TResult Function(SaveMessageCommit value)? saveMessageCommit,
+    TResult Function(LoadGitDiff value)? loadGitDiff,
+    required TResult orElse(),
+  }) {
+    if (loadGitDiff != null) {
+      return loadGitDiff(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadGitDiff implements FormMessageCommitEvent {
+  const factory LoadGitDiff(final String projectPath) = _$LoadGitDiffImpl;
+
+  String get projectPath;
+  @JsonKey(ignore: true)
+  _$$LoadGitDiffImplCopyWith<_$LoadGitDiffImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$FormMessageCommitState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -601,8 +781,10 @@ mixin _$FormMessageCommitState {
     required TResult Function() loading,
     required TResult Function(ResultIaMessageCommit result) successGenerate,
     required TResult Function() successEdit,
+    required TResult Function(GitDiffEntity diff) successLoadGitDiff,
     required TResult Function() successSave,
     required TResult Function(CommitGeneratorFailure failure) error,
+    required TResult Function(GitDiffFailure failure) errorLoadGitDiff,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -611,8 +793,10 @@ mixin _$FormMessageCommitState {
     TResult? Function()? loading,
     TResult? Function(ResultIaMessageCommit result)? successGenerate,
     TResult? Function()? successEdit,
+    TResult? Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult? Function()? successSave,
     TResult? Function(CommitGeneratorFailure failure)? error,
+    TResult? Function(GitDiffFailure failure)? errorLoadGitDiff,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -621,8 +805,10 @@ mixin _$FormMessageCommitState {
     TResult Function()? loading,
     TResult Function(ResultIaMessageCommit result)? successGenerate,
     TResult Function()? successEdit,
+    TResult Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult Function()? successSave,
     TResult Function(CommitGeneratorFailure failure)? error,
+    TResult Function(GitDiffFailure failure)? errorLoadGitDiff,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -632,8 +818,10 @@ mixin _$FormMessageCommitState {
     required TResult Function(FormLoading value) loading,
     required TResult Function(FormSuccessGenerate value) successGenerate,
     required TResult Function(FormSuccessEdit value) successEdit,
+    required TResult Function(FormSuccessLoadGitDiff value) successLoadGitDiff,
     required TResult Function(FormSuccessSave value) successSave,
     required TResult Function(FormError value) error,
+    required TResult Function(FormErrorLoadGitDiff value) errorLoadGitDiff,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -642,8 +830,10 @@ mixin _$FormMessageCommitState {
     TResult? Function(FormLoading value)? loading,
     TResult? Function(FormSuccessGenerate value)? successGenerate,
     TResult? Function(FormSuccessEdit value)? successEdit,
+    TResult? Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult? Function(FormSuccessSave value)? successSave,
     TResult? Function(FormError value)? error,
+    TResult? Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -652,8 +842,10 @@ mixin _$FormMessageCommitState {
     TResult Function(FormLoading value)? loading,
     TResult Function(FormSuccessGenerate value)? successGenerate,
     TResult Function(FormSuccessEdit value)? successEdit,
+    TResult Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult Function(FormSuccessSave value)? successSave,
     TResult Function(FormError value)? error,
+    TResult Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -720,8 +912,10 @@ class _$FormInitialImpl extends FormInitial {
     required TResult Function() loading,
     required TResult Function(ResultIaMessageCommit result) successGenerate,
     required TResult Function() successEdit,
+    required TResult Function(GitDiffEntity diff) successLoadGitDiff,
     required TResult Function() successSave,
     required TResult Function(CommitGeneratorFailure failure) error,
+    required TResult Function(GitDiffFailure failure) errorLoadGitDiff,
   }) {
     return initial();
   }
@@ -733,8 +927,10 @@ class _$FormInitialImpl extends FormInitial {
     TResult? Function()? loading,
     TResult? Function(ResultIaMessageCommit result)? successGenerate,
     TResult? Function()? successEdit,
+    TResult? Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult? Function()? successSave,
     TResult? Function(CommitGeneratorFailure failure)? error,
+    TResult? Function(GitDiffFailure failure)? errorLoadGitDiff,
   }) {
     return initial?.call();
   }
@@ -746,8 +942,10 @@ class _$FormInitialImpl extends FormInitial {
     TResult Function()? loading,
     TResult Function(ResultIaMessageCommit result)? successGenerate,
     TResult Function()? successEdit,
+    TResult Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult Function()? successSave,
     TResult Function(CommitGeneratorFailure failure)? error,
+    TResult Function(GitDiffFailure failure)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -763,8 +961,10 @@ class _$FormInitialImpl extends FormInitial {
     required TResult Function(FormLoading value) loading,
     required TResult Function(FormSuccessGenerate value) successGenerate,
     required TResult Function(FormSuccessEdit value) successEdit,
+    required TResult Function(FormSuccessLoadGitDiff value) successLoadGitDiff,
     required TResult Function(FormSuccessSave value) successSave,
     required TResult Function(FormError value) error,
+    required TResult Function(FormErrorLoadGitDiff value) errorLoadGitDiff,
   }) {
     return initial(this);
   }
@@ -776,8 +976,10 @@ class _$FormInitialImpl extends FormInitial {
     TResult? Function(FormLoading value)? loading,
     TResult? Function(FormSuccessGenerate value)? successGenerate,
     TResult? Function(FormSuccessEdit value)? successEdit,
+    TResult? Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult? Function(FormSuccessSave value)? successSave,
     TResult? Function(FormError value)? error,
+    TResult? Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
   }) {
     return initial?.call(this);
   }
@@ -789,8 +991,10 @@ class _$FormInitialImpl extends FormInitial {
     TResult Function(FormLoading value)? loading,
     TResult Function(FormSuccessGenerate value)? successGenerate,
     TResult Function(FormSuccessEdit value)? successEdit,
+    TResult Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult Function(FormSuccessSave value)? successSave,
     TResult Function(FormError value)? error,
+    TResult Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -847,8 +1051,10 @@ class _$FormLoadingImpl extends FormLoading {
     required TResult Function() loading,
     required TResult Function(ResultIaMessageCommit result) successGenerate,
     required TResult Function() successEdit,
+    required TResult Function(GitDiffEntity diff) successLoadGitDiff,
     required TResult Function() successSave,
     required TResult Function(CommitGeneratorFailure failure) error,
+    required TResult Function(GitDiffFailure failure) errorLoadGitDiff,
   }) {
     return loading();
   }
@@ -860,8 +1066,10 @@ class _$FormLoadingImpl extends FormLoading {
     TResult? Function()? loading,
     TResult? Function(ResultIaMessageCommit result)? successGenerate,
     TResult? Function()? successEdit,
+    TResult? Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult? Function()? successSave,
     TResult? Function(CommitGeneratorFailure failure)? error,
+    TResult? Function(GitDiffFailure failure)? errorLoadGitDiff,
   }) {
     return loading?.call();
   }
@@ -873,8 +1081,10 @@ class _$FormLoadingImpl extends FormLoading {
     TResult Function()? loading,
     TResult Function(ResultIaMessageCommit result)? successGenerate,
     TResult Function()? successEdit,
+    TResult Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult Function()? successSave,
     TResult Function(CommitGeneratorFailure failure)? error,
+    TResult Function(GitDiffFailure failure)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -890,8 +1100,10 @@ class _$FormLoadingImpl extends FormLoading {
     required TResult Function(FormLoading value) loading,
     required TResult Function(FormSuccessGenerate value) successGenerate,
     required TResult Function(FormSuccessEdit value) successEdit,
+    required TResult Function(FormSuccessLoadGitDiff value) successLoadGitDiff,
     required TResult Function(FormSuccessSave value) successSave,
     required TResult Function(FormError value) error,
+    required TResult Function(FormErrorLoadGitDiff value) errorLoadGitDiff,
   }) {
     return loading(this);
   }
@@ -903,8 +1115,10 @@ class _$FormLoadingImpl extends FormLoading {
     TResult? Function(FormLoading value)? loading,
     TResult? Function(FormSuccessGenerate value)? successGenerate,
     TResult? Function(FormSuccessEdit value)? successEdit,
+    TResult? Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult? Function(FormSuccessSave value)? successSave,
     TResult? Function(FormError value)? error,
+    TResult? Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
   }) {
     return loading?.call(this);
   }
@@ -916,8 +1130,10 @@ class _$FormLoadingImpl extends FormLoading {
     TResult Function(FormLoading value)? loading,
     TResult Function(FormSuccessGenerate value)? successGenerate,
     TResult Function(FormSuccessEdit value)? successEdit,
+    TResult Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult Function(FormSuccessSave value)? successSave,
     TResult Function(FormError value)? error,
+    TResult Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1012,8 +1228,10 @@ class _$FormSuccessGenerateImpl extends FormSuccessGenerate {
     required TResult Function() loading,
     required TResult Function(ResultIaMessageCommit result) successGenerate,
     required TResult Function() successEdit,
+    required TResult Function(GitDiffEntity diff) successLoadGitDiff,
     required TResult Function() successSave,
     required TResult Function(CommitGeneratorFailure failure) error,
+    required TResult Function(GitDiffFailure failure) errorLoadGitDiff,
   }) {
     return successGenerate(result);
   }
@@ -1025,8 +1243,10 @@ class _$FormSuccessGenerateImpl extends FormSuccessGenerate {
     TResult? Function()? loading,
     TResult? Function(ResultIaMessageCommit result)? successGenerate,
     TResult? Function()? successEdit,
+    TResult? Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult? Function()? successSave,
     TResult? Function(CommitGeneratorFailure failure)? error,
+    TResult? Function(GitDiffFailure failure)? errorLoadGitDiff,
   }) {
     return successGenerate?.call(result);
   }
@@ -1038,8 +1258,10 @@ class _$FormSuccessGenerateImpl extends FormSuccessGenerate {
     TResult Function()? loading,
     TResult Function(ResultIaMessageCommit result)? successGenerate,
     TResult Function()? successEdit,
+    TResult Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult Function()? successSave,
     TResult Function(CommitGeneratorFailure failure)? error,
+    TResult Function(GitDiffFailure failure)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (successGenerate != null) {
@@ -1055,8 +1277,10 @@ class _$FormSuccessGenerateImpl extends FormSuccessGenerate {
     required TResult Function(FormLoading value) loading,
     required TResult Function(FormSuccessGenerate value) successGenerate,
     required TResult Function(FormSuccessEdit value) successEdit,
+    required TResult Function(FormSuccessLoadGitDiff value) successLoadGitDiff,
     required TResult Function(FormSuccessSave value) successSave,
     required TResult Function(FormError value) error,
+    required TResult Function(FormErrorLoadGitDiff value) errorLoadGitDiff,
   }) {
     return successGenerate(this);
   }
@@ -1068,8 +1292,10 @@ class _$FormSuccessGenerateImpl extends FormSuccessGenerate {
     TResult? Function(FormLoading value)? loading,
     TResult? Function(FormSuccessGenerate value)? successGenerate,
     TResult? Function(FormSuccessEdit value)? successEdit,
+    TResult? Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult? Function(FormSuccessSave value)? successSave,
     TResult? Function(FormError value)? error,
+    TResult? Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
   }) {
     return successGenerate?.call(this);
   }
@@ -1081,8 +1307,10 @@ class _$FormSuccessGenerateImpl extends FormSuccessGenerate {
     TResult Function(FormLoading value)? loading,
     TResult Function(FormSuccessGenerate value)? successGenerate,
     TResult Function(FormSuccessEdit value)? successEdit,
+    TResult Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult Function(FormSuccessSave value)? successSave,
     TResult Function(FormError value)? error,
+    TResult Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (successGenerate != null) {
@@ -1145,8 +1373,10 @@ class _$FormSuccessEditImpl extends FormSuccessEdit {
     required TResult Function() loading,
     required TResult Function(ResultIaMessageCommit result) successGenerate,
     required TResult Function() successEdit,
+    required TResult Function(GitDiffEntity diff) successLoadGitDiff,
     required TResult Function() successSave,
     required TResult Function(CommitGeneratorFailure failure) error,
+    required TResult Function(GitDiffFailure failure) errorLoadGitDiff,
   }) {
     return successEdit();
   }
@@ -1158,8 +1388,10 @@ class _$FormSuccessEditImpl extends FormSuccessEdit {
     TResult? Function()? loading,
     TResult? Function(ResultIaMessageCommit result)? successGenerate,
     TResult? Function()? successEdit,
+    TResult? Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult? Function()? successSave,
     TResult? Function(CommitGeneratorFailure failure)? error,
+    TResult? Function(GitDiffFailure failure)? errorLoadGitDiff,
   }) {
     return successEdit?.call();
   }
@@ -1171,8 +1403,10 @@ class _$FormSuccessEditImpl extends FormSuccessEdit {
     TResult Function()? loading,
     TResult Function(ResultIaMessageCommit result)? successGenerate,
     TResult Function()? successEdit,
+    TResult Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult Function()? successSave,
     TResult Function(CommitGeneratorFailure failure)? error,
+    TResult Function(GitDiffFailure failure)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (successEdit != null) {
@@ -1188,8 +1422,10 @@ class _$FormSuccessEditImpl extends FormSuccessEdit {
     required TResult Function(FormLoading value) loading,
     required TResult Function(FormSuccessGenerate value) successGenerate,
     required TResult Function(FormSuccessEdit value) successEdit,
+    required TResult Function(FormSuccessLoadGitDiff value) successLoadGitDiff,
     required TResult Function(FormSuccessSave value) successSave,
     required TResult Function(FormError value) error,
+    required TResult Function(FormErrorLoadGitDiff value) errorLoadGitDiff,
   }) {
     return successEdit(this);
   }
@@ -1201,8 +1437,10 @@ class _$FormSuccessEditImpl extends FormSuccessEdit {
     TResult? Function(FormLoading value)? loading,
     TResult? Function(FormSuccessGenerate value)? successGenerate,
     TResult? Function(FormSuccessEdit value)? successEdit,
+    TResult? Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult? Function(FormSuccessSave value)? successSave,
     TResult? Function(FormError value)? error,
+    TResult? Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
   }) {
     return successEdit?.call(this);
   }
@@ -1214,8 +1452,10 @@ class _$FormSuccessEditImpl extends FormSuccessEdit {
     TResult Function(FormLoading value)? loading,
     TResult Function(FormSuccessGenerate value)? successGenerate,
     TResult Function(FormSuccessEdit value)? successEdit,
+    TResult Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult Function(FormSuccessSave value)? successSave,
     TResult Function(FormError value)? error,
+    TResult Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (successEdit != null) {
@@ -1228,6 +1468,181 @@ class _$FormSuccessEditImpl extends FormSuccessEdit {
 abstract class FormSuccessEdit extends FormMessageCommitState {
   const factory FormSuccessEdit() = _$FormSuccessEditImpl;
   const FormSuccessEdit._() : super._();
+}
+
+/// @nodoc
+abstract class _$$FormSuccessLoadGitDiffImplCopyWith<$Res> {
+  factory _$$FormSuccessLoadGitDiffImplCopyWith(
+          _$FormSuccessLoadGitDiffImpl value,
+          $Res Function(_$FormSuccessLoadGitDiffImpl) then) =
+      __$$FormSuccessLoadGitDiffImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({GitDiffEntity diff});
+}
+
+/// @nodoc
+class __$$FormSuccessLoadGitDiffImplCopyWithImpl<$Res>
+    extends _$FormMessageCommitStateCopyWithImpl<$Res,
+        _$FormSuccessLoadGitDiffImpl>
+    implements _$$FormSuccessLoadGitDiffImplCopyWith<$Res> {
+  __$$FormSuccessLoadGitDiffImplCopyWithImpl(
+      _$FormSuccessLoadGitDiffImpl _value,
+      $Res Function(_$FormSuccessLoadGitDiffImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diff = null,
+  }) {
+    return _then(_$FormSuccessLoadGitDiffImpl(
+      null == diff
+          ? _value.diff
+          : diff // ignore: cast_nullable_to_non_nullable
+              as GitDiffEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FormSuccessLoadGitDiffImpl extends FormSuccessLoadGitDiff {
+  const _$FormSuccessLoadGitDiffImpl(this.diff) : super._();
+
+  @override
+  final GitDiffEntity diff;
+
+  @override
+  String toString() {
+    return 'FormMessageCommitState.successLoadGitDiff(diff: $diff)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FormSuccessLoadGitDiffImpl &&
+            (identical(other.diff, diff) || other.diff == diff));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diff);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FormSuccessLoadGitDiffImplCopyWith<_$FormSuccessLoadGitDiffImpl>
+      get copyWith => __$$FormSuccessLoadGitDiffImplCopyWithImpl<
+          _$FormSuccessLoadGitDiffImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(ResultIaMessageCommit result) successGenerate,
+    required TResult Function() successEdit,
+    required TResult Function(GitDiffEntity diff) successLoadGitDiff,
+    required TResult Function() successSave,
+    required TResult Function(CommitGeneratorFailure failure) error,
+    required TResult Function(GitDiffFailure failure) errorLoadGitDiff,
+  }) {
+    return successLoadGitDiff(diff);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ResultIaMessageCommit result)? successGenerate,
+    TResult? Function()? successEdit,
+    TResult? Function(GitDiffEntity diff)? successLoadGitDiff,
+    TResult? Function()? successSave,
+    TResult? Function(CommitGeneratorFailure failure)? error,
+    TResult? Function(GitDiffFailure failure)? errorLoadGitDiff,
+  }) {
+    return successLoadGitDiff?.call(diff);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(ResultIaMessageCommit result)? successGenerate,
+    TResult Function()? successEdit,
+    TResult Function(GitDiffEntity diff)? successLoadGitDiff,
+    TResult Function()? successSave,
+    TResult Function(CommitGeneratorFailure failure)? error,
+    TResult Function(GitDiffFailure failure)? errorLoadGitDiff,
+    required TResult orElse(),
+  }) {
+    if (successLoadGitDiff != null) {
+      return successLoadGitDiff(diff);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormSuccessGenerate value) successGenerate,
+    required TResult Function(FormSuccessEdit value) successEdit,
+    required TResult Function(FormSuccessLoadGitDiff value) successLoadGitDiff,
+    required TResult Function(FormSuccessSave value) successSave,
+    required TResult Function(FormError value) error,
+    required TResult Function(FormErrorLoadGitDiff value) errorLoadGitDiff,
+  }) {
+    return successLoadGitDiff(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FormInitial value)? initial,
+    TResult? Function(FormLoading value)? loading,
+    TResult? Function(FormSuccessGenerate value)? successGenerate,
+    TResult? Function(FormSuccessEdit value)? successEdit,
+    TResult? Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
+    TResult? Function(FormSuccessSave value)? successSave,
+    TResult? Function(FormError value)? error,
+    TResult? Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
+  }) {
+    return successLoadGitDiff?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccessGenerate value)? successGenerate,
+    TResult Function(FormSuccessEdit value)? successEdit,
+    TResult Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
+    TResult Function(FormSuccessSave value)? successSave,
+    TResult Function(FormError value)? error,
+    TResult Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
+    required TResult orElse(),
+  }) {
+    if (successLoadGitDiff != null) {
+      return successLoadGitDiff(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FormSuccessLoadGitDiff extends FormMessageCommitState {
+  const factory FormSuccessLoadGitDiff(final GitDiffEntity diff) =
+      _$FormSuccessLoadGitDiffImpl;
+  const FormSuccessLoadGitDiff._() : super._();
+
+  GitDiffEntity get diff;
+  @JsonKey(ignore: true)
+  _$$FormSuccessLoadGitDiffImplCopyWith<_$FormSuccessLoadGitDiffImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1272,8 +1687,10 @@ class _$FormSuccessSaveImpl extends FormSuccessSave {
     required TResult Function() loading,
     required TResult Function(ResultIaMessageCommit result) successGenerate,
     required TResult Function() successEdit,
+    required TResult Function(GitDiffEntity diff) successLoadGitDiff,
     required TResult Function() successSave,
     required TResult Function(CommitGeneratorFailure failure) error,
+    required TResult Function(GitDiffFailure failure) errorLoadGitDiff,
   }) {
     return successSave();
   }
@@ -1285,8 +1702,10 @@ class _$FormSuccessSaveImpl extends FormSuccessSave {
     TResult? Function()? loading,
     TResult? Function(ResultIaMessageCommit result)? successGenerate,
     TResult? Function()? successEdit,
+    TResult? Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult? Function()? successSave,
     TResult? Function(CommitGeneratorFailure failure)? error,
+    TResult? Function(GitDiffFailure failure)? errorLoadGitDiff,
   }) {
     return successSave?.call();
   }
@@ -1298,8 +1717,10 @@ class _$FormSuccessSaveImpl extends FormSuccessSave {
     TResult Function()? loading,
     TResult Function(ResultIaMessageCommit result)? successGenerate,
     TResult Function()? successEdit,
+    TResult Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult Function()? successSave,
     TResult Function(CommitGeneratorFailure failure)? error,
+    TResult Function(GitDiffFailure failure)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (successSave != null) {
@@ -1315,8 +1736,10 @@ class _$FormSuccessSaveImpl extends FormSuccessSave {
     required TResult Function(FormLoading value) loading,
     required TResult Function(FormSuccessGenerate value) successGenerate,
     required TResult Function(FormSuccessEdit value) successEdit,
+    required TResult Function(FormSuccessLoadGitDiff value) successLoadGitDiff,
     required TResult Function(FormSuccessSave value) successSave,
     required TResult Function(FormError value) error,
+    required TResult Function(FormErrorLoadGitDiff value) errorLoadGitDiff,
   }) {
     return successSave(this);
   }
@@ -1328,8 +1751,10 @@ class _$FormSuccessSaveImpl extends FormSuccessSave {
     TResult? Function(FormLoading value)? loading,
     TResult? Function(FormSuccessGenerate value)? successGenerate,
     TResult? Function(FormSuccessEdit value)? successEdit,
+    TResult? Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult? Function(FormSuccessSave value)? successSave,
     TResult? Function(FormError value)? error,
+    TResult? Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
   }) {
     return successSave?.call(this);
   }
@@ -1341,8 +1766,10 @@ class _$FormSuccessSaveImpl extends FormSuccessSave {
     TResult Function(FormLoading value)? loading,
     TResult Function(FormSuccessGenerate value)? successGenerate,
     TResult Function(FormSuccessEdit value)? successEdit,
+    TResult Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult Function(FormSuccessSave value)? successSave,
     TResult Function(FormError value)? error,
+    TResult Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (successSave != null) {
@@ -1425,8 +1852,10 @@ class _$FormErrorImpl extends FormError {
     required TResult Function() loading,
     required TResult Function(ResultIaMessageCommit result) successGenerate,
     required TResult Function() successEdit,
+    required TResult Function(GitDiffEntity diff) successLoadGitDiff,
     required TResult Function() successSave,
     required TResult Function(CommitGeneratorFailure failure) error,
+    required TResult Function(GitDiffFailure failure) errorLoadGitDiff,
   }) {
     return error(failure);
   }
@@ -1438,8 +1867,10 @@ class _$FormErrorImpl extends FormError {
     TResult? Function()? loading,
     TResult? Function(ResultIaMessageCommit result)? successGenerate,
     TResult? Function()? successEdit,
+    TResult? Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult? Function()? successSave,
     TResult? Function(CommitGeneratorFailure failure)? error,
+    TResult? Function(GitDiffFailure failure)? errorLoadGitDiff,
   }) {
     return error?.call(failure);
   }
@@ -1451,8 +1882,10 @@ class _$FormErrorImpl extends FormError {
     TResult Function()? loading,
     TResult Function(ResultIaMessageCommit result)? successGenerate,
     TResult Function()? successEdit,
+    TResult Function(GitDiffEntity diff)? successLoadGitDiff,
     TResult Function()? successSave,
     TResult Function(CommitGeneratorFailure failure)? error,
+    TResult Function(GitDiffFailure failure)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1468,8 +1901,10 @@ class _$FormErrorImpl extends FormError {
     required TResult Function(FormLoading value) loading,
     required TResult Function(FormSuccessGenerate value) successGenerate,
     required TResult Function(FormSuccessEdit value) successEdit,
+    required TResult Function(FormSuccessLoadGitDiff value) successLoadGitDiff,
     required TResult Function(FormSuccessSave value) successSave,
     required TResult Function(FormError value) error,
+    required TResult Function(FormErrorLoadGitDiff value) errorLoadGitDiff,
   }) {
     return error(this);
   }
@@ -1481,8 +1916,10 @@ class _$FormErrorImpl extends FormError {
     TResult? Function(FormLoading value)? loading,
     TResult? Function(FormSuccessGenerate value)? successGenerate,
     TResult? Function(FormSuccessEdit value)? successEdit,
+    TResult? Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult? Function(FormSuccessSave value)? successSave,
     TResult? Function(FormError value)? error,
+    TResult? Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
   }) {
     return error?.call(this);
   }
@@ -1494,8 +1931,10 @@ class _$FormErrorImpl extends FormError {
     TResult Function(FormLoading value)? loading,
     TResult Function(FormSuccessGenerate value)? successGenerate,
     TResult Function(FormSuccessEdit value)? successEdit,
+    TResult Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
     TResult Function(FormSuccessSave value)? successSave,
     TResult Function(FormError value)? error,
+    TResult Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1514,4 +1953,178 @@ abstract class FormError extends FormMessageCommitState {
   @JsonKey(ignore: true)
   _$$FormErrorImplCopyWith<_$FormErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FormErrorLoadGitDiffImplCopyWith<$Res> {
+  factory _$$FormErrorLoadGitDiffImplCopyWith(_$FormErrorLoadGitDiffImpl value,
+          $Res Function(_$FormErrorLoadGitDiffImpl) then) =
+      __$$FormErrorLoadGitDiffImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({GitDiffFailure failure});
+}
+
+/// @nodoc
+class __$$FormErrorLoadGitDiffImplCopyWithImpl<$Res>
+    extends _$FormMessageCommitStateCopyWithImpl<$Res,
+        _$FormErrorLoadGitDiffImpl>
+    implements _$$FormErrorLoadGitDiffImplCopyWith<$Res> {
+  __$$FormErrorLoadGitDiffImplCopyWithImpl(_$FormErrorLoadGitDiffImpl _value,
+      $Res Function(_$FormErrorLoadGitDiffImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failure = null,
+  }) {
+    return _then(_$FormErrorLoadGitDiffImpl(
+      null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as GitDiffFailure,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FormErrorLoadGitDiffImpl extends FormErrorLoadGitDiff {
+  const _$FormErrorLoadGitDiffImpl(this.failure) : super._();
+
+  @override
+  final GitDiffFailure failure;
+
+  @override
+  String toString() {
+    return 'FormMessageCommitState.errorLoadGitDiff(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FormErrorLoadGitDiffImpl &&
+            (identical(other.failure, failure) || other.failure == failure));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, failure);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FormErrorLoadGitDiffImplCopyWith<_$FormErrorLoadGitDiffImpl>
+      get copyWith =>
+          __$$FormErrorLoadGitDiffImplCopyWithImpl<_$FormErrorLoadGitDiffImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(ResultIaMessageCommit result) successGenerate,
+    required TResult Function() successEdit,
+    required TResult Function(GitDiffEntity diff) successLoadGitDiff,
+    required TResult Function() successSave,
+    required TResult Function(CommitGeneratorFailure failure) error,
+    required TResult Function(GitDiffFailure failure) errorLoadGitDiff,
+  }) {
+    return errorLoadGitDiff(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ResultIaMessageCommit result)? successGenerate,
+    TResult? Function()? successEdit,
+    TResult? Function(GitDiffEntity diff)? successLoadGitDiff,
+    TResult? Function()? successSave,
+    TResult? Function(CommitGeneratorFailure failure)? error,
+    TResult? Function(GitDiffFailure failure)? errorLoadGitDiff,
+  }) {
+    return errorLoadGitDiff?.call(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(ResultIaMessageCommit result)? successGenerate,
+    TResult Function()? successEdit,
+    TResult Function(GitDiffEntity diff)? successLoadGitDiff,
+    TResult Function()? successSave,
+    TResult Function(CommitGeneratorFailure failure)? error,
+    TResult Function(GitDiffFailure failure)? errorLoadGitDiff,
+    required TResult orElse(),
+  }) {
+    if (errorLoadGitDiff != null) {
+      return errorLoadGitDiff(failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormSuccessGenerate value) successGenerate,
+    required TResult Function(FormSuccessEdit value) successEdit,
+    required TResult Function(FormSuccessLoadGitDiff value) successLoadGitDiff,
+    required TResult Function(FormSuccessSave value) successSave,
+    required TResult Function(FormError value) error,
+    required TResult Function(FormErrorLoadGitDiff value) errorLoadGitDiff,
+  }) {
+    return errorLoadGitDiff(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(FormInitial value)? initial,
+    TResult? Function(FormLoading value)? loading,
+    TResult? Function(FormSuccessGenerate value)? successGenerate,
+    TResult? Function(FormSuccessEdit value)? successEdit,
+    TResult? Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
+    TResult? Function(FormSuccessSave value)? successSave,
+    TResult? Function(FormError value)? error,
+    TResult? Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
+  }) {
+    return errorLoadGitDiff?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccessGenerate value)? successGenerate,
+    TResult Function(FormSuccessEdit value)? successEdit,
+    TResult Function(FormSuccessLoadGitDiff value)? successLoadGitDiff,
+    TResult Function(FormSuccessSave value)? successSave,
+    TResult Function(FormError value)? error,
+    TResult Function(FormErrorLoadGitDiff value)? errorLoadGitDiff,
+    required TResult orElse(),
+  }) {
+    if (errorLoadGitDiff != null) {
+      return errorLoadGitDiff(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FormErrorLoadGitDiff extends FormMessageCommitState {
+  const factory FormErrorLoadGitDiff(final GitDiffFailure failure) =
+      _$FormErrorLoadGitDiffImpl;
+  const FormErrorLoadGitDiff._() : super._();
+
+  GitDiffFailure get failure;
+  @JsonKey(ignore: true)
+  _$$FormErrorLoadGitDiffImplCopyWith<_$FormErrorLoadGitDiffImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

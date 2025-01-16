@@ -1,5 +1,5 @@
 import 'package:commit_ai/feature/commit_generator/domain/commit_generator_failure.dart';
-import 'package:commit_ai/feature/commit_generator/domain/message_commit_entity_dto.dart';
+import 'package:commit_ai/feature/commit_generator/domain/entities/message_commit_entity_dto.dart';
 import 'package:fpdart/fpdart.dart';
 
 abstract interface class IMessageCommitRepository {

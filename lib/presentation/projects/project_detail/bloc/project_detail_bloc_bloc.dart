@@ -3,7 +3,7 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:commit_ai/feature/commit_generator/application/delete_message_commit_use_case.dart';
 import 'package:commit_ai/feature/commit_generator/application/get_history_commit_use_case.dart';
 import 'package:commit_ai/feature/commit_generator/domain/commit_generator_failure.dart';
-import 'package:commit_ai/feature/commit_generator/domain/message_commit_entity_dto.dart';
+import 'package:commit_ai/feature/commit_generator/domain/entities/message_commit_entity_dto.dart';
 import 'package:commit_ai/feature/projects/application/get_project_detail_use_case.dart';
 import 'package:commit_ai/feature/projects/domain/project_entity_dto.dart';
 import 'package:commit_ai/feature/projects/domain/project_failure.dart';

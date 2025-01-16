@@ -3,7 +3,6 @@ import 'package:commit_ai/presentation/projects/project_detail/form_generator/bl
 import 'package:commit_ai/presentation/projects/project_detail/form_generator/widget/edit_form.dart';
 import 'package:commit_ai/presentation/projects/project_detail/form_generator/widget/path_info.dart';
 import 'package:commit_ai/presentation/projects/project_detail/form_generator/widget/tab_form.dart';
-import 'package:commit_ai/presentation/settings_page/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -90,6 +89,9 @@ class _FormGeneratorState extends State<FormGenerator> {
 
             setState(() {});
           },
+          successLoadGitDiff: (entity) {
+            gitDiffController.text = entity.diff;
+          },
         );
       },
       child: Container(
@@ -123,14 +125,10 @@ class _FormGeneratorState extends State<FormGenerator> {
                     TabForms(
                         loadGitDiff: widget.projectPath == null
                             ? null
-                            : () async {
-                                final gitDiff =
-                                    await ejecutarGitDiff(widget.projectPath!);
-
-                                setState(() {
-                                  gitDiffController.text = gitDiff;
-                                });
-                              },
+                            : () => context.read<FormMessageCommitBloc>().add(
+                                  FormMessageCommitEvent.loadGitDiff(
+                                      widget.projectPath!),
+                                ),
                         modeTab: modeTab,
                         changeDescriptionController:
                             changeDescriptionController,

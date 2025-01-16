@@ -1,4 +1,4 @@
-import 'package:commit_ai/feature/commit_generator/domain/interface_message_commit_repository.dart';
+import 'package:commit_ai/feature/commit_generator/domain/interfaces/interface_message_commit_repository.dart';
 
 class GetHistoryCommitUseCase {
   final IMessageCommitRepository _repository;

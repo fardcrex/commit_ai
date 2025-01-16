@@ -11,4 +11,7 @@ class FormMessageCommitEvent with _$FormMessageCommitEvent {
   const factory FormMessageCommitEvent.saveMessageCommit(
           ResultIaMessageCommit resultIaMessageCommit, String projectId) =
       SaveMessageCommit;
+
+  const factory FormMessageCommitEvent.loadGitDiff(String projectPath) =
+      LoadGitDiff;
 }

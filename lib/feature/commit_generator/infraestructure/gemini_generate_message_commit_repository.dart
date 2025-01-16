@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:commit_ai/feature/commit_generator/domain/commit_generator_failure.dart';
 import 'package:commit_ai/feature/commit_generator/domain/form_generator_commit.dart';
-import 'package:commit_ai/feature/commit_generator/domain/interface_generate_message_commit_repository.dart';
+import 'package:commit_ai/feature/commit_generator/domain/interfaces/interface_generate_message_commit_repository.dart';
 import 'package:firebase_vertexai/firebase_vertexai.dart';
 import 'package:fpdart/fpdart.dart';
 

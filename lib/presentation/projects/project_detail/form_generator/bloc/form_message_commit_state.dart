@@ -8,10 +8,14 @@ sealed class FormMessageCommitState with _$FormMessageCommitState {
       ResultIaMessageCommit result) = FormSuccessGenerate;
 
   const factory FormMessageCommitState.successEdit() = FormSuccessEdit;
+  const factory FormMessageCommitState.successLoadGitDiff(GitDiffEntity diff) =
+      FormSuccessLoadGitDiff;
 
   const factory FormMessageCommitState.successSave() = FormSuccessSave;
   const factory FormMessageCommitState.error(CommitGeneratorFailure failure) =
       FormError;
+  const factory FormMessageCommitState.errorLoadGitDiff(
+      GitDiffFailure failure) = FormErrorLoadGitDiff;
 
   const FormMessageCommitState._();
 

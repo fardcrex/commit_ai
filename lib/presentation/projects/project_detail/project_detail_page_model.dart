@@ -1,4 +1,4 @@
-import 'package:commit_ai/feature/commit_generator/domain/message_commit_entity_dto.dart';
+import 'package:commit_ai/feature/commit_generator/domain/entities/message_commit_entity_dto.dart';
 import 'package:intl/intl.dart';
 
 class MessageCommitModel {

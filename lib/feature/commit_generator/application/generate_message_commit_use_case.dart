@@ -1,5 +1,5 @@
 import 'package:commit_ai/feature/commit_generator/domain/form_generator_commit.dart';
-import 'package:commit_ai/feature/commit_generator/domain/interface_generate_message_commit_repository.dart';
+import 'package:commit_ai/feature/commit_generator/domain/interfaces/interface_generate_message_commit_repository.dart';
 
 class GenerateMessageCommitUseCase {
   final IGenerateMessageCommitRepository _generateMessageCommitRepository;

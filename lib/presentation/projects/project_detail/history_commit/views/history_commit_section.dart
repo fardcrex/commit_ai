@@ -1,4 +1,4 @@
-import 'package:commit_ai/feature/commit_generator/domain/message_commit_entity_dto.dart';
+import 'package:commit_ai/feature/commit_generator/domain/entities/message_commit_entity_dto.dart';
 import 'package:commit_ai/presentation/projects/project_detail/bloc/project_detail_bloc_bloc.dart';
 import 'package:commit_ai/presentation/projects/project_detail/history_commit/widgets/message_commit_card.dart';
 import 'package:commit_ai/presentation/projects/project_detail/project_detail_page_model.dart';

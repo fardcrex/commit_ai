@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:commit_ai/feature/commit_generator/application/generate_message_commit_use_case.dart';
+import 'package:commit_ai/feature/commit_generator/application/load_git_diff_use_case.dart';
 import 'package:commit_ai/feature/commit_generator/application/save_message_commit_use_case.dart';
+import 'package:commit_ai/feature/commit_generator/domain/commit_generator_failure.dart';
 import 'package:commit_ai/feature/projects/application/edit_project_use_case.dart';
 import 'package:commit_ai/feature/projects/domain/project_entity_dto.dart';
 import 'package:commit_ai/presentation/projects/project_detail/form_generator/bloc/form_message_commit_bloc.dart';
@@ -21,6 +23,7 @@ class FormGeneratorProvidersSection extends StatelessWidget {
         context.read<GenerateMessageCommitUseCase>(),
         context.read<EditProjectUseCase>(),
         context.read<SaveMessageCommitUseCase>(),
+        context.read<LoadGitDiffUseCase>(),
       ),
       child: FormGeneratorBlocSection(
         project: project,
@@ -41,6 +44,28 @@ class FormGeneratorBlocSection extends StatelessWidget {
           error: (_) {},
           initial: () {},
           loading: () {},
+          errorLoadGitDiff: (failure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                width: max(MediaQuery.of(context).size.width * 0.5, 200),
+                behavior: SnackBarBehavior.floating,
+                elevation: 2,
+                clipBehavior: Clip.antiAlias,
+                padding: const EdgeInsets.all(16),
+                backgroundColor: Colors.red,
+                content: Center(
+                  child: Text(switch (failure) {
+                    PermissionDeniedFailure() =>
+                      'Permiso denegado para cargar el repositorio',
+                    NotGitRepositoryFailure() =>
+                      'No se encontró el repositorio git, verifique la ruta',
+                    final UnexpectedFailure failure =>
+                      'Error inesperado al ejecutar comando: ${failure.message}',
+                  }),
+                ),
+              ),
+            );
+          },
           orElse: () {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

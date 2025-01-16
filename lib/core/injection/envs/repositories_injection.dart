@@ -1,7 +1,9 @@
 import 'package:commit_ai/core/injection/sembast_injection.dart';
-import 'package:commit_ai/feature/commit_generator/domain/interface_generate_message_commit_repository.dart';
-import 'package:commit_ai/feature/commit_generator/domain/interface_message_commit_repository.dart';
+import 'package:commit_ai/feature/commit_generator/domain/interfaces/interface_generate_message_commit_repository.dart';
+import 'package:commit_ai/feature/commit_generator/domain/interfaces/interface_git_diff_repository.dart';
+import 'package:commit_ai/feature/commit_generator/domain/interfaces/interface_message_commit_repository.dart';
 import 'package:commit_ai/feature/commit_generator/infraestructure/gemini_generate_message_commit_repository.dart';
+import 'package:commit_ai/feature/commit_generator/infraestructure/process_git_diff_repository.dart';
 import 'package:commit_ai/feature/commit_generator/infraestructure/sembast_message_commit_repository.dart';
 import 'package:commit_ai/feature/projects/domain/interface_project_repository.dart';
 import 'package:commit_ai/feature/projects/infraestructure/sembast_project_repository.dart';
@@ -22,6 +24,8 @@ class RepositoriesInjection {
 
   final IGenerateMessageCommitRepository generateMessageCommitRepository;
 
+  final InterfaceGitDiffRepository gitDiffRepository;
+
   final RespondGetDateTime respondGetDateTime;
 
   RepositoriesInjection(
@@ -29,6 +33,7 @@ class RepositoriesInjection {
     this.respondGetDateTime,
     this.messageCommitRepository,
     this.generateMessageCommitRepository,
+    this.gitDiffRepository,
   );
 }
 
@@ -39,12 +44,14 @@ class DevelopmentRepositoriesFactory implements RepositoriesFactory {
     final projectRepository = SembastProjectRepository(sembast);
     final messageCommitRepository = SembastMessageCommitRepository(sembast);
     final generateCommitRepository = GeminiGenerateMessageCommitRepository();
+    final gitDiffRepository = ProcessGitDiffRepository();
 
     return RepositoriesInjection(
       projectRepository,
       DateTime.now,
       messageCommitRepository,
       generateCommitRepository,
+      gitDiffRepository,
     );
   }
 }

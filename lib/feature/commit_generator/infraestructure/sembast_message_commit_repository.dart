@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:commit_ai/core/injection/sembast_injection.dart';
 import 'package:commit_ai/feature/commit_generator/domain/commit_generator_failure.dart';
-import 'package:commit_ai/feature/commit_generator/domain/interface_message_commit_repository.dart';
-import 'package:commit_ai/feature/commit_generator/domain/message_commit_entity_dto.dart';
+import 'package:commit_ai/feature/commit_generator/domain/entities/message_commit_entity_dto.dart';
+import 'package:commit_ai/feature/commit_generator/domain/interfaces/interface_message_commit_repository.dart';
 import 'package:commit_ai/feature/projects/domain/project_entity_dto.dart';
 import 'package:fpdart/fpdart.dart';
 
