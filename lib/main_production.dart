@@ -6,10 +6,10 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   bootstrap(() async {
-    final repositoriesInjection = await RepositoriesFactory.getDevelopment();
-
     await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform);
+
+    final repositoriesInjection = await RepositoriesFactory.getDevelopment();
 
     return AppProvider(repositoriesInjection: repositoriesInjection);
   });

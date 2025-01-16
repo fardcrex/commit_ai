@@ -76,20 +76,24 @@ ejemplo ${ResultIaMessageCommit.example()}
   @override
   Future<ResultGenerateMessageCommit> generateMessageCommit(
       FormGeneratorCommit formGeneratorCommit) async {
-    final response = await model.generateContent([
-      Content.text(
-          '''Los datos para generar el mensaje de commit mediante ai por parte del usuario son:'''),
-      Content.text('''${formGeneratorCommit.toJson()}''')
-    ]);
-    if (response.text == null) {
+    try {
+      final response = await model.generateContent([
+        Content.text(
+            '''Los datos para generar el mensaje de commit mediante ai por parte del usuario son:'''),
+        Content.text('''${formGeneratorCommit.toJson()}''')
+      ]);
+      if (response.text == null) {
+        return Left(CommitGeneratorFailure('Error generating commit message'));
+      }
+
+      final decodedJson = json.decode(response.text!) as Map<String, dynamic>;
+
+      final resultIaMessageCommit = ResultIaMessageCommit.fromJson(decodedJson);
+
+      return Right(resultIaMessageCommit);
+    } catch (e) {
       return Left(CommitGeneratorFailure('Error generating commit message'));
     }
-
-    final decodedJson = json.decode(response.text!) as Map<String, dynamic>;
-
-    final resultIaMessageCommit = ResultIaMessageCommit.fromJson(decodedJson);
-
-    return Right(resultIaMessageCommit);
   }
 }
 
