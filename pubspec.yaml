@@ -7,12 +7,12 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
-  bloc: ^8.1.4
-  bloc_concurrency: ^0.2.5
+  bloc: ^9.0.0
+  bloc_concurrency: ^0.3.0
 
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.6
+  flutter_bloc: ^9.0.0
 
   flutter_localizations:
     sdk: flutter
@@ -34,13 +34,15 @@ dependencies:
   sembast_web: ^2.4.0
 
 dev_dependencies:
-  bloc_test: ^9.1.7
-  build_runner: ^2.4.6
+  bloc_test: ^10.0.0
+  build_runner: ^2.4.14
+
+  flutter_launcher_icons: ^0.13.1
 
   flutter_test:
     sdk: flutter
-  freezed: ^2.4.7
-  json_serializable: ^6.7.1
+  freezed: ^3.0.0-0.0.dev
+  json_serializable: ^6.9.3
   mocktail: ^1.0.4
   very_good_analysis: ^7.0.0
   test: ^1.16.0
@@ -48,3 +50,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+
+flutter_icons:
+  macos:
+    generate: true
+    image_path: "assets/icon.png"

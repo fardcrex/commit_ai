@@ -33,11 +33,15 @@
 	<!-- Para acceso completo al disco -->
 	<key>NSFileAccessUsageDescription</key>
 	<string>Esta aplicación necesita acceso a los archivos para funcionar correctamente.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 
 	<!-- Para acceso a documentos o carpetas específicas -->
 	<key>NSDocumentsFolderUsageDescription</key>
 	<string>Esta aplicación necesita acceso a la carpeta de Documentos.</string>
-	<key>com.apple.security.files.user-selected.read-write</key>
-	<true/>
+	
 </dict>
 </plist>
