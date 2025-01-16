@@ -10,16 +10,15 @@ class ProcessGitDiffRepository implements InterfaceGitDiffRepository {
   Future<ResultGitDiff> loadGitDiff(String path) async {
     try {
       final result = await Process.run('git', ['diff'], workingDirectory: path);
-      if (result.exitCode != 0) {
-        return left(GitDiffFailure.notFound());
-      }
-      final diff = result.stdout.toString();
-      return right(GitDiffEntity(diff: diff));
+
+      if (result.exitCode != 0) return left(GitDiffFailure.notFound());
+
+      return right(GitDiffEntity(diff: result.stdout.toString()));
     } catch (e) {
       if (e is ProcessException) {
-        if (e.errorCode == 267) {
-          return left(GitDiffFailure.notFound());
-        }
+        if (e.errorCode == 267) return left(GitDiffFailure.notFound());
+
+        return left(GitDiffFailure.permissionDenied());
       }
 
       return left(GitDiffFailure.unexpected(e.toString()));
