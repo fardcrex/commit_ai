@@ -81,8 +81,11 @@ class _ProjectFormAlertState extends State<ProjectFormAlert> {
                   decoration: const InputDecoration(labelText: 'Descripción'),
                 ),
                 const SizedBox(height: 20),
-                if (defaultTargetPlatform == TargetPlatform.windows ||
-                    defaultTargetPlatform == TargetPlatform.linux)
+                if (!kIsWeb &&
+                    !kIsWasm &&
+                    (defaultTargetPlatform == TargetPlatform.windows ||
+                        defaultTargetPlatform == TargetPlatform.linux ||
+                        defaultTargetPlatform == TargetPlatform.macOS))
                   TextField(
                     controller: pathProjectController,
                     minLines: 1,
