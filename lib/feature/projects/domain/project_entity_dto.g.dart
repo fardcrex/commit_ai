@@ -16,6 +16,9 @@ _$ProjectEntityDtoImpl _$$ProjectEntityDtoImplFromJson(
       commits: (json['commits'] as num).toInt(),
       lastModified: (json['lastModified'] as num).toInt(),
       created: (json['created'] as num).toInt(),
+      isFavorite: json['isFavorite'] as bool? ?? false,
+      includeBody: json['includeBody'] as bool? ?? false,
+      includeFooter: json['includeFooter'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$ProjectEntityDtoImplToJson(
@@ -28,4 +31,7 @@ Map<String, dynamic> _$$ProjectEntityDtoImplToJson(
       'commits': instance.commits,
       'lastModified': instance.lastModified,
       'created': instance.created,
+      'isFavorite': instance.isFavorite,
+      'includeBody': instance.includeBody,
+      'includeFooter': instance.includeFooter,
     };

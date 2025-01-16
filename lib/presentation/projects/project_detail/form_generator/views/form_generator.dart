@@ -9,14 +9,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class FormGenerator extends StatefulWidget {
   final String projectDescription;
 
+  final bool includeBody;
+
+  final bool includeFooter;
+
   final String? projectPath;
 
   final void Function(String) onDescriptionChanged;
+  final void Function() onIncludeBodynChanged;
+  final void Function() onIncludeFooterChanged;
 
   const FormGenerator({
     required this.projectDescription,
     required this.onDescriptionChanged,
     required this.projectPath,
+    required this.onIncludeBodynChanged,
+    required this.onIncludeFooterChanged,
+    required this.includeBody,
+    required this.includeFooter,
     super.key,
   });
 
@@ -31,9 +41,7 @@ class _FormGeneratorState extends State<FormGenerator> {
 
   final TextEditingController gitDiffController = TextEditingController();
 
-  bool includeBody = false;
   ModeTab modeTab = ModeTab.description;
-  bool includeFooter = false;
 
   @override
   void initState() {
@@ -175,20 +183,18 @@ class _FormGeneratorState extends State<FormGenerator> {
                     // Include Body and Footer Switches
                     SwitchListTile(
                       title: const Text('Incluir Cuerpo'),
-                      value: includeBody,
+                      value: widget.includeBody,
                       activeColor: Colors.indigo[600],
                       onChanged: (bool value) {
-                        setState(() {
-                          includeBody = value;
-                        });
+                        widget.onIncludeBodynChanged();
                       },
                     ),
                     SwitchListTile(
                       title: const Text('Incluir Pie'),
-                      value: includeFooter,
+                      value: widget.includeFooter,
                       activeColor: Colors.indigo[600],
                       onChanged: (bool value) {
-                        setState(() => includeFooter = value);
+                        widget.onIncludeFooterChanged();
                       },
                     ),
                   ],
@@ -240,8 +246,8 @@ class _FormGeneratorState extends State<FormGenerator> {
               projectDescription: widget.projectDescription,
               changeDescription: changeDescriptionController.text,
               type: commitType,
-              includeBody: includeBody,
-              includeFooter: includeFooter,
+              includeBody: widget.includeBody,
+              includeFooter: widget.includeFooter,
               gitDiff: gitDiffController.text,
             ),
           ),

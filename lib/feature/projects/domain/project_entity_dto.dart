@@ -16,6 +16,9 @@ class ProjectEntityDto with _$ProjectEntityDto {
     required int commits,
     required int lastModified,
     required int created,
+    @Default(false) bool isFavorite,
+    @Default(false) bool includeBody,
+    @Default(false) bool includeFooter,
   }) = _ProjectEntityDto;
 
   factory ProjectEntityDto.fromJson(Map<String, dynamic> json) =>

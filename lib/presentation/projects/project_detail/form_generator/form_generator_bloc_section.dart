@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:commit_ai/feature/commit_generator/application/generate_message_commit_use_case.dart';
 import 'package:commit_ai/feature/commit_generator/application/load_git_diff_use_case.dart';
 import 'package:commit_ai/feature/commit_generator/application/save_message_commit_use_case.dart';
@@ -9,6 +7,7 @@ import 'package:commit_ai/feature/projects/domain/project_entity_dto.dart';
 import 'package:commit_ai/presentation/projects/project_detail/form_generator/bloc/form_message_commit_bloc.dart';
 import 'package:commit_ai/presentation/projects/project_detail/form_generator/views/form_generator.dart';
 import 'package:commit_ai/presentation/projects/project_detail/form_generator/views/save_form_alert.dart';
+import 'package:commit_ai/presentation/projects/project_detail/form_generator/widget/snack_bar_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,45 +40,27 @@ class FormGeneratorBlocSection extends StatelessWidget {
     return BlocListener<FormMessageCommitBloc, FormMessageCommitState>(
       listener: (context, state) {
         state.maybeWhen(
-          error: (_) {},
+          error: (failure) {
+            SnackBarCustom.showError(
+              context,
+              'Error al generar el mensaje de commit: ${failure.message}',
+            );
+          },
           initial: () {},
           loading: () {},
           errorLoadGitDiff: (failure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                width: max(MediaQuery.of(context).size.width * 0.5, 200),
-                behavior: SnackBarBehavior.floating,
-                elevation: 2,
-                clipBehavior: Clip.antiAlias,
-                padding: const EdgeInsets.all(16),
-                backgroundColor: Colors.red,
-                content: Center(
-                  child: Text(switch (failure) {
-                    PermissionDeniedFailure() =>
-                      'Permiso denegado para cargar el repositorio',
-                    NotGitRepositoryFailure() =>
-                      'No se encontró el repositorio git, verifique la ruta',
-                    final UnexpectedFailure failure =>
-                      'Error inesperado al ejecutar comando: ${failure.message}',
-                  }),
-                ),
-              ),
-            );
+            SnackBarCustom.showError(
+                context,
+                switch (failure) {
+                  PermissionDeniedFailure() =>
+                    'Permiso denegado para cargar el repositorio',
+                  NotGitRepositoryFailure() =>
+                    'No se encontró el repositorio git, verifique la ruta',
+                  final UnexpectedFailure failure =>
+                    'Error inesperado al ejecutar comando: ${failure.message}',
+                });
           },
-          orElse: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                width: max(MediaQuery.of(context).size.width * 0.5, 200),
-                behavior: SnackBarBehavior.floating,
-                elevation: 2,
-                clipBehavior: Clip.antiAlias,
-                padding: const EdgeInsets.all(16),
-                backgroundColor: Colors.green,
-                content:
-                    const Center(child: Text('Acción realizada correctamente')),
-              ),
-            );
-          },
+          orElse: () => SnackBarCustom.showSuccess(context),
           successGenerate: (resultIA) {
             showDialog<void>(
               context: context,
@@ -99,12 +80,27 @@ class FormGeneratorBlocSection extends StatelessWidget {
       child: FormGenerator(
         projectDescription: project.description,
         projectPath: project.path,
+        includeBody: project.includeBody,
+        includeFooter: project.includeFooter,
+        onIncludeBodynChanged: () {
+          _updateProject(
+              context, project.copyWith(includeBody: !project.includeBody));
+        },
+        onIncludeFooterChanged: () {
+          _updateProject(
+              context, project.copyWith(includeFooter: !project.includeFooter));
+        },
         onDescriptionChanged: (newDescription) {
-          context.read<FormMessageCommitBloc>().add(
-                EditProject(project.copyWith(description: newDescription)),
-              );
+          _updateProject(
+              context, project.copyWith(description: newDescription));
         },
       ),
     );
+  }
+
+  void _updateProject(BuildContext context, ProjectEntityDto project) {
+    context
+        .read<FormMessageCommitBloc>()
+        .add(FormMessageCommitEvent.editProject(project));
   }
 }

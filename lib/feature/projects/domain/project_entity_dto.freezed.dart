@@ -27,6 +27,9 @@ mixin _$ProjectEntityDto {
   int get commits => throw _privateConstructorUsedError;
   int get lastModified => throw _privateConstructorUsedError;
   int get created => throw _privateConstructorUsedError;
+  bool get isFavorite => throw _privateConstructorUsedError;
+  bool get includeBody => throw _privateConstructorUsedError;
+  bool get includeFooter => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +50,10 @@ abstract class $ProjectEntityDtoCopyWith<$Res> {
       String? path,
       int commits,
       int lastModified,
-      int created});
+      int created,
+      bool isFavorite,
+      bool includeBody,
+      bool includeFooter});
 }
 
 /// @nodoc
@@ -70,6 +76,9 @@ class _$ProjectEntityDtoCopyWithImpl<$Res, $Val extends ProjectEntityDto>
     Object? commits = null,
     Object? lastModified = null,
     Object? created = null,
+    Object? isFavorite = null,
+    Object? includeBody = null,
+    Object? includeFooter = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -100,6 +109,18 @@ class _$ProjectEntityDtoCopyWithImpl<$Res, $Val extends ProjectEntityDto>
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as int,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
+      includeBody: null == includeBody
+          ? _value.includeBody
+          : includeBody // ignore: cast_nullable_to_non_nullable
+              as bool,
+      includeFooter: null == includeFooter
+          ? _value.includeFooter
+          : includeFooter // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -119,7 +140,10 @@ abstract class _$$ProjectEntityDtoImplCopyWith<$Res>
       String? path,
       int commits,
       int lastModified,
-      int created});
+      int created,
+      bool isFavorite,
+      bool includeBody,
+      bool includeFooter});
 }
 
 /// @nodoc
@@ -140,6 +164,9 @@ class __$$ProjectEntityDtoImplCopyWithImpl<$Res>
     Object? commits = null,
     Object? lastModified = null,
     Object? created = null,
+    Object? isFavorite = null,
+    Object? includeBody = null,
+    Object? includeFooter = null,
   }) {
     return _then(_$ProjectEntityDtoImpl(
       id: null == id
@@ -170,6 +197,18 @@ class __$$ProjectEntityDtoImplCopyWithImpl<$Res>
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
               as int,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
+      includeBody: null == includeBody
+          ? _value.includeBody
+          : includeBody // ignore: cast_nullable_to_non_nullable
+              as bool,
+      includeFooter: null == includeFooter
+          ? _value.includeFooter
+          : includeFooter // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -184,7 +223,10 @@ class _$ProjectEntityDtoImpl extends _ProjectEntityDto {
       required this.path,
       required this.commits,
       required this.lastModified,
-      required this.created})
+      required this.created,
+      this.isFavorite = false,
+      this.includeBody = false,
+      this.includeFooter = false})
       : super._();
 
   factory _$ProjectEntityDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -204,10 +246,19 @@ class _$ProjectEntityDtoImpl extends _ProjectEntityDto {
   final int lastModified;
   @override
   final int created;
+  @override
+  @JsonKey()
+  final bool isFavorite;
+  @override
+  @JsonKey()
+  final bool includeBody;
+  @override
+  @JsonKey()
+  final bool includeFooter;
 
   @override
   String toString() {
-    return 'ProjectEntityDto(id: $id, name: $name, description: $description, path: $path, commits: $commits, lastModified: $lastModified, created: $created)';
+    return 'ProjectEntityDto(id: $id, name: $name, description: $description, path: $path, commits: $commits, lastModified: $lastModified, created: $created, isFavorite: $isFavorite, includeBody: $includeBody, includeFooter: $includeFooter)';
   }
 
   @override
@@ -223,13 +274,19 @@ class _$ProjectEntityDtoImpl extends _ProjectEntityDto {
             (identical(other.commits, commits) || other.commits == commits) &&
             (identical(other.lastModified, lastModified) ||
                 other.lastModified == lastModified) &&
-            (identical(other.created, created) || other.created == created));
+            (identical(other.created, created) || other.created == created) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite) &&
+            (identical(other.includeBody, includeBody) ||
+                other.includeBody == includeBody) &&
+            (identical(other.includeFooter, includeFooter) ||
+                other.includeFooter == includeFooter));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, description, path, commits, lastModified, created);
+  int get hashCode => Object.hash(runtimeType, id, name, description, path,
+      commits, lastModified, created, isFavorite, includeBody, includeFooter);
 
   @JsonKey(ignore: true)
   @override
@@ -254,7 +311,10 @@ abstract class _ProjectEntityDto extends ProjectEntityDto {
       required final String? path,
       required final int commits,
       required final int lastModified,
-      required final int created}) = _$ProjectEntityDtoImpl;
+      required final int created,
+      final bool isFavorite,
+      final bool includeBody,
+      final bool includeFooter}) = _$ProjectEntityDtoImpl;
   _ProjectEntityDto._() : super._();
 
   factory _ProjectEntityDto.fromJson(Map<String, dynamic> json) =
@@ -274,6 +334,12 @@ abstract class _ProjectEntityDto extends ProjectEntityDto {
   int get lastModified;
   @override
   int get created;
+  @override
+  bool get isFavorite;
+  @override
+  bool get includeBody;
+  @override
+  bool get includeFooter;
   @override
   @JsonKey(ignore: true)
   _$$ProjectEntityDtoImplCopyWith<_$ProjectEntityDtoImpl> get copyWith =>
