@@ -42,7 +42,7 @@ class ProjectDetailBlocPage extends StatelessWidget {
         return ColoredBox(
           color: Colors.white,
           child: switch (state) {
-            final ProjectDetailInitial _ =>
+            ProjectDetailInitial() =>
               const Center(child: CircularProgressIndicator()),
             final ProjectDetailError error =>
               Center(child: Text(error.failure.message)),
