@@ -35,6 +35,45 @@ _\*Commit Ai works on iOS, Android, Web, and Windows._
 
 ---
 
+## Compilación e Instalación en Windows 🖥️
+
+### Requisitos previos
+
+- Windows 10 o posterior
+- Visual Studio 2019 o posterior con "Desktop development with C++"
+- Flutter con soporte para Windows habilitado
+
+### Habilitar soporte para escritorio en Windows
+
+```sh
+flutter config --enable-windows-desktop
+```
+
+### Compilación para Windows
+
+```sh
+flutter build windows --release --target lib/main_production.dart
+```
+
+El ejecutable se generará en:
+`build\windows\x64\runner\Release\commit_ai.exe`
+
+### Creación del Instalador para Windows
+
+1. Instala [Inno Setup](https://jrsoftware.org/isdl.php).
+
+2. Crea una carpeta `installer` en la raíz del proyecto y agrega:
+
+   - `icon.ico` (convertido desde tu ícono de la app)
+   - `installer.iss` (el archivo de script de Inno Setup)
+
+3. Usa el archivo `installer.iss` ubicado en `installer/installer.iss`.
+
+4. Compila el instalador utilizando Inno Setup Compiler.
+
+El instalador se generará en:
+`installer\Output\commit_ai_setup.exe`
+
 ## Running Tests 🧪
 
 To run all unit and widget tests use the following command:
