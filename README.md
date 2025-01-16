@@ -35,43 +35,43 @@ _\*Commit Ai works on iOS, Android, Web, and Windows._
 
 ---
 
-## Compilación e Instalación en Windows 🖥️
+## Compilation and Installation on Windows 🖥️
 
-### Requisitos previos
+### Prerequisites
 
-- Windows 10 o posterior
-- Visual Studio 2019 o posterior con "Desktop development with C++"
-- Flutter con soporte para Windows habilitado
+- Windows 10 or later
+- Visual Studio 2019 or newer with "Desktop development with C++"
+- Flutter with Windows desktop support enabled
 
-### Habilitar soporte para escritorio en Windows
+### Enable Desktop Support for Windows
 
 ```sh
 flutter config --enable-windows-desktop
 ```
 
-### Compilación para Windows
+### Build for Windows
 
 ```sh
 flutter build windows --release --target lib/main_production.dart
 ```
 
-El ejecutable se generará en:
+The executable will be generated at:
 `build\windows\x64\runner\Release\commit_ai.exe`
 
-### Creación del Instalador para Windows
+### Creating the Installer for Windows
 
-1. Instala [Inno Setup](https://jrsoftware.org/isdl.php).
+1. Install [Inno Setup](https://jrsoftware.org/isdl.php).
 
-2. Crea una carpeta `installer` en la raíz del proyecto y agrega:
+2. Create an `installer` folder at the root of the project and add the following:
 
-   - `icon.ico` (convertido desde tu ícono de la app)
-   - `installer.iss` (el archivo de script de Inno Setup)
+   - `icon.ico` (converted from your app icon)
+   - `installer.iss` (the Inno Setup script file)
 
-3. Usa el archivo `installer.iss` ubicado en `installer/installer.iss`.
+3. Use the `installer.iss` file located in `installer/installer.iss`.
 
-4. Compila el instalador utilizando Inno Setup Compiler.
+4. Compile the installer using the Inno Setup Compiler.
 
-El instalador se generará en:
+The installer will be generated at:
 `installer\Output\commit_ai_setup.exe`
 
 ## Running Tests 🧪
