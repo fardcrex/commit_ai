@@ -53,7 +53,7 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
-          color: primaryColor.withOpacity(0.4),
+          color: primaryColor.withValues(alpha: 0.4),
         ),
         borderRadius: BorderRadius.circular(8),
       ),
@@ -86,7 +86,8 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
                         onPressed: toggleRawMode,
                         color: const Color(0xFF4ADE80),
                         tooltip: 'Salir del modo raw',
-                        hoverColor: const Color(0xFF4ADE80).withOpacity(0.2),
+                        hoverColor:
+                            const Color(0xFF4ADE80).withValues(alpha: 0.2),
                       ),
                     ],
                   ),
@@ -128,7 +129,7 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: primaryColor.withOpacity(0.1),
+                        color: primaryColor.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(6),
                       ),
                       child: Text(
@@ -162,7 +163,7 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
                   widget.message.body,
                   style: TextStyle(
                     fontSize: 14,
-                    color: primaryColor.withOpacity(0.7),
+                    color: primaryColor.withValues(alpha: 0.7),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -170,7 +171,7 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
                   widget.message.footer,
                   style: TextStyle(
                     fontSize: 14,
-                    color: primaryColor.withOpacity(0.7),
+                    color: primaryColor.withValues(alpha: 0.7),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -181,7 +182,7 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
                       widget.message.timeDescription,
                       style: TextStyle(
                         fontSize: 12,
-                        color: primaryColor.withOpacity(0.5),
+                        color: primaryColor.withValues(alpha: 0.5),
                       ),
                     ),
                     const Spacer(),
@@ -204,7 +205,7 @@ class _MessageCommitCardState extends State<MessageCommitCard> {
                       onPressed: () => widget.onDelete?.call(),
                       color: Colors.red,
                       tooltip: 'Eliminar',
-                      hoverColor: Colors.red.withOpacity(0.1),
+                      hoverColor: Colors.red.withValues(alpha: 0.1),
                     ),
                   ],
                 ),

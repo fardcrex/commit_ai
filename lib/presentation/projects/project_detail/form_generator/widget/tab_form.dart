@@ -114,7 +114,8 @@ class TabForm extends StatelessWidget {
           text,
           style: TextStyle(
               fontWeight: FontWeight.w600,
-              color: Colors.indigo[600]?.withOpacity(isActivated ? 1 : 0.5)),
+              color:
+                  Colors.indigo[600]?.withValues(alpha: isActivated ? 1 : 0.5)),
         ),
       ),
     );

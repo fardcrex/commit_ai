@@ -27,7 +27,7 @@ class IconButtonWithTooltip extends StatelessWidget {
         child: InkWell(
           onTap: onPressed,
           borderRadius: BorderRadius.circular(8),
-          hoverColor: hoverColor ?? color.withOpacity(0.1),
+          hoverColor: hoverColor ?? color.withValues(alpha: 0.1),
           child: Container(
             padding: const EdgeInsets.all(8),
             decoration: backgroundColor != null

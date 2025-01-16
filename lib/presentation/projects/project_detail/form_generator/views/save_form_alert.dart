@@ -20,7 +20,7 @@ class SaveFormAlert extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(
-            color: primaryColor.withOpacity(0.4),
+            color: primaryColor.withValues(alpha: 0.4),
           ),
           borderRadius: BorderRadius.circular(8),
         ),
@@ -39,7 +39,7 @@ class SaveFormAlert extends StatelessWidget {
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: primaryColor.withOpacity(0.1),
+                    color: primaryColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: Text(
@@ -68,7 +68,7 @@ class SaveFormAlert extends StatelessWidget {
               resultIA.body,
               style: TextStyle(
                 fontSize: 14,
-                color: primaryColor.withOpacity(0.7),
+                color: primaryColor.withValues(alpha: 0.7),
               ),
             ),
             const SizedBox(height: 8),
@@ -76,7 +76,7 @@ class SaveFormAlert extends StatelessWidget {
               resultIA.footer,
               style: TextStyle(
                 fontSize: 14,
-                color: primaryColor.withOpacity(0.7),
+                color: primaryColor.withValues(alpha: 0.7),
               ),
             ),
             const SizedBox(height: 16),
