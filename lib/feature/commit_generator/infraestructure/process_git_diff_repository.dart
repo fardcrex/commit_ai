@@ -13,7 +13,11 @@ class ProcessGitDiffRepository implements InterfaceGitDiffRepository {
 
       if (result.exitCode != 0) return left(GitDiffFailure.notFound());
 
-      return right(GitDiffEntity(diff: result.stdout.toString()));
+      final diff = result.stdout.toString();
+
+      if (diff.isEmpty) return left(GitDiffFailure.empty());
+
+      return right(GitDiffEntity(diff: diff));
     } catch (e) {
       if (e is ProcessException) {
         if (e.errorCode == 267) return left(GitDiffFailure.notFound());

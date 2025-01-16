@@ -13,6 +13,8 @@ sealed class GitDiffFailure {
 
   static GitDiffFailure notFound() => const NotGitRepositoryFailure();
 
+  static GitDiffFailure empty() => const EmptyGitDiffFailure();
+
   static GitDiffFailure unexpected(String err) => UnexpectedFailure(err);
 }
 
@@ -26,4 +28,8 @@ class NotGitRepositoryFailure extends GitDiffFailure {
 
 class UnexpectedFailure extends GitDiffFailure {
   const UnexpectedFailure(String err) : super('Unexpected error $err');
+}
+
+class EmptyGitDiffFailure extends GitDiffFailure {
+  const EmptyGitDiffFailure() : super('Empty git diff');
 }

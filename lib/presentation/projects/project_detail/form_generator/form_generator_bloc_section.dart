@@ -56,6 +56,7 @@ class FormGeneratorBlocSection extends StatelessWidget {
                     'Permiso denegado para cargar el repositorio',
                   NotGitRepositoryFailure() =>
                     'No se encontró el repositorio git, verifique la ruta',
+                  EmptyGitDiffFailure() => 'No hay cambios en el repositorio',
                   final UnexpectedFailure failure =>
                     'Error inesperado al ejecutar comando: ${failure.message}',
                 });
