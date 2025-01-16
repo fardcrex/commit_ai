@@ -35,6 +35,7 @@ class HistoryCommitSection extends StatelessWidget {
             itemCount: commits.length,
             itemBuilder: (context, index) {
               return MessageCommitCard(
+                  key: ValueKey(commits[index].id),
                   message: commits[index].toModel(),
                   onDelete: () {
                     context.read<ProjectDetailBloc>().add(
