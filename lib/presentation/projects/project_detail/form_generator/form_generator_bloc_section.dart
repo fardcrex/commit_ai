@@ -39,44 +39,44 @@ class FormGeneratorBlocSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<FormMessageCommitBloc, FormMessageCommitState>(
       listener: (context, state) {
-        state.maybeWhen(
-          error: (failure) {
-            SnackBarCustom.showError(
-              context,
-              'Error al generar el mensaje de commit: ${failure.message}',
-            );
-          },
-          initial: () {},
-          loading: () {},
-          errorLoadGitDiff: (failure) {
-            SnackBarCustom.showError(
-                context,
-                switch (failure) {
-                  PermissionDeniedFailure() =>
-                    'Permiso denegado para cargar el repositorio',
-                  NotGitRepositoryFailure() =>
-                    'No se encontró el repositorio git, verifique la ruta',
-                  EmptyGitDiffFailure() => 'No hay cambios en el repositorio',
-                  final UnexpectedFailure failure =>
-                    'Error inesperado al ejecutar comando: ${failure.message}',
-                });
-          },
-          orElse: () => SnackBarCustom.showSuccess(context),
-          successGenerate: (resultIA) {
-            showDialog<void>(
-              context: context,
-              builder: (contextDialog) => SaveFormAlert(
-                resultIA: resultIA,
-                onSave: () {
-                  Navigator.of(contextDialog).pop();
-                  context
-                      .read<FormMessageCommitBloc>()
-                      .add(SaveMessageCommit(resultIA, project.id));
-                },
-              ),
-            );
-          },
-        );
+        if (state case final FormError formError) {
+          SnackBarCustom.showError(
+            context,
+            'Error al generar el mensaje de commit: ${formError.failure.message}',
+          );
+        }
+        if (state case final FormErrorLoadGitDiff formErrorLoadGitDiff) {
+          SnackBarCustom.showError(
+            context,
+            switch (formErrorLoadGitDiff.failure) {
+              PermissionDeniedFailure() =>
+                'Permiso denegado para cargar el repositorio',
+              NotGitRepositoryFailure() =>
+                'No se encontró el repositorio git, verifique la ruta',
+              EmptyGitDiffFailure() => 'No hay cambios en el repositorio',
+              final UnexpectedFailure failure =>
+                'Error inesperado al ejecutar comando: ${failure.message}',
+            },
+          );
+        }
+        if (state case final FormSuccessGenerate formSuccessGenerate) {
+          showDialog<void>(
+            context: context,
+            builder: (contextDialog) => SaveFormAlert(
+              resultIA: formSuccessGenerate.result,
+              onRetry: () {
+                Navigator.of(contextDialog).pop();
+                context.read<FormMessageCommitBloc>().add(
+                    GenerateMessageCommit(formSuccessGenerate.formGenerator));
+              },
+              onSave: () {
+                Navigator.of(contextDialog).pop();
+                context.read<FormMessageCommitBloc>().add(
+                    SaveMessageCommit(formSuccessGenerate.result, project.id));
+              },
+            ),
+          );
+        }
       },
       child: FormGenerator(
         projectDescription: project.description,

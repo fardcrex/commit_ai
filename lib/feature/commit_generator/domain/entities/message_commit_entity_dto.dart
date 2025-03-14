@@ -4,7 +4,7 @@ part 'message_commit_entity_dto.freezed.dart';
 part 'message_commit_entity_dto.g.dart';
 
 @freezed
-class MessageCommitEntityDto with _$MessageCommitEntityDto {
+sealed class MessageCommitEntityDto with _$MessageCommitEntityDto {
   static const String createdKey = 'created';
   static const String idKey = 'id';
   static const String idProjectKey = 'idProject';

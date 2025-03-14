@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,360 +10,153 @@ part of 'projects_list_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ProjectsListEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ProjectsListEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'ProjectsListEvent()';
+  }
 }
 
 /// @nodoc
-abstract class $ProjectsListEventCopyWith<$Res> {
-  factory $ProjectsListEventCopyWith(
-          ProjectsListEvent value, $Res Function(ProjectsListEvent) then) =
-      _$ProjectsListEventCopyWithImpl<$Res, ProjectsListEvent>;
-}
-
-/// @nodoc
-class _$ProjectsListEventCopyWithImpl<$Res, $Val extends ProjectsListEvent>
-    implements $ProjectsListEventCopyWith<$Res> {
-  _$ProjectsListEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$ProjectsListEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
-      : super(_value, _then);
+class $ProjectsListEventCopyWith<$Res> {
+  $ProjectsListEventCopyWith(
+      ProjectsListEvent _, $Res Function(ProjectsListEvent) __);
 }
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+class _Started implements ProjectsListEvent {
+  const _Started();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Started);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
     return 'ProjectsListEvent.started()';
   }
+}
 
+/// @nodoc
+mixin _$ProjectsListState {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType && other is ProjectsListState);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-  }) {
-    return started();
+  String toString() {
+    return 'ProjectsListState()';
+  }
+}
+
+/// @nodoc
+class $ProjectsListStateCopyWith<$Res> {
+  $ProjectsListStateCopyWith(
+      ProjectsListState _, $Res Function(ProjectsListState) __);
+}
+
+/// @nodoc
+
+class Initial implements ProjectsListState {
+  const Initial();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Initial);
   }
 
   @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements ProjectsListEvent {
-  const factory _Started() = _$StartedImpl;
-}
-
-/// @nodoc
-mixin _$ProjectsListState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(ProjectFailure failure) error,
-    required TResult Function(List<ProjectEntityDto> projects) loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(ProjectFailure failure)? error,
-    TResult? Function(List<ProjectEntityDto> projects)? loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(ProjectFailure failure)? error,
-    TResult Function(List<ProjectEntityDto> projects)? loaded,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(ProjectsListError value) error,
-    required TResult Function(Loaded value) loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(ProjectsListError value)? error,
-    TResult? Function(Loaded value)? loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(ProjectsListError value)? error,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ProjectsListStateCopyWith<$Res> {
-  factory $ProjectsListStateCopyWith(
-          ProjectsListState value, $Res Function(ProjectsListState) then) =
-      _$ProjectsListStateCopyWithImpl<$Res, ProjectsListState>;
-}
-
-/// @nodoc
-class _$ProjectsListStateCopyWithImpl<$Res, $Val extends ProjectsListState>
-    implements $ProjectsListStateCopyWith<$Res> {
-  _$ProjectsListStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ProjectsListStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$InitialImpl implements Initial {
-  const _$InitialImpl();
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
     return 'ProjectsListState.initial()';
   }
+}
+
+/// @nodoc
+
+class ProjectsListError implements ProjectsListState {
+  const ProjectsListError(this.failure);
+
+  final ProjectFailure failure;
+
+  /// Create a copy of ProjectsListState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ProjectsListErrorCopyWith<ProjectsListError> get copyWith =>
+      _$ProjectsListErrorCopyWithImpl<ProjectsListError>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is ProjectsListError &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, failure);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(ProjectFailure failure) error,
-    required TResult Function(List<ProjectEntityDto> projects) loaded,
-  }) {
-    return initial();
+  String toString() {
+    return 'ProjectsListState.error(failure: $failure)';
   }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(ProjectFailure failure)? error,
-    TResult? Function(List<ProjectEntityDto> projects)? loaded,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(ProjectFailure failure)? error,
-    TResult Function(List<ProjectEntityDto> projects)? loaded,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(ProjectsListError value) error,
-    required TResult Function(Loaded value) loaded,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(ProjectsListError value)? error,
-    TResult? Function(Loaded value)? loaded,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(ProjectsListError value)? error,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Initial implements ProjectsListState {
-  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$ProjectsListErrorImplCopyWith<$Res> {
-  factory _$$ProjectsListErrorImplCopyWith(_$ProjectsListErrorImpl value,
-          $Res Function(_$ProjectsListErrorImpl) then) =
-      __$$ProjectsListErrorImplCopyWithImpl<$Res>;
+abstract mixin class $ProjectsListErrorCopyWith<$Res>
+    implements $ProjectsListStateCopyWith<$Res> {
+  factory $ProjectsListErrorCopyWith(
+          ProjectsListError value, $Res Function(ProjectsListError) _then) =
+      _$ProjectsListErrorCopyWithImpl;
   @useResult
   $Res call({ProjectFailure failure});
 }
 
 /// @nodoc
-class __$$ProjectsListErrorImplCopyWithImpl<$Res>
-    extends _$ProjectsListStateCopyWithImpl<$Res, _$ProjectsListErrorImpl>
-    implements _$$ProjectsListErrorImplCopyWith<$Res> {
-  __$$ProjectsListErrorImplCopyWithImpl(_$ProjectsListErrorImpl _value,
-      $Res Function(_$ProjectsListErrorImpl) _then)
-      : super(_value, _then);
+class _$ProjectsListErrorCopyWithImpl<$Res>
+    implements $ProjectsListErrorCopyWith<$Res> {
+  _$ProjectsListErrorCopyWithImpl(this._self, this._then);
 
+  final ProjectsListError _self;
+  final $Res Function(ProjectsListError) _then;
+
+  /// Create a copy of ProjectsListState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$ProjectsListErrorImpl(
+    return _then(ProjectsListError(
       null == failure
-          ? _value.failure
+          ? _self.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as ProjectFailure,
     ));
@@ -371,169 +165,28 @@ class __$$ProjectsListErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProjectsListErrorImpl implements ProjectsListError {
-  const _$ProjectsListErrorImpl(this.failure);
-
-  @override
-  final ProjectFailure failure;
-
-  @override
-  String toString() {
-    return 'ProjectsListState.error(failure: $failure)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ProjectsListErrorImpl &&
-            (identical(other.failure, failure) || other.failure == failure));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, failure);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ProjectsListErrorImplCopyWith<_$ProjectsListErrorImpl> get copyWith =>
-      __$$ProjectsListErrorImplCopyWithImpl<_$ProjectsListErrorImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(ProjectFailure failure) error,
-    required TResult Function(List<ProjectEntityDto> projects) loaded,
-  }) {
-    return error(failure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(ProjectFailure failure)? error,
-    TResult? Function(List<ProjectEntityDto> projects)? loaded,
-  }) {
-    return error?.call(failure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(ProjectFailure failure)? error,
-    TResult Function(List<ProjectEntityDto> projects)? loaded,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(failure);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(ProjectsListError value) error,
-    required TResult Function(Loaded value) loaded,
-  }) {
-    return error(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(ProjectsListError value)? error,
-    TResult? Function(Loaded value)? loaded,
-  }) {
-    return error?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(ProjectsListError value)? error,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ProjectsListError implements ProjectsListState {
-  const factory ProjectsListError(final ProjectFailure failure) =
-      _$ProjectsListErrorImpl;
-
-  ProjectFailure get failure;
-  @JsonKey(ignore: true)
-  _$$ProjectsListErrorImplCopyWith<_$ProjectsListErrorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<ProjectEntityDto> projects});
-}
-
-/// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$ProjectsListStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? projects = null,
-  }) {
-    return _then(_$LoadedImpl(
-      null == projects
-          ? _value._projects
-          : projects // ignore: cast_nullable_to_non_nullable
-              as List<ProjectEntityDto>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$LoadedImpl implements Loaded {
-  const _$LoadedImpl(final List<ProjectEntityDto> projects)
-      : _projects = projects;
+class Loaded implements ProjectsListState {
+  const Loaded(final List<ProjectEntityDto> projects) : _projects = projects;
 
   final List<ProjectEntityDto> _projects;
-  @override
   List<ProjectEntityDto> get projects {
     if (_projects is EqualUnmodifiableListView) return _projects;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_projects);
   }
 
-  @override
-  String toString() {
-    return 'ProjectsListState.loaded(projects: $projects)';
-  }
+  /// Create a copy of ProjectsListState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $LoadedCopyWith<Loaded> get copyWith =>
+      _$LoadedCopyWithImpl<Loaded>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadedImpl &&
+            other is Loaded &&
             const DeepCollectionEquality().equals(other._projects, _projects));
   }
 
@@ -541,86 +194,41 @@ class _$LoadedImpl implements Loaded {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_projects));
 
-  @JsonKey(ignore: true)
   @override
+  String toString() {
+    return 'ProjectsListState.loaded(projects: $projects)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $LoadedCopyWith<$Res>
+    implements $ProjectsListStateCopyWith<$Res> {
+  factory $LoadedCopyWith(Loaded value, $Res Function(Loaded) _then) =
+      _$LoadedCopyWithImpl;
+  @useResult
+  $Res call({List<ProjectEntityDto> projects});
+}
+
+/// @nodoc
+class _$LoadedCopyWithImpl<$Res> implements $LoadedCopyWith<$Res> {
+  _$LoadedCopyWithImpl(this._self, this._then);
+
+  final Loaded _self;
+  final $Res Function(Loaded) _then;
+
+  /// Create a copy of ProjectsListState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(ProjectFailure failure) error,
-    required TResult Function(List<ProjectEntityDto> projects) loaded,
+  $Res call({
+    Object? projects = null,
   }) {
-    return loaded(projects);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(ProjectFailure failure)? error,
-    TResult? Function(List<ProjectEntityDto> projects)? loaded,
-  }) {
-    return loaded?.call(projects);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(ProjectFailure failure)? error,
-    TResult Function(List<ProjectEntityDto> projects)? loaded,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(projects);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(ProjectsListError value) error,
-    required TResult Function(Loaded value) loaded,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(ProjectsListError value)? error,
-    TResult? Function(Loaded value)? loaded,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(ProjectsListError value)? error,
-    TResult Function(Loaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
+    return _then(Loaded(
+      null == projects
+          ? _self._projects
+          : projects // ignore: cast_nullable_to_non_nullable
+              as List<ProjectEntityDto>,
+    ));
   }
 }
 
-abstract class Loaded implements ProjectsListState {
-  const factory Loaded(final List<ProjectEntityDto> projects) = _$LoadedImpl;
-
-  List<ProjectEntityDto> get projects;
-  @JsonKey(ignore: true)
-  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

@@ -4,7 +4,7 @@ part 'project_entity_dto.freezed.dart';
 part 'project_entity_dto.g.dart';
 
 @freezed
-class ProjectEntityDto with _$ProjectEntityDto {
+sealed class ProjectEntityDto with _$ProjectEntityDto {
   static const lastModifiedKey = 'lastModified';
   static const commitsKey = 'commits';
 

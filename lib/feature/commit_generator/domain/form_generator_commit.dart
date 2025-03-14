@@ -4,7 +4,7 @@ part 'form_generator_commit.freezed.dart';
 part 'form_generator_commit.g.dart';
 
 @freezed
-class FormGeneratorCommit with _$FormGeneratorCommit {
+sealed class FormGeneratorCommit with _$FormGeneratorCommit {
   const factory FormGeneratorCommit({
     required String projectDescription,
     required String changeDescription,
@@ -19,7 +19,7 @@ class FormGeneratorCommit with _$FormGeneratorCommit {
 }
 
 @freezed
-class ResultIaMessageCommit with _$ResultIaMessageCommit {
+sealed class ResultIaMessageCommit with _$ResultIaMessageCommit {
   const factory ResultIaMessageCommit({
     required String description,
     required String type,

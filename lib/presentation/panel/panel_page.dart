@@ -18,25 +18,13 @@ class RootLayout extends StatefulWidget {
 class _RootLayoutState extends State<RootLayout> {
   @override
   Widget build(BuildContext context) {
+    //TODO refactorizar
     final isMobile = MediaQuery.of(context).size.width < 600;
 
     return isMobile
         ? Scaffold(
-            appBar: AppBar(
-              title: const Text('Mis Proyectos'),
-              actions: [
-                IconButton(
-                  icon: const Icon(
-                    Icons.add,
-                    color: Color(0xFF3665F4),
-                  ),
-                  onPressed: () {},
-                  tooltip: 'Crear Proyecto',
-                ),
-              ],
-            ),
             drawer: const NavigationStatePanel(),
-            body: Expanded(child: widget.child),
+            body: widget.child,
           )
         : Scaffold(
             body: Row(

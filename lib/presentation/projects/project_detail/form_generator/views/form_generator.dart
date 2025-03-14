@@ -89,18 +89,15 @@ class _FormGeneratorState extends State<FormGenerator> {
   Widget build(BuildContext context) {
     return BlocListener<FormMessageCommitBloc, FormMessageCommitState>(
       listener: (context, state) {
-        state.whenOrNull(
-          successSave: () {
-            commitType = commitTypes.first;
-            changeDescriptionController.clear();
-            gitDiffController.clear();
-
-            setState(() {});
-          },
-          successLoadGitDiff: (entity) {
-            gitDiffController.text = entity.diff;
-          },
-        );
+        if (state.isSuccessSave) {
+          commitType = commitTypes.first;
+          changeDescriptionController.clear();
+          gitDiffController.clear();
+          setState(() {});
+        }
+        if (state case final FormSuccessLoadGitDiff formSuccessLoadGitDiff) {
+          gitDiffController.text = formSuccessLoadGitDiff.diff.diff;
+        }
       },
       child: Container(
         color: const Color(0xFFDDE9FF),

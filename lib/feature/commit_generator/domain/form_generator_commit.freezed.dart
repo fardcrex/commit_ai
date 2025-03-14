@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,101 +10,62 @@ part of 'form_generator_commit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-FormGeneratorCommit _$FormGeneratorCommitFromJson(Map<String, dynamic> json) {
-  return _FormGeneratorCommit.fromJson(json);
-}
 
 /// @nodoc
 mixin _$FormGeneratorCommit {
-  String get projectDescription => throw _privateConstructorUsedError;
-  String get changeDescription => throw _privateConstructorUsedError;
-  String get gitDiff => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  bool get includeBody => throw _privateConstructorUsedError;
-  bool get includeFooter => throw _privateConstructorUsedError;
+  String get projectDescription;
+  String get changeDescription;
+  String get gitDiff;
+  String get type;
+  bool get includeBody;
+  bool get includeFooter;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $FormGeneratorCommitCopyWith<FormGeneratorCommit> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $FormGeneratorCommitCopyWith<$Res> {
-  factory $FormGeneratorCommitCopyWith(
-          FormGeneratorCommit value, $Res Function(FormGeneratorCommit) then) =
-      _$FormGeneratorCommitCopyWithImpl<$Res, FormGeneratorCommit>;
-  @useResult
-  $Res call(
-      {String projectDescription,
-      String changeDescription,
-      String gitDiff,
-      String type,
-      bool includeBody,
-      bool includeFooter});
-}
-
-/// @nodoc
-class _$FormGeneratorCommitCopyWithImpl<$Res, $Val extends FormGeneratorCommit>
-    implements $FormGeneratorCommitCopyWith<$Res> {
-  _$FormGeneratorCommitCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of FormGeneratorCommit
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $FormGeneratorCommitCopyWith<FormGeneratorCommit> get copyWith =>
+      _$FormGeneratorCommitCopyWithImpl<FormGeneratorCommit>(
+          this as FormGeneratorCommit, _$identity);
+
+  /// Serializes this FormGeneratorCommit to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? projectDescription = null,
-    Object? changeDescription = null,
-    Object? gitDiff = null,
-    Object? type = null,
-    Object? includeBody = null,
-    Object? includeFooter = null,
-  }) {
-    return _then(_value.copyWith(
-      projectDescription: null == projectDescription
-          ? _value.projectDescription
-          : projectDescription // ignore: cast_nullable_to_non_nullable
-              as String,
-      changeDescription: null == changeDescription
-          ? _value.changeDescription
-          : changeDescription // ignore: cast_nullable_to_non_nullable
-              as String,
-      gitDiff: null == gitDiff
-          ? _value.gitDiff
-          : gitDiff // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      includeBody: null == includeBody
-          ? _value.includeBody
-          : includeBody // ignore: cast_nullable_to_non_nullable
-              as bool,
-      includeFooter: null == includeFooter
-          ? _value.includeFooter
-          : includeFooter // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FormGeneratorCommit &&
+            (identical(other.projectDescription, projectDescription) ||
+                other.projectDescription == projectDescription) &&
+            (identical(other.changeDescription, changeDescription) ||
+                other.changeDescription == changeDescription) &&
+            (identical(other.gitDiff, gitDiff) || other.gitDiff == gitDiff) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.includeBody, includeBody) ||
+                other.includeBody == includeBody) &&
+            (identical(other.includeFooter, includeFooter) ||
+                other.includeFooter == includeFooter));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, projectDescription,
+      changeDescription, gitDiff, type, includeBody, includeFooter);
+
+  @override
+  String toString() {
+    return 'FormGeneratorCommit(projectDescription: $projectDescription, changeDescription: $changeDescription, gitDiff: $gitDiff, type: $type, includeBody: $includeBody, includeFooter: $includeFooter)';
   }
 }
 
 /// @nodoc
-abstract class _$$FormGeneratorCommitImplCopyWith<$Res>
-    implements $FormGeneratorCommitCopyWith<$Res> {
-  factory _$$FormGeneratorCommitImplCopyWith(_$FormGeneratorCommitImpl value,
-          $Res Function(_$FormGeneratorCommitImpl) then) =
-      __$$FormGeneratorCommitImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $FormGeneratorCommitCopyWith<$Res> {
+  factory $FormGeneratorCommitCopyWith(
+          FormGeneratorCommit value, $Res Function(FormGeneratorCommit) _then) =
+      _$FormGeneratorCommitCopyWithImpl;
   @useResult
   $Res call(
       {String projectDescription,
@@ -115,13 +77,15 @@ abstract class _$$FormGeneratorCommitImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FormGeneratorCommitImplCopyWithImpl<$Res>
-    extends _$FormGeneratorCommitCopyWithImpl<$Res, _$FormGeneratorCommitImpl>
-    implements _$$FormGeneratorCommitImplCopyWith<$Res> {
-  __$$FormGeneratorCommitImplCopyWithImpl(_$FormGeneratorCommitImpl _value,
-      $Res Function(_$FormGeneratorCommitImpl) _then)
-      : super(_value, _then);
+class _$FormGeneratorCommitCopyWithImpl<$Res>
+    implements $FormGeneratorCommitCopyWith<$Res> {
+  _$FormGeneratorCommitCopyWithImpl(this._self, this._then);
 
+  final FormGeneratorCommit _self;
+  final $Res Function(FormGeneratorCommit) _then;
+
+  /// Create a copy of FormGeneratorCommit
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,29 +96,29 @@ class __$$FormGeneratorCommitImplCopyWithImpl<$Res>
     Object? includeBody = null,
     Object? includeFooter = null,
   }) {
-    return _then(_$FormGeneratorCommitImpl(
+    return _then(_self.copyWith(
       projectDescription: null == projectDescription
-          ? _value.projectDescription
+          ? _self.projectDescription
           : projectDescription // ignore: cast_nullable_to_non_nullable
               as String,
       changeDescription: null == changeDescription
-          ? _value.changeDescription
+          ? _self.changeDescription
           : changeDescription // ignore: cast_nullable_to_non_nullable
               as String,
       gitDiff: null == gitDiff
-          ? _value.gitDiff
+          ? _self.gitDiff
           : gitDiff // ignore: cast_nullable_to_non_nullable
               as String,
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       includeBody: null == includeBody
-          ? _value.includeBody
+          ? _self.includeBody
           : includeBody // ignore: cast_nullable_to_non_nullable
               as bool,
       includeFooter: null == includeFooter
-          ? _value.includeFooter
+          ? _self.includeFooter
           : includeFooter // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -163,17 +127,16 @@ class __$$FormGeneratorCommitImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FormGeneratorCommitImpl implements _FormGeneratorCommit {
-  const _$FormGeneratorCommitImpl(
+class _FormGeneratorCommit implements FormGeneratorCommit {
+  const _FormGeneratorCommit(
       {required this.projectDescription,
       required this.changeDescription,
       required this.gitDiff,
       required this.type,
       required this.includeBody,
       required this.includeFooter});
-
-  factory _$FormGeneratorCommitImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FormGeneratorCommitImplFromJson(json);
+  factory _FormGeneratorCommit.fromJson(Map<String, dynamic> json) =>
+      _$FormGeneratorCommitFromJson(json);
 
   @override
   final String projectDescription;
@@ -188,16 +151,27 @@ class _$FormGeneratorCommitImpl implements _FormGeneratorCommit {
   @override
   final bool includeFooter;
 
+  /// Create a copy of FormGeneratorCommit
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'FormGeneratorCommit(projectDescription: $projectDescription, changeDescription: $changeDescription, gitDiff: $gitDiff, type: $type, includeBody: $includeBody, includeFooter: $includeFooter)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FormGeneratorCommitCopyWith<_FormGeneratorCommit> get copyWith =>
+      __$FormGeneratorCommitCopyWithImpl<_FormGeneratorCommit>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FormGeneratorCommitToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FormGeneratorCommitImpl &&
+            other is _FormGeneratorCommit &&
             (identical(other.projectDescription, projectDescription) ||
                 other.projectDescription == projectDescription) &&
             (identical(other.changeDescription, changeDescription) ||
@@ -210,142 +184,131 @@ class _$FormGeneratorCommitImpl implements _FormGeneratorCommit {
                 other.includeFooter == includeFooter));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, projectDescription,
       changeDescription, gitDiff, type, includeBody, includeFooter);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FormGeneratorCommitImplCopyWith<_$FormGeneratorCommitImpl> get copyWith =>
-      __$$FormGeneratorCommitImplCopyWithImpl<_$FormGeneratorCommitImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FormGeneratorCommitImplToJson(
-      this,
-    );
+  String toString() {
+    return 'FormGeneratorCommit(projectDescription: $projectDescription, changeDescription: $changeDescription, gitDiff: $gitDiff, type: $type, includeBody: $includeBody, includeFooter: $includeFooter)';
   }
 }
 
-abstract class _FormGeneratorCommit implements FormGeneratorCommit {
-  const factory _FormGeneratorCommit(
-      {required final String projectDescription,
-      required final String changeDescription,
-      required final String gitDiff,
-      required final String type,
-      required final bool includeBody,
-      required final bool includeFooter}) = _$FormGeneratorCommitImpl;
-
-  factory _FormGeneratorCommit.fromJson(Map<String, dynamic> json) =
-      _$FormGeneratorCommitImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$FormGeneratorCommitCopyWith<$Res>
+    implements $FormGeneratorCommitCopyWith<$Res> {
+  factory _$FormGeneratorCommitCopyWith(_FormGeneratorCommit value,
+          $Res Function(_FormGeneratorCommit) _then) =
+      __$FormGeneratorCommitCopyWithImpl;
   @override
-  String get projectDescription;
-  @override
-  String get changeDescription;
-  @override
-  String get gitDiff;
-  @override
-  String get type;
-  @override
-  bool get includeBody;
-  @override
-  bool get includeFooter;
-  @override
-  @JsonKey(ignore: true)
-  _$$FormGeneratorCommitImplCopyWith<_$FormGeneratorCommitImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {String projectDescription,
+      String changeDescription,
+      String gitDiff,
+      String type,
+      bool includeBody,
+      bool includeFooter});
 }
 
-ResultIaMessageCommit _$ResultIaMessageCommitFromJson(
-    Map<String, dynamic> json) {
-  return _ResultIaMessageCommit.fromJson(json);
+/// @nodoc
+class __$FormGeneratorCommitCopyWithImpl<$Res>
+    implements _$FormGeneratorCommitCopyWith<$Res> {
+  __$FormGeneratorCommitCopyWithImpl(this._self, this._then);
+
+  final _FormGeneratorCommit _self;
+  final $Res Function(_FormGeneratorCommit) _then;
+
+  /// Create a copy of FormGeneratorCommit
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? projectDescription = null,
+    Object? changeDescription = null,
+    Object? gitDiff = null,
+    Object? type = null,
+    Object? includeBody = null,
+    Object? includeFooter = null,
+  }) {
+    return _then(_FormGeneratorCommit(
+      projectDescription: null == projectDescription
+          ? _self.projectDescription
+          : projectDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+      changeDescription: null == changeDescription
+          ? _self.changeDescription
+          : changeDescription // ignore: cast_nullable_to_non_nullable
+              as String,
+      gitDiff: null == gitDiff
+          ? _self.gitDiff
+          : gitDiff // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      includeBody: null == includeBody
+          ? _self.includeBody
+          : includeBody // ignore: cast_nullable_to_non_nullable
+              as bool,
+      includeFooter: null == includeFooter
+          ? _self.includeFooter
+          : includeFooter // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 mixin _$ResultIaMessageCommit {
-  String get description => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  String get scope => throw _privateConstructorUsedError;
-  String get body => throw _privateConstructorUsedError;
-  String get footer => throw _privateConstructorUsedError;
+  String get description;
+  String get type;
+  String get scope;
+  String get body;
+  String get footer;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ResultIaMessageCommitCopyWith<ResultIaMessageCommit> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ResultIaMessageCommitCopyWith<$Res> {
-  factory $ResultIaMessageCommitCopyWith(ResultIaMessageCommit value,
-          $Res Function(ResultIaMessageCommit) then) =
-      _$ResultIaMessageCommitCopyWithImpl<$Res, ResultIaMessageCommit>;
-  @useResult
-  $Res call(
-      {String description,
-      String type,
-      String scope,
-      String body,
-      String footer});
-}
-
-/// @nodoc
-class _$ResultIaMessageCommitCopyWithImpl<$Res,
-        $Val extends ResultIaMessageCommit>
-    implements $ResultIaMessageCommitCopyWith<$Res> {
-  _$ResultIaMessageCommitCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of ResultIaMessageCommit
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $ResultIaMessageCommitCopyWith<ResultIaMessageCommit> get copyWith =>
+      _$ResultIaMessageCommitCopyWithImpl<ResultIaMessageCommit>(
+          this as ResultIaMessageCommit, _$identity);
+
+  /// Serializes this ResultIaMessageCommit to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? description = null,
-    Object? type = null,
-    Object? scope = null,
-    Object? body = null,
-    Object? footer = null,
-  }) {
-    return _then(_value.copyWith(
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      scope: null == scope
-          ? _value.scope
-          : scope // ignore: cast_nullable_to_non_nullable
-              as String,
-      body: null == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String,
-      footer: null == footer
-          ? _value.footer
-          : footer // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ResultIaMessageCommit &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.scope, scope) || other.scope == scope) &&
+            (identical(other.body, body) || other.body == body) &&
+            (identical(other.footer, footer) || other.footer == footer));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, description, type, scope, body, footer);
+
+  @override
+  String toString() {
+    return 'ResultIaMessageCommit(description: $description, type: $type, scope: $scope, body: $body, footer: $footer)';
   }
 }
 
 /// @nodoc
-abstract class _$$ResultIaMessageCommitImplCopyWith<$Res>
-    implements $ResultIaMessageCommitCopyWith<$Res> {
-  factory _$$ResultIaMessageCommitImplCopyWith(
-          _$ResultIaMessageCommitImpl value,
-          $Res Function(_$ResultIaMessageCommitImpl) then) =
-      __$$ResultIaMessageCommitImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ResultIaMessageCommitCopyWith<$Res> {
+  factory $ResultIaMessageCommitCopyWith(ResultIaMessageCommit value,
+          $Res Function(ResultIaMessageCommit) _then) =
+      _$ResultIaMessageCommitCopyWithImpl;
   @useResult
   $Res call(
       {String description,
@@ -356,14 +319,15 @@ abstract class _$$ResultIaMessageCommitImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ResultIaMessageCommitImplCopyWithImpl<$Res>
-    extends _$ResultIaMessageCommitCopyWithImpl<$Res,
-        _$ResultIaMessageCommitImpl>
-    implements _$$ResultIaMessageCommitImplCopyWith<$Res> {
-  __$$ResultIaMessageCommitImplCopyWithImpl(_$ResultIaMessageCommitImpl _value,
-      $Res Function(_$ResultIaMessageCommitImpl) _then)
-      : super(_value, _then);
+class _$ResultIaMessageCommitCopyWithImpl<$Res>
+    implements $ResultIaMessageCommitCopyWith<$Res> {
+  _$ResultIaMessageCommitCopyWithImpl(this._self, this._then);
 
+  final ResultIaMessageCommit _self;
+  final $Res Function(ResultIaMessageCommit) _then;
+
+  /// Create a copy of ResultIaMessageCommit
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -373,25 +337,25 @@ class __$$ResultIaMessageCommitImplCopyWithImpl<$Res>
     Object? body = null,
     Object? footer = null,
   }) {
-    return _then(_$ResultIaMessageCommitImpl(
+    return _then(_self.copyWith(
       description: null == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       scope: null == scope
-          ? _value.scope
+          ? _self.scope
           : scope // ignore: cast_nullable_to_non_nullable
               as String,
       body: null == body
-          ? _value.body
+          ? _self.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
       footer: null == footer
-          ? _value.footer
+          ? _self.footer
           : footer // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -400,16 +364,15 @@ class __$$ResultIaMessageCommitImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ResultIaMessageCommitImpl implements _ResultIaMessageCommit {
-  const _$ResultIaMessageCommitImpl(
+class _ResultIaMessageCommit implements ResultIaMessageCommit {
+  const _ResultIaMessageCommit(
       {required this.description,
       required this.type,
       this.scope = '',
       this.body = '',
       this.footer = ''});
-
-  factory _$ResultIaMessageCommitImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ResultIaMessageCommitImplFromJson(json);
+  factory _ResultIaMessageCommit.fromJson(Map<String, dynamic> json) =>
+      _$ResultIaMessageCommitFromJson(json);
 
   @override
   final String description;
@@ -425,16 +388,27 @@ class _$ResultIaMessageCommitImpl implements _ResultIaMessageCommit {
   @JsonKey()
   final String footer;
 
+  /// Create a copy of ResultIaMessageCommit
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ResultIaMessageCommit(description: $description, type: $type, scope: $scope, body: $body, footer: $footer)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ResultIaMessageCommitCopyWith<_ResultIaMessageCommit> get copyWith =>
+      __$ResultIaMessageCommitCopyWithImpl<_ResultIaMessageCommit>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ResultIaMessageCommitToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ResultIaMessageCommitImpl &&
+            other is _ResultIaMessageCommit &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.type, type) || other.type == type) &&
@@ -443,49 +417,75 @@ class _$ResultIaMessageCommitImpl implements _ResultIaMessageCommit {
             (identical(other.footer, footer) || other.footer == footer));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, description, type, scope, body, footer);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ResultIaMessageCommitImplCopyWith<_$ResultIaMessageCommitImpl>
-      get copyWith => __$$ResultIaMessageCommitImplCopyWithImpl<
-          _$ResultIaMessageCommitImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ResultIaMessageCommitImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ResultIaMessageCommit(description: $description, type: $type, scope: $scope, body: $body, footer: $footer)';
   }
 }
 
-abstract class _ResultIaMessageCommit implements ResultIaMessageCommit {
-  const factory _ResultIaMessageCommit(
-      {required final String description,
-      required final String type,
-      final String scope,
-      final String body,
-      final String footer}) = _$ResultIaMessageCommitImpl;
-
-  factory _ResultIaMessageCommit.fromJson(Map<String, dynamic> json) =
-      _$ResultIaMessageCommitImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ResultIaMessageCommitCopyWith<$Res>
+    implements $ResultIaMessageCommitCopyWith<$Res> {
+  factory _$ResultIaMessageCommitCopyWith(_ResultIaMessageCommit value,
+          $Res Function(_ResultIaMessageCommit) _then) =
+      __$ResultIaMessageCommitCopyWithImpl;
   @override
-  String get description;
-  @override
-  String get type;
-  @override
-  String get scope;
-  @override
-  String get body;
-  @override
-  String get footer;
-  @override
-  @JsonKey(ignore: true)
-  _$$ResultIaMessageCommitImplCopyWith<_$ResultIaMessageCommitImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {String description,
+      String type,
+      String scope,
+      String body,
+      String footer});
 }
+
+/// @nodoc
+class __$ResultIaMessageCommitCopyWithImpl<$Res>
+    implements _$ResultIaMessageCommitCopyWith<$Res> {
+  __$ResultIaMessageCommitCopyWithImpl(this._self, this._then);
+
+  final _ResultIaMessageCommit _self;
+  final $Res Function(_ResultIaMessageCommit) _then;
+
+  /// Create a copy of ResultIaMessageCommit
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? description = null,
+    Object? type = null,
+    Object? scope = null,
+    Object? body = null,
+    Object? footer = null,
+  }) {
+    return _then(_ResultIaMessageCommit(
+      description: null == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      scope: null == scope
+          ? _self.scope
+          : scope // ignore: cast_nullable_to_non_nullable
+              as String,
+      body: null == body
+          ? _self.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
+      footer: null == footer
+          ? _self.footer
+          : footer // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

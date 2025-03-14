@@ -1,4 +1,5 @@
 import 'package:commit_ai/l10n/l10n.dart';
+import 'package:commit_ai/presentation/info_page/info_page.dart';
 import 'package:commit_ai/presentation/panel/panel_page.dart';
 import 'package:commit_ai/presentation/projects/project_detail/project_detail_bloc_page.dart';
 import 'package:commit_ai/presentation/projects/projects_list/project_list_bloc_page.dart';
@@ -41,6 +42,13 @@ final GoRouter router = GoRouter(
           path: '/settings',
           pageBuilder: (context, state) => fadeRoute(
             child: const SettingsPage(),
+            state: state,
+          ),
+        ),
+        GoRoute(
+          path: '/info',
+          pageBuilder: (context, state) => fadeRoute(
+            child: const InfoPage(),
             state: state,
           ),
         ),

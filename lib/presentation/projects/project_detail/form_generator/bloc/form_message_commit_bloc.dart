@@ -32,7 +32,8 @@ class FormMessageCommitBloc
       final result = await _generateMessageCommitUseCase
           .execute(event.formGeneratorCommit);
 
-      emit(result.fold(FormError.new, FormMessageCommitState.successGenerate));
+      emit(result.fold(FormError.new,
+          (r) => FormSuccessGenerate(r, event.formGeneratorCommit)));
     });
 
     on<EditProject>((event, emit) async {

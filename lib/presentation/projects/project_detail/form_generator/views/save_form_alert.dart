@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 class SaveFormAlert extends StatelessWidget {
   final ResultIaMessageCommit resultIA;
   final VoidCallback onSave;
-  const SaveFormAlert(
-      {required this.resultIA, required this.onSave, super.key});
+  final VoidCallback onRetry;
+  const SaveFormAlert({
+    required this.resultIA,
+    required this.onSave,
+    required this.onRetry,
+    super.key,
+  });
 
   static const Color primaryColor = Color(0xFF312E81);
 
@@ -85,9 +90,11 @@ class SaveFormAlert extends StatelessWidget {
       ),
       actions: <Widget>[
         TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
+          onPressed: onRetry,
+          child: const Text('Reintentar'),
+        ),
+        TextButton(
+          onPressed: Navigator.of(context).pop,
           child: const Text('Cancelar'),
         ),
         TextButton(

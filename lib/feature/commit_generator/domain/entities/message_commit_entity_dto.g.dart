@@ -6,9 +6,9 @@ part of 'message_commit_entity_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MessageCommitEntityDtoImpl _$$MessageCommitEntityDtoImplFromJson(
+_MessageCommitEntityDto _$MessageCommitEntityDtoFromJson(
         Map<String, dynamic> json) =>
-    _$MessageCommitEntityDtoImpl(
+    _MessageCommitEntityDto(
       idProject: json['idProject'] as String,
       type: json['type'] as String,
       description: json['description'] as String,
@@ -19,8 +19,8 @@ _$MessageCommitEntityDtoImpl _$$MessageCommitEntityDtoImplFromJson(
       id: json['id'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$MessageCommitEntityDtoImplToJson(
-        _$MessageCommitEntityDtoImpl instance) =>
+Map<String, dynamic> _$MessageCommitEntityDtoToJson(
+        _MessageCommitEntityDto instance) =>
     <String, dynamic>{
       'idProject': instance.idProject,
       'type': instance.type,

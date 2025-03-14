@@ -24,24 +24,22 @@ class ProjectsDataView extends StatelessWidget {
         final crossAxisCount = isMobile ? 1 : max(1, width ~/ 320);
         return CustomScrollView(
           slivers: [
-            if (!isMobile)
-              SliverAppBar(
-                floating: true,
-                title: const Text('Mis Proyectos'),
-                actions: [
-                  TextButton.icon(
-                    onPressed: () {
-                      ProjectCreateAlert.show(context);
-                    },
-                    icon: const Icon(Icons.add),
-                    label: const Text('Crear Proyecto'),
-                    style: TextButton.styleFrom(
-                      foregroundColor: const Color(0xFF4F46E5),
-                    ),
+            // if (!isMobile)
+            SliverAppBar(
+              floating: true,
+              title: const Text('Mis Proyectos'),
+              actions: [
+                TextButton.icon(
+                  onPressed: () => ProjectCreateAlert.show(context),
+                  icon: const Icon(Icons.add),
+                  label: const Text('Crear Proyecto'),
+                  style: TextButton.styleFrom(
+                    foregroundColor: const Color(0xFF4F46E5),
                   ),
-                  const SizedBox(width: 16),
-                ],
-              ),
+                ),
+                const SizedBox(width: 16),
+              ],
+            ),
             SliverPadding(
               padding: const EdgeInsets.all(16),
               sliver: SliverGrid(

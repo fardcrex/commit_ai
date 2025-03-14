@@ -6,9 +6,8 @@ part of 'project_entity_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProjectEntityDtoImpl _$$ProjectEntityDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ProjectEntityDtoImpl(
+_ProjectEntityDto _$ProjectEntityDtoFromJson(Map<String, dynamic> json) =>
+    _ProjectEntityDto(
       id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String,
@@ -21,8 +20,7 @@ _$ProjectEntityDtoImpl _$$ProjectEntityDtoImplFromJson(
       includeFooter: json['includeFooter'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$ProjectEntityDtoImplToJson(
-        _$ProjectEntityDtoImpl instance) =>
+Map<String, dynamic> _$ProjectEntityDtoToJson(_ProjectEntityDto instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

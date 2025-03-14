@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum NavigationsMenu { home, settings, notFound }
+enum NavigationsMenu { home, settings, notFound, info }
 
 extension NavigationOptionsExtension on NavigationsMenu {
   NavigationOption get option => NavigationOption.from(this);
@@ -13,7 +13,8 @@ abstract class NavigationOption {
 
   static List<NavigationOption> get values => <NavigationsMenu>[
         NavigationsMenu.home,
-        NavigationsMenu.settings,
+        //  NavigationsMenu.settings,
+        NavigationsMenu.info,
       ].map((e) => e.option).toList();
 
   static int getSelectedIndex(String location) {
@@ -24,7 +25,8 @@ abstract class NavigationOption {
     return switch (option) {
       NavigationsMenu.home => HomeNavigationOption(),
       NavigationsMenu.settings => SettingsNavigationOption(),
-      NavigationsMenu.notFound => NotFoundNavigationOption()
+      NavigationsMenu.notFound => NotFoundNavigationOption(),
+      NavigationsMenu.info => InfoNavigationOption(),
     };
   }
 }
@@ -60,4 +62,15 @@ class NotFoundNavigationOption implements NavigationOption {
 
   @override
   String get route => '/404';
+}
+
+class InfoNavigationOption implements NavigationOption {
+  @override
+  IconData get icon => Icons.info;
+
+  @override
+  String get label => 'Información';
+
+  @override
+  String get route => '/info';
 }

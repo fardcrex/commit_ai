@@ -17,11 +17,14 @@ class NavigationPanelDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = MediaQuery.of(context).size.width < 600;
     return NavigationDrawer(
       backgroundColor: const Color(0xFF362a75), // Fondo del menú lateral
       selectedIndex: selectedIndex,
       indicatorColor: const Color(0xFF3665F4),
       onDestinationSelected: (value) {
+        //ocultar drawer
+        if (isMobile) Navigator.of(context).pop();
         onTabOption(options[value]);
       },
       children: [

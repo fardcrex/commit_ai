@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,118 +10,64 @@ part of 'message_commit_entity_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MessageCommitEntityDto _$MessageCommitEntityDtoFromJson(
-    Map<String, dynamic> json) {
-  return _MessageCommitEntityDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MessageCommitEntityDto {
-  String get idProject => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  int get created => throw _privateConstructorUsedError;
-  String get scope => throw _privateConstructorUsedError;
-  String get body => throw _privateConstructorUsedError;
-  String get footer => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
+  String get idProject;
+  String get type;
+  String get description;
+  int get created;
+  String get scope;
+  String get body;
+  String get footer;
+  String get id;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MessageCommitEntityDtoCopyWith<MessageCommitEntityDto> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MessageCommitEntityDtoCopyWith<$Res> {
-  factory $MessageCommitEntityDtoCopyWith(MessageCommitEntityDto value,
-          $Res Function(MessageCommitEntityDto) then) =
-      _$MessageCommitEntityDtoCopyWithImpl<$Res, MessageCommitEntityDto>;
-  @useResult
-  $Res call(
-      {String idProject,
-      String type,
-      String description,
-      int created,
-      String scope,
-      String body,
-      String footer,
-      String id});
-}
-
-/// @nodoc
-class _$MessageCommitEntityDtoCopyWithImpl<$Res,
-        $Val extends MessageCommitEntityDto>
-    implements $MessageCommitEntityDtoCopyWith<$Res> {
-  _$MessageCommitEntityDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of MessageCommitEntityDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $MessageCommitEntityDtoCopyWith<MessageCommitEntityDto> get copyWith =>
+      _$MessageCommitEntityDtoCopyWithImpl<MessageCommitEntityDto>(
+          this as MessageCommitEntityDto, _$identity);
+
+  /// Serializes this MessageCommitEntityDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? idProject = null,
-    Object? type = null,
-    Object? description = null,
-    Object? created = null,
-    Object? scope = null,
-    Object? body = null,
-    Object? footer = null,
-    Object? id = null,
-  }) {
-    return _then(_value.copyWith(
-      idProject: null == idProject
-          ? _value.idProject
-          : idProject // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      created: null == created
-          ? _value.created
-          : created // ignore: cast_nullable_to_non_nullable
-              as int,
-      scope: null == scope
-          ? _value.scope
-          : scope // ignore: cast_nullable_to_non_nullable
-              as String,
-      body: null == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String,
-      footer: null == footer
-          ? _value.footer
-          : footer // ignore: cast_nullable_to_non_nullable
-              as String,
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MessageCommitEntityDto &&
+            (identical(other.idProject, idProject) ||
+                other.idProject == idProject) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.created, created) || other.created == created) &&
+            (identical(other.scope, scope) || other.scope == scope) &&
+            (identical(other.body, body) || other.body == body) &&
+            (identical(other.footer, footer) || other.footer == footer) &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, idProject, type, description,
+      created, scope, body, footer, id);
+
+  @override
+  String toString() {
+    return 'MessageCommitEntityDto(idProject: $idProject, type: $type, description: $description, created: $created, scope: $scope, body: $body, footer: $footer, id: $id)';
   }
 }
 
 /// @nodoc
-abstract class _$$MessageCommitEntityDtoImplCopyWith<$Res>
-    implements $MessageCommitEntityDtoCopyWith<$Res> {
-  factory _$$MessageCommitEntityDtoImplCopyWith(
-          _$MessageCommitEntityDtoImpl value,
-          $Res Function(_$MessageCommitEntityDtoImpl) then) =
-      __$$MessageCommitEntityDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $MessageCommitEntityDtoCopyWith<$Res> {
+  factory $MessageCommitEntityDtoCopyWith(MessageCommitEntityDto value,
+          $Res Function(MessageCommitEntityDto) _then) =
+      _$MessageCommitEntityDtoCopyWithImpl;
   @useResult
   $Res call(
       {String idProject,
@@ -134,15 +81,15 @@ abstract class _$$MessageCommitEntityDtoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MessageCommitEntityDtoImplCopyWithImpl<$Res>
-    extends _$MessageCommitEntityDtoCopyWithImpl<$Res,
-        _$MessageCommitEntityDtoImpl>
-    implements _$$MessageCommitEntityDtoImplCopyWith<$Res> {
-  __$$MessageCommitEntityDtoImplCopyWithImpl(
-      _$MessageCommitEntityDtoImpl _value,
-      $Res Function(_$MessageCommitEntityDtoImpl) _then)
-      : super(_value, _then);
+class _$MessageCommitEntityDtoCopyWithImpl<$Res>
+    implements $MessageCommitEntityDtoCopyWith<$Res> {
+  _$MessageCommitEntityDtoCopyWithImpl(this._self, this._then);
 
+  final MessageCommitEntityDto _self;
+  final $Res Function(MessageCommitEntityDto) _then;
+
+  /// Create a copy of MessageCommitEntityDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -155,37 +102,37 @@ class __$$MessageCommitEntityDtoImplCopyWithImpl<$Res>
     Object? footer = null,
     Object? id = null,
   }) {
-    return _then(_$MessageCommitEntityDtoImpl(
+    return _then(_self.copyWith(
       idProject: null == idProject
-          ? _value.idProject
+          ? _self.idProject
           : idProject // ignore: cast_nullable_to_non_nullable
               as String,
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
       created: null == created
-          ? _value.created
+          ? _self.created
           : created // ignore: cast_nullable_to_non_nullable
               as int,
       scope: null == scope
-          ? _value.scope
+          ? _self.scope
           : scope // ignore: cast_nullable_to_non_nullable
               as String,
       body: null == body
-          ? _value.body
+          ? _self.body
           : body // ignore: cast_nullable_to_non_nullable
               as String,
       footer: null == footer
-          ? _value.footer
+          ? _self.footer
           : footer // ignore: cast_nullable_to_non_nullable
               as String,
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -194,8 +141,8 @@ class __$$MessageCommitEntityDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MessageCommitEntityDtoImpl implements _MessageCommitEntityDto {
-  _$MessageCommitEntityDtoImpl(
+class _MessageCommitEntityDto implements MessageCommitEntityDto {
+  _MessageCommitEntityDto(
       {required this.idProject,
       required this.type,
       required this.description,
@@ -204,9 +151,8 @@ class _$MessageCommitEntityDtoImpl implements _MessageCommitEntityDto {
       required this.body,
       required this.footer,
       this.id = ''});
-
-  factory _$MessageCommitEntityDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MessageCommitEntityDtoImplFromJson(json);
+  factory _MessageCommitEntityDto.fromJson(Map<String, dynamic> json) =>
+      _$MessageCommitEntityDtoFromJson(json);
 
   @override
   final String idProject;
@@ -226,16 +172,27 @@ class _$MessageCommitEntityDtoImpl implements _MessageCommitEntityDto {
   @JsonKey()
   final String id;
 
+  /// Create a copy of MessageCommitEntityDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MessageCommitEntityDto(idProject: $idProject, type: $type, description: $description, created: $created, scope: $scope, body: $body, footer: $footer, id: $id)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MessageCommitEntityDtoCopyWith<_MessageCommitEntityDto> get copyWith =>
+      __$MessageCommitEntityDtoCopyWithImpl<_MessageCommitEntityDto>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MessageCommitEntityDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MessageCommitEntityDtoImpl &&
+            other is _MessageCommitEntityDto &&
             (identical(other.idProject, idProject) ||
                 other.idProject == idProject) &&
             (identical(other.type, type) || other.type == type) &&
@@ -248,58 +205,93 @@ class _$MessageCommitEntityDtoImpl implements _MessageCommitEntityDto {
             (identical(other.id, id) || other.id == id));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, idProject, type, description,
       created, scope, body, footer, id);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MessageCommitEntityDtoImplCopyWith<_$MessageCommitEntityDtoImpl>
-      get copyWith => __$$MessageCommitEntityDtoImplCopyWithImpl<
-          _$MessageCommitEntityDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MessageCommitEntityDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MessageCommitEntityDto(idProject: $idProject, type: $type, description: $description, created: $created, scope: $scope, body: $body, footer: $footer, id: $id)';
   }
 }
 
-abstract class _MessageCommitEntityDto implements MessageCommitEntityDto {
-  factory _MessageCommitEntityDto(
-      {required final String idProject,
-      required final String type,
-      required final String description,
-      required final int created,
-      required final String scope,
-      required final String body,
-      required final String footer,
-      final String id}) = _$MessageCommitEntityDtoImpl;
-
-  factory _MessageCommitEntityDto.fromJson(Map<String, dynamic> json) =
-      _$MessageCommitEntityDtoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$MessageCommitEntityDtoCopyWith<$Res>
+    implements $MessageCommitEntityDtoCopyWith<$Res> {
+  factory _$MessageCommitEntityDtoCopyWith(_MessageCommitEntityDto value,
+          $Res Function(_MessageCommitEntityDto) _then) =
+      __$MessageCommitEntityDtoCopyWithImpl;
   @override
-  String get idProject;
-  @override
-  String get type;
-  @override
-  String get description;
-  @override
-  int get created;
-  @override
-  String get scope;
-  @override
-  String get body;
-  @override
-  String get footer;
-  @override
-  String get id;
-  @override
-  @JsonKey(ignore: true)
-  _$$MessageCommitEntityDtoImplCopyWith<_$MessageCommitEntityDtoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {String idProject,
+      String type,
+      String description,
+      int created,
+      String scope,
+      String body,
+      String footer,
+      String id});
 }
+
+/// @nodoc
+class __$MessageCommitEntityDtoCopyWithImpl<$Res>
+    implements _$MessageCommitEntityDtoCopyWith<$Res> {
+  __$MessageCommitEntityDtoCopyWithImpl(this._self, this._then);
+
+  final _MessageCommitEntityDto _self;
+  final $Res Function(_MessageCommitEntityDto) _then;
+
+  /// Create a copy of MessageCommitEntityDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? idProject = null,
+    Object? type = null,
+    Object? description = null,
+    Object? created = null,
+    Object? scope = null,
+    Object? body = null,
+    Object? footer = null,
+    Object? id = null,
+  }) {
+    return _then(_MessageCommitEntityDto(
+      idProject: null == idProject
+          ? _self.idProject
+          : idProject // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      created: null == created
+          ? _self.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as int,
+      scope: null == scope
+          ? _self.scope
+          : scope // ignore: cast_nullable_to_non_nullable
+              as String,
+      body: null == body
+          ? _self.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
+      footer: null == footer
+          ? _self.footer
+          : footer // ignore: cast_nullable_to_non_nullable
+              as String,
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on
