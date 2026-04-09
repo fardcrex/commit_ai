@@ -8,12 +8,12 @@ part of 'project_entity_dto.dart';
 
 _ProjectEntityDto _$ProjectEntityDtoFromJson(Map<String, dynamic> json) =>
     _ProjectEntityDto(
-      id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String,
       path: json['path'] as String?,
       commits: (json['commits'] as num).toInt(),
       created: (json['created'] as num).toInt(),
+      id: json['id'] as String? ?? '',
       lastModified: (json['last_modified'] as num?)?.toInt(),
       isFavorite: json['is_favorite'] as bool? ?? false,
       includeBody: json['include_body'] as bool? ?? false,
@@ -22,7 +22,6 @@ _ProjectEntityDto _$ProjectEntityDtoFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$ProjectEntityDtoToJson(_ProjectEntityDto instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'path': instance.path,

@@ -19,7 +19,6 @@ class SembastProjectRepository implements IProjectRepository {
     final created = DateTime.now().millisecondsSinceEpoch;
 
     final project = ProjectEntityDto(
-      id: '',
       name: title,
       description: description,
       commits: 0,

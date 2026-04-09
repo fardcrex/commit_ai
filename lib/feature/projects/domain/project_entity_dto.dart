@@ -9,12 +9,12 @@ sealed class ProjectEntityDto with _$ProjectEntityDto {
   static const commitsKey = 'commits';
 
   factory ProjectEntityDto({
-    required String id,
     required String name,
     required String description,
     required String? path,
     required int commits,
     required int created,
+    @JsonKey(includeToJson: false) @Default('') String id,
     @JsonKey(name: 'last_modified') int? lastModified,
     @JsonKey(name: 'is_favorite') @Default(false) bool isFavorite,
     @JsonKey(name: 'include_body') @Default(false) bool includeBody,

@@ -29,5 +29,4 @@ Map<String, dynamic> _$MessageCommitEntityDtoToJson(
       'scope': instance.scope,
       'body': instance.body,
       'footer': instance.footer,
-      'id': instance.id,
     };

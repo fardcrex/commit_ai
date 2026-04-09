@@ -67,9 +67,9 @@ class ProductionRepositoriesFactory implements RepositoriesFactory {
   @override
   Future<RepositoriesInjection> createRepositoryInjection() async {
     final supabase = await Supabase.initialize(
-      url: 'https://gwjrzhmqxncemzdcjkhe.supabase.co',
+      url: 'https://fhdzldvfciidotfpezjx.supabase.co',
       anonKey:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3anJ6aG1xeG5jZW16ZGNqa2hlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE5NTU3NDQsImV4cCI6MjA3NzUzMTc0NH0.WeSZIY6vGw8ehjkvV4NNfzPYWGQfLcXY9mX35l8HQMg',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZoZHpsZHZmY2lpZG90ZnBlemp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3NDMyMzMsImV4cCI6MjA5MTMxOTIzM30.2DiS-e30oW3FLxl5fc6e5qzZyNb3AU17WXkJwcyL2A4',
     );
 
     final projectRepository = SupabaseProjectRepository(supabase);

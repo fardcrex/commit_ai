@@ -14,6 +14,41 @@ class SupabaseMessageCommitRepository implements IMessageCommitRepository {
 
   final String commitsTable = 'commits';
   final String projectsTable = 'projects';
+  @override
+  Future<ResultCommitGeneratorUnit> saveCommit(
+      MessageCommitEntityDto message) async {
+    try {
+      final created = DateTime.now().millisecondsSinceEpoch;
+      final newMessage = message.copyWith(created: created);
+
+      // Guardar commit
+      await supabase.from(commitsTable).insert(newMessage.toJson());
+
+      // Obtener proyecto actual
+      final projectResponse = await supabase
+          .from(projectsTable)
+          .select()
+          .eq('id', message.idProject)
+          .maybeSingle();
+
+      if (projectResponse == null) {
+        return left(CommitGeneratorFailure('Project not found'));
+      }
+
+      final project = ProjectEntityDto.fromJson(projectResponse);
+      final updatedCommits = project.commits + 1;
+
+      // Actualizar proyecto con nuevo contador y fecha
+      await supabase.from(projectsTable).update({
+        'commits': updatedCommits,
+        'last_modified': created,
+      }).eq('id', message.idProject);
+
+      return right(unit);
+    } catch (e) {
+      return left(CommitGeneratorFailure(e.toString()));
+    }
+  }
 
   @override
   Future<ResultCommitGeneratorUnit> deleteCommit(String id) async {
@@ -77,42 +112,6 @@ class SupabaseMessageCommitRepository implements IMessageCommitRepository {
       }
     } catch (e) {
       yield left(CommitGeneratorFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<ResultCommitGeneratorUnit> saveCommit(
-      MessageCommitEntityDto message) async {
-    try {
-      final created = DateTime.now().millisecondsSinceEpoch;
-      final newMessage = message.copyWith(created: created);
-
-      // Guardar commit
-      await supabase.from(commitsTable).insert(newMessage.toJson());
-
-      // Obtener proyecto actual
-      final projectResponse = await supabase
-          .from(projectsTable)
-          .select()
-          .eq('id', message.idProject)
-          .maybeSingle();
-
-      if (projectResponse == null) {
-        return left(CommitGeneratorFailure('Project not found'));
-      }
-
-      final project = ProjectEntityDto.fromJson(projectResponse);
-      final updatedCommits = project.commits + 1;
-
-      // Actualizar proyecto con nuevo contador y fecha
-      await supabase.from(projectsTable).update({
-        'commits': updatedCommits,
-        'last_modified': created,
-      }).eq('id', message.idProject);
-
-      return right(unit);
-    } catch (e) {
-      return left(CommitGeneratorFailure(e.toString()));
     }
   }
 }

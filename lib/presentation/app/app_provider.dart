@@ -40,8 +40,13 @@ class _AppProviderState extends State<AppProvider> {
     final messageCommitRepository =
         widget.repositoriesInjection.messageCommitRepository;
     _repositoryProviders.addAll([
+      RepositoryProvider<SaveMessageCommitUseCase>(
+        create: (context) => SaveMessageCommitUseCase(messageCommitRepository,
+            widget.repositoriesInjection.respondGetDateTime),
+      ),
       RepositoryProvider<CreateProjectUseCase>(
-        create: (context) => CreateProjectUseCase(projectRepository),
+        create: (context) =>
+            CreateProjectUseCase(projectRepository, context.read()),
       ),
       RepositoryProvider<GetProjectstUseCase>(
         create: (context) => GetProjectstUseCase(projectRepository),
@@ -58,10 +63,6 @@ class _AppProviderState extends State<AppProvider> {
       ),
       RepositoryProvider<GetHistoryCommitUseCase>(
         create: (context) => GetHistoryCommitUseCase(messageCommitRepository),
-      ),
-      RepositoryProvider<SaveMessageCommitUseCase>(
-        create: (context) => SaveMessageCommitUseCase(messageCommitRepository,
-            widget.repositoriesInjection.respondGetDateTime),
       ),
       RepositoryProvider<DeleteMessageCommitUseCase>(
         create: (context) =>

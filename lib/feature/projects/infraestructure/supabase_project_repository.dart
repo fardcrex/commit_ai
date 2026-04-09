@@ -20,7 +20,6 @@ class SupabaseProjectRepository implements IProjectRepository {
       final created = DateTime.now().millisecondsSinceEpoch;
 
       final project = ProjectEntityDto(
-        id: created.toString(),
         name: title,
         description: description,
         commits: 0,
@@ -29,9 +28,13 @@ class SupabaseProjectRepository implements IProjectRepository {
         path: path,
       ).toJson();
 
-      await supabase.client.from(tableName).insert(project);
+      final response = await supabase.client
+          .from(tableName)
+          .insert(project)
+          .select()
+          .single();
 
-      return right(created.toString());
+      return right(response['id'].toString());
     } catch (e) {
       return left(ProjectFailure.serverError(e.toString()));
     }

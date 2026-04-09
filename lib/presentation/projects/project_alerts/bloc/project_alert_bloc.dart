@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:commit_ai/feature/commit_generator/application/save_message_commit_use_case.dart';
-import 'package:commit_ai/feature/commit_generator/domain/form_generator_commit.dart';
 import 'package:commit_ai/feature/projects/application/create_project_use_case.dart';
 import 'package:commit_ai/feature/projects/application/delete_project_use_case.dart';
 import 'package:commit_ai/feature/projects/application/edit_project_use_case.dart';
@@ -40,15 +39,10 @@ class ProjectAlertBloc extends Bloc<ProjectAlertEvent, ProjectAlertState> {
       path: event.path,
     );
 
-    final (state, projectId) = result.fold(
-      (failure) => (ProjectAlertState.error(failure.toString()), null),
-      (projectId) => (const ProjectAlertState.success(), projectId),
+    final state = result.fold(
+      (failure) => ProjectAlertState.error(failure.toString()),
+      (_) => const ProjectAlertState.success(),
     );
-
-    if (projectId != null) {
-      await _saveMessageCommitUseCase.execute(
-          ResultIaMessageCommit.example(), projectId);
-    }
 
     emit(state);
   }

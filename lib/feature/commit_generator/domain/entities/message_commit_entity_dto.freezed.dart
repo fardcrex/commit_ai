@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$MessageCommitEntityDto {
-  @JsonKey(name: 'id_project')
+  @JsonKey(name: MessageCommitEntityDto.idProjectKey)
   String get idProject;
   String get type;
   String get description;
@@ -23,6 +23,7 @@ mixin _$MessageCommitEntityDto {
   String get scope;
   String get body;
   String get footer;
+  @JsonKey(includeToJson: false)
   String get id;
 
   /// Create a copy of MessageCommitEntityDto
@@ -71,14 +72,14 @@ abstract mixin class $MessageCommitEntityDtoCopyWith<$Res> {
       _$MessageCommitEntityDtoCopyWithImpl;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id_project') String idProject,
+      {@JsonKey(name: MessageCommitEntityDto.idProjectKey) String idProject,
       String type,
       String description,
       int created,
       String scope,
       String body,
       String footer,
-      String id});
+      @JsonKey(includeToJson: false) String id});
 }
 
 /// @nodoc
@@ -144,19 +145,20 @@ class _$MessageCommitEntityDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _MessageCommitEntityDto implements MessageCommitEntityDto {
   _MessageCommitEntityDto(
-      {@JsonKey(name: 'id_project') required this.idProject,
+      {@JsonKey(name: MessageCommitEntityDto.idProjectKey)
+      required this.idProject,
       required this.type,
       required this.description,
       required this.created,
       required this.scope,
       required this.body,
       required this.footer,
-      this.id = ''});
+      @JsonKey(includeToJson: false) this.id = ''});
   factory _MessageCommitEntityDto.fromJson(Map<String, dynamic> json) =>
       _$MessageCommitEntityDtoFromJson(json);
 
   @override
-  @JsonKey(name: 'id_project')
+  @JsonKey(name: MessageCommitEntityDto.idProjectKey)
   final String idProject;
   @override
   final String type;
@@ -171,7 +173,7 @@ class _MessageCommitEntityDto implements MessageCommitEntityDto {
   @override
   final String footer;
   @override
-  @JsonKey()
+  @JsonKey(includeToJson: false)
   final String id;
 
   /// Create a copy of MessageCommitEntityDto
@@ -227,14 +229,14 @@ abstract mixin class _$MessageCommitEntityDtoCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id_project') String idProject,
+      {@JsonKey(name: MessageCommitEntityDto.idProjectKey) String idProject,
       String type,
       String description,
       int created,
       String scope,
       String body,
       String footer,
-      String id});
+      @JsonKey(includeToJson: false) String id});
 }
 
 /// @nodoc

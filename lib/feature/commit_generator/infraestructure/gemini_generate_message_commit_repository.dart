@@ -9,7 +9,7 @@ import 'package:fpdart/fpdart.dart';
 class GeminiGenerateMessageCommitRepository
     implements IGenerateMessageCommitRepository {
   final model = FirebaseVertexAI.instance.generativeModel(
-    model: 'gemini-1.5-flash',
+    model: 'gemini-2.5-flash',
     generationConfig: GenerationConfig(responseMimeType: 'application/json'),
     systemInstruction: Content.system('''
 El usuario te va a proporcionar estos datos    

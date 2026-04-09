@@ -18,7 +18,7 @@ sealed class MessageCommitEntityDto with _$MessageCommitEntityDto {
     required String scope,
     required String body,
     required String footer,
-    @Default('') String id,
+    @JsonKey(includeToJson: false) @Default('') String id,
   }) = _MessageCommitEntityDto;
 
   factory MessageCommitEntityDto.fromJson(Map<String, dynamic> json) =>

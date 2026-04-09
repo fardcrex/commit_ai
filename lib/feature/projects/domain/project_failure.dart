@@ -23,6 +23,9 @@ sealed class ProjectFailure {
 
   const factory ProjectFailure.serverError(String message) =
       ServerProjectFailure;
+
+  const factory ProjectFailure.saveCommitError(String message) =
+      SaveCommitError;
 }
 
 class NotFoundProjectFailure extends ProjectFailure {
@@ -31,4 +34,8 @@ class NotFoundProjectFailure extends ProjectFailure {
 
 class ServerProjectFailure extends ProjectFailure {
   const ServerProjectFailure(super.message);
+}
+
+class SaveCommitError extends ProjectFailure {
+  const SaveCommitError(super.message);
 }
