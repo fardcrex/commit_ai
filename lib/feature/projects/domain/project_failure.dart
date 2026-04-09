@@ -20,8 +20,15 @@ sealed class ProjectFailure {
   int get hashCode => message.hashCode;
 
   static ProjectFailure notFound() => const NotFoundProjectFailure();
+
+  const factory ProjectFailure.serverError(String message) =
+      ServerProjectFailure;
 }
 
 class NotFoundProjectFailure extends ProjectFailure {
   const NotFoundProjectFailure() : super('Project not found');
+}
+
+class ServerProjectFailure extends ProjectFailure {
+  const ServerProjectFailure(super.message);
 }

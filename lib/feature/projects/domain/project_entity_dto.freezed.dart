@@ -20,10 +20,14 @@ mixin _$ProjectEntityDto {
   String get description;
   String? get path;
   int get commits;
-  int get lastModified;
   int get created;
+  @JsonKey(name: 'last_modified')
+  int? get lastModified;
+  @JsonKey(name: 'is_favorite')
   bool get isFavorite;
+  @JsonKey(name: 'include_body')
   bool get includeBody;
+  @JsonKey(name: 'include_footer')
   bool get includeFooter;
 
   /// Create a copy of ProjectEntityDto
@@ -48,9 +52,9 @@ mixin _$ProjectEntityDto {
                 other.description == description) &&
             (identical(other.path, path) || other.path == path) &&
             (identical(other.commits, commits) || other.commits == commits) &&
+            (identical(other.created, created) || other.created == created) &&
             (identical(other.lastModified, lastModified) ||
                 other.lastModified == lastModified) &&
-            (identical(other.created, created) || other.created == created) &&
             (identical(other.isFavorite, isFavorite) ||
                 other.isFavorite == isFavorite) &&
             (identical(other.includeBody, includeBody) ||
@@ -62,11 +66,11 @@ mixin _$ProjectEntityDto {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, description, path,
-      commits, lastModified, created, isFavorite, includeBody, includeFooter);
+      commits, created, lastModified, isFavorite, includeBody, includeFooter);
 
   @override
   String toString() {
-    return 'ProjectEntityDto(id: $id, name: $name, description: $description, path: $path, commits: $commits, lastModified: $lastModified, created: $created, isFavorite: $isFavorite, includeBody: $includeBody, includeFooter: $includeFooter)';
+    return 'ProjectEntityDto(id: $id, name: $name, description: $description, path: $path, commits: $commits, created: $created, lastModified: $lastModified, isFavorite: $isFavorite, includeBody: $includeBody, includeFooter: $includeFooter)';
   }
 }
 
@@ -82,11 +86,11 @@ abstract mixin class $ProjectEntityDtoCopyWith<$Res> {
       String description,
       String? path,
       int commits,
-      int lastModified,
       int created,
-      bool isFavorite,
-      bool includeBody,
-      bool includeFooter});
+      @JsonKey(name: 'last_modified') int? lastModified,
+      @JsonKey(name: 'is_favorite') bool isFavorite,
+      @JsonKey(name: 'include_body') bool includeBody,
+      @JsonKey(name: 'include_footer') bool includeFooter});
 }
 
 /// @nodoc
@@ -107,8 +111,8 @@ class _$ProjectEntityDtoCopyWithImpl<$Res>
     Object? description = null,
     Object? path = freezed,
     Object? commits = null,
-    Object? lastModified = null,
     Object? created = null,
+    Object? lastModified = freezed,
     Object? isFavorite = null,
     Object? includeBody = null,
     Object? includeFooter = null,
@@ -134,14 +138,14 @@ class _$ProjectEntityDtoCopyWithImpl<$Res>
           ? _self.commits
           : commits // ignore: cast_nullable_to_non_nullable
               as int,
-      lastModified: null == lastModified
-          ? _self.lastModified
-          : lastModified // ignore: cast_nullable_to_non_nullable
-              as int,
       created: null == created
           ? _self.created
           : created // ignore: cast_nullable_to_non_nullable
               as int,
+      lastModified: freezed == lastModified
+          ? _self.lastModified
+          : lastModified // ignore: cast_nullable_to_non_nullable
+              as int?,
       isFavorite: null == isFavorite
           ? _self.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
@@ -167,11 +171,11 @@ class _ProjectEntityDto extends ProjectEntityDto {
       required this.description,
       required this.path,
       required this.commits,
-      required this.lastModified,
       required this.created,
-      this.isFavorite = false,
-      this.includeBody = false,
-      this.includeFooter = false})
+      @JsonKey(name: 'last_modified') this.lastModified,
+      @JsonKey(name: 'is_favorite') this.isFavorite = false,
+      @JsonKey(name: 'include_body') this.includeBody = false,
+      @JsonKey(name: 'include_footer') this.includeFooter = false})
       : super._();
   factory _ProjectEntityDto.fromJson(Map<String, dynamic> json) =>
       _$ProjectEntityDtoFromJson(json);
@@ -187,17 +191,18 @@ class _ProjectEntityDto extends ProjectEntityDto {
   @override
   final int commits;
   @override
-  final int lastModified;
-  @override
   final int created;
   @override
-  @JsonKey()
+  @JsonKey(name: 'last_modified')
+  final int? lastModified;
+  @override
+  @JsonKey(name: 'is_favorite')
   final bool isFavorite;
   @override
-  @JsonKey()
+  @JsonKey(name: 'include_body')
   final bool includeBody;
   @override
-  @JsonKey()
+  @JsonKey(name: 'include_footer')
   final bool includeFooter;
 
   /// Create a copy of ProjectEntityDto
@@ -226,9 +231,9 @@ class _ProjectEntityDto extends ProjectEntityDto {
                 other.description == description) &&
             (identical(other.path, path) || other.path == path) &&
             (identical(other.commits, commits) || other.commits == commits) &&
+            (identical(other.created, created) || other.created == created) &&
             (identical(other.lastModified, lastModified) ||
                 other.lastModified == lastModified) &&
-            (identical(other.created, created) || other.created == created) &&
             (identical(other.isFavorite, isFavorite) ||
                 other.isFavorite == isFavorite) &&
             (identical(other.includeBody, includeBody) ||
@@ -240,11 +245,11 @@ class _ProjectEntityDto extends ProjectEntityDto {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, description, path,
-      commits, lastModified, created, isFavorite, includeBody, includeFooter);
+      commits, created, lastModified, isFavorite, includeBody, includeFooter);
 
   @override
   String toString() {
-    return 'ProjectEntityDto(id: $id, name: $name, description: $description, path: $path, commits: $commits, lastModified: $lastModified, created: $created, isFavorite: $isFavorite, includeBody: $includeBody, includeFooter: $includeFooter)';
+    return 'ProjectEntityDto(id: $id, name: $name, description: $description, path: $path, commits: $commits, created: $created, lastModified: $lastModified, isFavorite: $isFavorite, includeBody: $includeBody, includeFooter: $includeFooter)';
   }
 }
 
@@ -262,11 +267,11 @@ abstract mixin class _$ProjectEntityDtoCopyWith<$Res>
       String description,
       String? path,
       int commits,
-      int lastModified,
       int created,
-      bool isFavorite,
-      bool includeBody,
-      bool includeFooter});
+      @JsonKey(name: 'last_modified') int? lastModified,
+      @JsonKey(name: 'is_favorite') bool isFavorite,
+      @JsonKey(name: 'include_body') bool includeBody,
+      @JsonKey(name: 'include_footer') bool includeFooter});
 }
 
 /// @nodoc
@@ -287,8 +292,8 @@ class __$ProjectEntityDtoCopyWithImpl<$Res>
     Object? description = null,
     Object? path = freezed,
     Object? commits = null,
-    Object? lastModified = null,
     Object? created = null,
+    Object? lastModified = freezed,
     Object? isFavorite = null,
     Object? includeBody = null,
     Object? includeFooter = null,
@@ -314,14 +319,14 @@ class __$ProjectEntityDtoCopyWithImpl<$Res>
           ? _self.commits
           : commits // ignore: cast_nullable_to_non_nullable
               as int,
-      lastModified: null == lastModified
-          ? _self.lastModified
-          : lastModified // ignore: cast_nullable_to_non_nullable
-              as int,
       created: null == created
           ? _self.created
           : created // ignore: cast_nullable_to_non_nullable
               as int,
+      lastModified: freezed == lastModified
+          ? _self.lastModified
+          : lastModified // ignore: cast_nullable_to_non_nullable
+              as int?,
       isFavorite: null == isFavorite
           ? _self.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable

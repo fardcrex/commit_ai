@@ -14,11 +14,11 @@ sealed class ProjectEntityDto with _$ProjectEntityDto {
     required String description,
     required String? path,
     required int commits,
-    required int lastModified,
     required int created,
-    @Default(false) bool isFavorite,
-    @Default(false) bool includeBody,
-    @Default(false) bool includeFooter,
+    @JsonKey(name: 'last_modified') int? lastModified,
+    @JsonKey(name: 'is_favorite') @Default(false) bool isFavorite,
+    @JsonKey(name: 'include_body') @Default(false) bool includeBody,
+    @JsonKey(name: 'include_footer') @Default(false) bool includeFooter,
   }) = _ProjectEntityDto;
 
   factory ProjectEntityDto.fromJson(Map<String, dynamic> json) =>
@@ -27,7 +27,7 @@ sealed class ProjectEntityDto with _$ProjectEntityDto {
   const ProjectEntityDto._();
 
   DateTime get lastModifiedDateTime =>
-      DateTime.fromMillisecondsSinceEpoch(lastModified);
+      DateTime.fromMillisecondsSinceEpoch(lastModified ?? created);
 
   DateTime get createdDateTime => DateTime.fromMillisecondsSinceEpoch(created);
 

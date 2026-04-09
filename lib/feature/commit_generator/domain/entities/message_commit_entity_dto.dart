@@ -7,8 +7,10 @@ part 'message_commit_entity_dto.g.dart';
 sealed class MessageCommitEntityDto with _$MessageCommitEntityDto {
   static const String createdKey = 'created';
   static const String idKey = 'id';
-  static const String idProjectKey = 'idProject';
+  static const String idProjectKey = 'id_project';
+
   factory MessageCommitEntityDto({
+    @JsonKey(name: MessageCommitEntityDto.idProjectKey)
     required String idProject,
     required String type,
     required String description,

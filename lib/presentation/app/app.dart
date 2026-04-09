@@ -1,4 +1,4 @@
-import 'package:commit_ai/l10n/l10n.dart';
+import 'package:commit_ai/l10n/arb/app_localizations.dart';
 import 'package:commit_ai/presentation/info_page/info_page.dart';
 import 'package:commit_ai/presentation/panel/panel_page.dart';
 import 'package:commit_ai/presentation/projects/project_detail/project_detail_bloc_page.dart';

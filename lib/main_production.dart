@@ -9,7 +9,7 @@ void main() {
     await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform);
 
-    final repositoriesInjection = await RepositoriesFactory.getDevelopment();
+    final repositoriesInjection = await RepositoriesFactory.getProduction();
 
     return AppProvider(repositoriesInjection: repositoriesInjection);
   });

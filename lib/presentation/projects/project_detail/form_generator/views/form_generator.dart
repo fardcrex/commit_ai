@@ -155,7 +155,7 @@ class _FormGeneratorState extends State<FormGenerator> {
                     ),
                     const SizedBox(height: 8),
                     DropdownButtonFormField<String>(
-                      value: commitType,
+                      initialValue: commitType,
                       onChanged: (value) {
                         setState(() => commitType = value!);
                       },
@@ -181,7 +181,7 @@ class _FormGeneratorState extends State<FormGenerator> {
                     SwitchListTile(
                       title: const Text('Incluir Cuerpo'),
                       value: widget.includeBody,
-                      activeColor: Colors.indigo[600],
+                      activeThumbColor: Colors.indigo[600],
                       onChanged: (bool value) {
                         widget.onIncludeBodynChanged();
                       },
@@ -189,7 +189,7 @@ class _FormGeneratorState extends State<FormGenerator> {
                     SwitchListTile(
                       title: const Text('Incluir Pie'),
                       value: widget.includeFooter,
-                      activeColor: Colors.indigo[600],
+                      activeThumbColor: Colors.indigo[600],
                       onChanged: (bool value) {
                         widget.onIncludeFooterChanged();
                       },

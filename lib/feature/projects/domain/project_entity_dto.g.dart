@@ -13,11 +13,11 @@ _ProjectEntityDto _$ProjectEntityDtoFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String,
       path: json['path'] as String?,
       commits: (json['commits'] as num).toInt(),
-      lastModified: (json['lastModified'] as num).toInt(),
       created: (json['created'] as num).toInt(),
-      isFavorite: json['isFavorite'] as bool? ?? false,
-      includeBody: json['includeBody'] as bool? ?? false,
-      includeFooter: json['includeFooter'] as bool? ?? false,
+      lastModified: (json['last_modified'] as num?)?.toInt(),
+      isFavorite: json['is_favorite'] as bool? ?? false,
+      includeBody: json['include_body'] as bool? ?? false,
+      includeFooter: json['include_footer'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$ProjectEntityDtoToJson(_ProjectEntityDto instance) =>
@@ -27,9 +27,9 @@ Map<String, dynamic> _$ProjectEntityDtoToJson(_ProjectEntityDto instance) =>
       'description': instance.description,
       'path': instance.path,
       'commits': instance.commits,
-      'lastModified': instance.lastModified,
       'created': instance.created,
-      'isFavorite': instance.isFavorite,
-      'includeBody': instance.includeBody,
-      'includeFooter': instance.includeFooter,
+      'last_modified': instance.lastModified,
+      'is_favorite': instance.isFavorite,
+      'include_body': instance.includeBody,
+      'include_footer': instance.includeFooter,
     };

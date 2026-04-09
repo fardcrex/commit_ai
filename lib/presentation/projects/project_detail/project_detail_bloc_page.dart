@@ -50,15 +50,18 @@ class ProjectDetailBlocPage extends StatelessWidget {
               Center(child: Text(error.failure.message)),
             final ProjectDetailLoaded projectDetail => Column(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(16),
-                    color: Colors.white,
-                    alignment: Alignment.centerLeft,
-                    child: Text('Proyecto: ${projectDetail.project.name}',
-                        style: TextStyle(
-                            fontSize: 24,
-                            color: mainColor,
-                            fontWeight: FontWeight.bold)),
+                  AppBar(
+                    backgroundColor: Colors.white,
+                    title: Container(
+                      padding: const EdgeInsets.all(16),
+                      color: Colors.white,
+                      alignment: Alignment.centerLeft,
+                      child: Text('Proyecto: ${projectDetail.project.name}',
+                          style: TextStyle(
+                              fontSize: 24,
+                              color: mainColor,
+                              fontWeight: FontWeight.bold)),
+                    ),
                   ),
                   Expanded(
                     child: _LandScapeQuery(

@@ -15,6 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$MessageCommitEntityDto {
+  @JsonKey(name: 'id_project')
   String get idProject;
   String get type;
   String get description;
@@ -70,7 +71,7 @@ abstract mixin class $MessageCommitEntityDtoCopyWith<$Res> {
       _$MessageCommitEntityDtoCopyWithImpl;
   @useResult
   $Res call(
-      {String idProject,
+      {@JsonKey(name: 'id_project') String idProject,
       String type,
       String description,
       int created,
@@ -143,7 +144,7 @@ class _$MessageCommitEntityDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _MessageCommitEntityDto implements MessageCommitEntityDto {
   _MessageCommitEntityDto(
-      {required this.idProject,
+      {@JsonKey(name: 'id_project') required this.idProject,
       required this.type,
       required this.description,
       required this.created,
@@ -155,6 +156,7 @@ class _MessageCommitEntityDto implements MessageCommitEntityDto {
       _$MessageCommitEntityDtoFromJson(json);
 
   @override
+  @JsonKey(name: 'id_project')
   final String idProject;
   @override
   final String type;
@@ -225,7 +227,7 @@ abstract mixin class _$MessageCommitEntityDtoCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String idProject,
+      {@JsonKey(name: 'id_project') String idProject,
       String type,
       String description,
       int created,

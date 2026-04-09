@@ -1,4 +1,5 @@
 import 'package:commit_ai/core/injection/sembast_injection.dart';
+import 'package:commit_ai/feature/commit_generator/domain/entities/message_commit_entity_dto.dart';
 import 'package:commit_ai/feature/projects/domain/interface_project_repository.dart';
 import 'package:commit_ai/feature/projects/domain/project_entity_dto.dart';
 import 'package:commit_ai/feature/projects/domain/project_failure.dart';
@@ -37,6 +38,14 @@ class SembastProjectRepository implements IProjectRepository {
   @override
   Future<Either<ProjectFailure, Unit>> deleteProject(String id) async {
     await _instance.projectStore.record(id).delete(_instance.db);
+    final filter = Filter.equals(MessageCommitEntityDto.idProjectKey, id);
+
+    // Elimina todos los registros que cumplan con ese filtro
+    await _instance.commitStore.delete(
+      _instance.db,
+      finder: Finder(filter: filter),
+    );
+
     return right(unit);
   }
 
